@@ -1,7 +1,7 @@
 // Test function using Rust's built-in testing framework
 #[cfg(test)]
 
-use rust::reproject_raster::*;
+use geopackage::reproject_raster::*;
 
 mod tests {
 
