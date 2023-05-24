@@ -1,7 +1,9 @@
 // Test function using Rust's built-in testing framework
 #[cfg(test)]
+
+use super::*;
+
 mod tests {
-    use super::*;
 
     #[test]
     fn test_reproject_raster() {
