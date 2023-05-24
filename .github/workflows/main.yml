@@ -33,7 +33,7 @@ jobs:
 
     - name: Build and test Rust
       run: |
-        cd rust
+        cd georust
         cargo build --verbose
         cargo test --verbose
 
