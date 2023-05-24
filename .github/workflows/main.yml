@@ -1,0 +1,63 @@
+name: General CI
+
+on:
+  push:
+    branches:
+      - main
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout repository
+      uses: actions/checkout@v2
+
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.x' # Replace with your desired Python version
+
+    - name: Install Python dependencies
+      run: |
+        python -m pip install --upgrade pip
+        #pip install -r requirements.txt
+
+    - name: Set up Rust
+      uses: actions-rs/toolchain@v1
+      with:
+        toolchain: stable
+
+    - name: Build and test Rust
+      run: |
+        cd rust
+        cargo build --verbose
+        cargo test --verbose
+
+    - name: Set up Julia
+      uses: julia-actions/setup-julia@v1
+      with:
+        version: '1.x' # Replace with your desired Julia version
+
+    - name: Install Julia dependencies
+      run: |
+        julia -e 'using Pkg; Pkg.instantiate()'
+
+    - name: Run Julia tests
+      run: |
+        julia --project=test -e 'using Pkg; Pkg.test()'
+
+    # Add more steps for other programming languages as needed
+    - name: Set up C
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y build-essential
+
+    - name: Build and test C
+      run: |
+        cd c
+        gcc -o main main.c
+        ./main
