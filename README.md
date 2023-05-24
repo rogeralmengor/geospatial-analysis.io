@@ -29,42 +29,6 @@ The Geospatial Analysis Toolbox is a collection of functions and algorithms desi
 
 Each language-specific folder contains the corresponding implementation of the geospatial functions. Developers can explore the specific language they prefer to work with. Additionally, the Geopackage folder provides geopackage-related code, documentation, and examples.
 
-### Example Usage
-
-#### Python
-```python
-import geospatial.zonal_statistics as zs
-
-# Example usage of zonal statistics function
-result = zs.calculate_zonal_statistics(raster_data, vector_data, statistic='mean')
-```
-
-#### Rust 
-```rust 
-use geospatial::zonal_statistics;
-
-// Example usage of zonal statistics function
-let result = zonal_statistics::calculate_zonal_statistics(raster_data, vector_data, "mean");
-```
-
-#### Julia
-```julia
-using Geospatial
-
-# Example usage of zonal statistics function
-result = zonal_statistics(raster_data, vector_data, statistic="mean")
-```
-
-#### C 
-```C
-#include "geospatial.h"
-
-// Example usage of zonal statistics function
-ZonalStatisticsResult result = calculate_zonal_statistics(raster_data, vector_data, "mean");
-```
-
-For more detailed usage examples and API documentation, please refer to the examples provided in the geopackage/examples directory.
-
 ## Algorithms
 ### Zonal Statistics
 The Zonal Statistics algorithm calculates statistical summaries of raster values within predefined zones defined by vector geometries. It supports various statistical measures such as mean, sum, maximum, minimum, etc.
