@@ -1,5 +1,5 @@
 [package]
-name = "your_package_name"
+name = "geopackage"
 version = "0.1.0"
 edition = "2021"
 
