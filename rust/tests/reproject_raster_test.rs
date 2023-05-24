@@ -1,7 +1,7 @@
 // Test function using Rust's built-in testing framework
 #[cfg(test)]
 
-use super::*;
+use crate::reproject_raster::*;
 
 mod tests {
 
