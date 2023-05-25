@@ -1,7 +1,6 @@
-// Required dependency: proj crate (https://crates.io/crates/proj)
-
+use std::env;
+use std::io::{self, Error, ErrorKind};
 use proj::Proj;
-use std::io::{Error, ErrorKind};
 
 pub fn reproject_raster(input: &[Vec<f64>], src_proj: &str, dst_proj: &str) -> Result<Vec<Vec<f64>>, Error> {
     // Get the transformation object for the source and destination projections
@@ -26,5 +25,37 @@ pub fn reproject_raster(input: &[Vec<f64>], src_proj: &str, dst_proj: &str) -> R
     }
 
     Ok(output)
+}
+
+fn main() {
+    // Get the command-line arguments
+    let args: Vec<String> = env::args().collect();
+
+    // Check if a raster path is provided
+    if args.len() < 2 {
+        eprintln!("Please enter a raster path.");
+        return;
+    }
+
+    // Extract the raster path from the command-line arguments
+    let raster_path = &args[1];
+
+    // Example usage
+    let input: Vec<Vec<f64>> = vec![vec![1.0, 2.0], vec![3.0, 4.0]];
+    let src_proj = "+proj=longlat +datum=WGS84 +no_defs";
+    let dst_proj = "+proj=utm +zone=32 +datum=WGS84 +units=m +no_defs";
+
+    match reproject_raster(&input, src_proj, dst_proj) {
+        Ok(reprojected) => {
+            println!("Reprojection successful:");
+            for row in reprojected {
+                for value in row {
+                    print!("{} ", value);
+                }
+                println!();
+            }
+        }
+        Err(err) => eprintln!("Reprojection error: {}", err),
+    }
 }
 
