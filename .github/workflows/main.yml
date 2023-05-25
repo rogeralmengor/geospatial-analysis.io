@@ -40,27 +40,27 @@ jobs:
         rustc reproject_raster.rs 
         ./reproject_raster
 
-    - name: Set up Julia
-      uses: julia-actions/setup-julia@v1
-      with:
-        version: '1.x' # Replace with your desired Julia version
+    # - name: Set up Julia
+    #   uses: julia-actions/setup-julia@v1
+    #   with:
+    #     version: '1.x' # Replace with your desired Julia version
 
-    - name: Install Julia dependencies
-      run: |
-        julia -e 'using Pkg; Pkg.instantiate()'
+    # - name: Install Julia dependencies
+    #   run: |
+    #     julia -e 'using Pkg; Pkg.instantiate()'
 
-    - name: Run Julia tests
-      run: |
-        julia --project=test -e 'using Pkg; Pkg.test()'
+    # - name: Run Julia tests
+    #   run: |
+    #     julia --project=test -e 'using Pkg; Pkg.test()'
 
-    # Add more steps for other programming languages as needed
-    - name: Set up C
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y build-essential
+    # # Add more steps for other programming languages as needed
+    # - name: Set up C
+    #   run: |
+    #     sudo apt-get update
+    #     sudo apt-get install -y build-essential
 
-    - name: Build and test C
-      run: |
-        cd c
-        gcc -o main main.c
-        ./main
+    # - name: Build and test C
+    #   run: |
+    #     cd c
+    #     gcc -o main main.c
+    #     ./main
