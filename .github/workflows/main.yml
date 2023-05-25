@@ -37,6 +37,8 @@ jobs:
         cd src
         rustc main.rs
         ./main
+        rustc reproject_raster.rs 
+        ./reproject_raster
 
     - name: Set up Julia
       uses: julia-actions/setup-julia@v1
