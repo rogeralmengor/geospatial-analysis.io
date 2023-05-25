@@ -34,8 +34,9 @@ jobs:
     - name: Build and test Rust
       run: |
         cd georust
-        rustc src/main.rs
-        ./src/main
+        cd src
+        rustc main.rs
+        ./main
 
     - name: Set up Julia
       uses: julia-actions/setup-julia@v1
