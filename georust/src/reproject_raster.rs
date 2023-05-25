@@ -1,6 +1,7 @@
 use std::env;
 use std::io::{self, Error, ErrorKind};
 use proj::Proj;
+extern crate proj::Proj;
 
 pub fn reproject_raster(input: &[Vec<f64>], src_proj: &str, dst_proj: &str) -> Result<Vec<Vec<f64>>, Error> {
     // Get the transformation object for the source and destination projections
