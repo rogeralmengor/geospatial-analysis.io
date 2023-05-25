@@ -34,6 +34,8 @@ jobs:
     - name: Build and test Rust
       run: |
         cd georust
+        cargo run
+        cargo build
         cd src
         rustc main.rs
         ./main
