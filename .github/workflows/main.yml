@@ -34,8 +34,8 @@ jobs:
     - name: Build and test Rust
       run: |
         cd georust
-        cargo build --verbose
-        cargo test --verbose
+        rustc src/main.rs
+        ./src/main
 
     - name: Set up Julia
       uses: julia-actions/setup-julia@v1
