@@ -34,12 +34,13 @@ jobs:
     - name: Build and test Rust
       run: |
         cd georust
+        cargo run
         cd src 
         rustc main.rs
         ./main
         sudo apt-get update
         sudo apt-get install -y libproj-dev
-        rustc reproject_raster.rs 
+        rustc reproject_raster.rs
 #        cargo build
 #        rustc reproject_raster.rs 
 #        ./reproject_raster
