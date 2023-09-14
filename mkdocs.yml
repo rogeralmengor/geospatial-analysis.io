@@ -5,11 +5,15 @@ theme:
   features:
     - content.code.copy
     - content.code.select
+    - navigation.instant
+
   palette:
     primary: teal 
 
   font:
     code: Roboto Mono
+
+  features:
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js
