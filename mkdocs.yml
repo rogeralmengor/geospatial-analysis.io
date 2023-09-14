@@ -1,4 +1,4 @@
-site_name: geospatial-analysis-tools 
+site_name: geospatial-analysis-toolbox
 
 markdown_extensions:
   - pymdownx.highlight:
