@@ -7,5 +7,5 @@ The Geospatial Analysis Toolbox is a collection of functions and algorithms desi
 Roger Almengor González
 
 # Contact and website
-rogeralmengor@gmail.com
+rogeralmengor@gmail.com <br>
 roger-almengor.xyz
