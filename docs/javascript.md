@@ -1,25 +1,36 @@
+# Javascript
+
+Welcome to the "JavaScript" section of this documentation. This section is dedicated to providing a solution-based approach to various geospatial analytics problems, complete with code explanations and illustrative outputs. The code presented here is based on the concepts and functionalities offered by the Google Earth Engine (GEE) JavaScript API.
+
+If you are unfamiliar with the GEE JavaScript API or need further information on its usage and capabilities, you can refer to the official [Google Earth Engine JavaScript API documentation](https://developers.google.com/earth-engine/). This documentation serves as a valuable resource for understanding the core functionalities of the GEE platform and its JavaScript API, which form the foundation for the solutions and projects presented in this section. 
+
+Feel free to explore the projects and code examples provided here to gain insights into how GEE can be leveraged for various geospatial analysis tasks.
 
 ## Time Lapse (Landsat Images)
 Time lapse animations, are an interesting tool used to visualize changes on the earth
 surface over time. The following animation is created by the code provided, and shows the changes over a 20 years period of time by the construction of a river dam in the province of Chiriqui, Republic of Panamá.
 
-![](time_lapse.gif)
+<p align="center">
+  <img src="./../time_lapse.gif" alt="Centered Image">
+  <br>
+  <i>Time Lapse of Landsat Images from the Google Earth Engine platform.</i>
+</p>
+```javascript title="time_lapse.js" linenums="1"
 
-```javascript
-
-/**************************************************************************************************
+/*******************************************************************************
  * Downloading Image Chips for Hidroelectrica dos Mares
  * Location: El Valle de Las Lomas, Chiriquí, Panamá
  * Author: Roger Almengor González
  * Data 26.09.2022
  * Project: CAP 2022
  * Land: Bayern
- * ***********************************************************************************************/
+ * ****************************************************************************/
 
  // Feature Collection 
- var municipalities = ee.List(['Bijagual', 'Chiriquí', 'Cochea', 'David','Las Lomas','Gualaca', 'Rincón',
- 'Paja de Sombrero', 'Caldera', 'Dos Ríos', 'Los Anastacios', 'Dolega', 'Pedregal', 
- 'San Pablo Viejo', 'San Pablo Nuevo', 'San Carlos', 'Hornito', 'Tinajas'])
+ var municipalities = ee.List(['Bijagual', 'Chiriquí', 'Cochea', 'David',
+                            'Las Lomas','Gualaca', 'Rincón', 'Paja de Sombrero', 'Caldera', 'Dos Ríos', 'Los Anastacios', 'Dolega', 'Pedregal', 'San Pablo Viejo', 'San Pablo Nuevo', 
+                            'San Carlos', 'Hornito', 'Tinajas'])
+
 var AOI = table.filter(ee.Filter.inList('NAME_3', municipalities));
 var municipalities = AOI.filter(ee.Filter.eq('NAME_1', 'Chiriquí'));
 var district_list = ee.List(['Gualaca', 'Boquete', 'Dolega', 'David'])
@@ -28,7 +39,8 @@ print(AOI);
 Map.addLayer(municipalities);
 
 var cochea_district = table.filter(ee.Filter.eq('NAME_3', 'Chiriquí'))
-var centroid_cochea_coor = cochea_district.geometry().centroid().coordinates().getInfo()
+var centroid_cochea_coor = cochea_district.geometry().centroid()
+                            .coordinates().getInfo()
 var x = centroid_cochea_coor[0];
 var y = centroid_cochea_coor[1];
 print(x); 
@@ -99,33 +111,44 @@ var dataset = ee.ImageCollection('LANDSAT/LT05/C02/T1_L2')
 .filterBounds(municipalities)
 .map(applyScaleFactors)
 .map(function(image){return image.clip(municipalities)});
-/**************************************************************************************************
+/*******************************************************************************
 * Downloading Image Chips for Hidroelectrica dos Mares
 * Location: El Valle de Las Lomas, Chiriquí, Panamá
 * Author: Roger Almengor González
 * Data 26.09.2022
 * Project: CAP 2022
 * Land: Panama
-* ***********************************************************************************************/
+* *****************************************************************************/
 
 // Feature Collection 
-//var municipalities = ee.List(['Bijagual', 'Chiriquí', 'Cochea', 'David','Las Lomas','Gualaca', 'Rincón',
-//                            'Paja de Sombrero', 'Caldera', 'Dos Ríos', 'Los Anastacios', 'Dolega', 'Pedregal', 
-//                            'San Pablo Viejo', 'San Pablo Nuevo', 'San Carlos', 'Hornito', 'Tinajas'])
+//var municipalities = ee.List(['Bijagual', 'Chiriquí', 'Cochea', 'David',
+// 'Las Lomas','Gualaca', 'Rincón',
+//'Paja de Sombrero', 'Caldera', 'Dos Ríos', 'Los Anastacios', 'Dolega', 
+//'Pedregal', 'San Pablo Viejo', 'San Pablo Nuevo', 'San Carlos', 'Hornito', 
+// 'Tinajas'])
+
 // Feature Collection 
 var municipalities = ee.List(['Bijagual','Cochea','Las Lomas'])
 var AOI = table.filter(ee.Filter.inList('NAME_3', municipalities));
 var municipalities = AOI.filter(ee.Filter.eq('NAME_1', 'Chiriquí'));
 var district_list = ee.List(['Gualaca', 'Boquete', 'Dolega', 'David'])
-var municipalities = municipalities.filter(ee.Filter.inList('NAME_2', district_list))
+var municipalities = municipalities.filter(ee.Filter.inList('NAME_2', 
+                                        district_list))
 // Gets the bounds and create geometry
 var extent = municipalities.geometry().bounds();
-var buffered_extent = extent.buffer(ee.Number(10000).sqrt().divide(2), 1).bounds();
+var buffered_extent = extent.buffer(ee.Number(10000)
+                                    .sqrt()
+                                    .divide(2), 1)
+                                    .bounds();
 //var municipalities = geometry
 Map.addLayer(municipalities);
 
 var cochea_district = table.filter(ee.Filter.eq('NAME_3', 'Bijagual'))
-var centroid_cochea_coor = cochea_district.geometry().centroid().coordinates().getInfo()
+var centroid_cochea_coor = cochea_district.geometry()
+                                            .centroid()
+                                            .coordinates()
+                                            .getInfo()
+
 var x = centroid_cochea_coor[0];
 var y = centroid_cochea_coor[1];
 Map.setCenter(x, y, 10);
@@ -253,7 +276,11 @@ Dates.map(apply_monthly_composite);
 var text = require('users/gena/packages:text');
 var annotated_collection_list = ee.List([])
 var annotations = [
-{position: 'left', offset: '0.25%', margin: '0.25%', property: 'label', scale: 250} //large scale because image if of the whole world. Use smaller scale otherwise
+{position: 'left', 
+offset: '0.25%', 
+margin: '0.25%', 
+property: 'label', 
+scale: 250} //large scale because image if of the whole world. Use smaller scale
 ];
 
 var create_annotated_collection = function(image_and_id) {
