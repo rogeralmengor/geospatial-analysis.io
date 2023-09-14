@@ -1,0 +1,649 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="..">
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.4.3, mkdocs-material-9.1.13">
+    
+    
+      
+        <title>Javascript - geospatial-analysis-tools</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.85bb2934.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.a6bdf11c.min.css">
+      
+      
+
+    
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="default" data-md-color-primary="teal" data-md-color-accent="indigo">
+  
+    
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#time-lapse-landsat-images" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="geospatial-analysis-tools" class="md-header__button md-logo" aria-label="geospatial-analysis-tools" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3V6m0 5h18v2H3v-2m0 5h18v2H3v-2Z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            geospatial-analysis-tools
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Javascript
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+      <label class="md-header__button md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="geospatial-analysis-tools" class="md-nav__button md-logo" aria-label="geospatial-analysis-tools" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
+
+    </a>
+    geospatial-analysis-tools
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+      
+
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        Geospatial Analysis Toolbox
+      </a>
+    </li>
+  
+
+    
+      
+      
+      
+
+  
+  
+    
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          Javascript
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        Javascript
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#time-lapse-landsat-images" class="md-nav__link">
+    Time Lapse (Landsat Images)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#time-lapse-landsat-images" class="md-nav__link">
+    Time Lapse (Landsat Images)
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  <h1>Javascript</h1>
+
+<h2 id="time-lapse-landsat-images">Time Lapse (Landsat Images)</h2>
+<p>Time lapse animations, are an interesting tool used to visualize changes on the earth
+surface over time. The following animation is created by the code provided, and shows the changes over a 20 years period of time by the construction of a river dam in the province of Chiriqui, Republic of Panamá.</p>
+<p><img alt="" src="../time_lapse.gif" /></p>
+<pre><code class="language-javascript">
+/**************************************************************************************************
+ * Downloading Image Chips for Hidroelectrica dos Mares
+ * Location: El Valle de Las Lomas, Chiriquí, Panamá
+ * Author: Roger Almengor González
+ * Data 26.09.2022
+ * Project: CAP 2022
+ * Land: Bayern
+ * ***********************************************************************************************/
+
+ // Feature Collection 
+ var municipalities = ee.List(['Bijagual', 'Chiriquí', 'Cochea', 'David','Las Lomas','Gualaca', 'Rincón',
+ 'Paja de Sombrero', 'Caldera', 'Dos Ríos', 'Los Anastacios', 'Dolega', 'Pedregal', 
+ 'San Pablo Viejo', 'San Pablo Nuevo', 'San Carlos', 'Hornito', 'Tinajas'])
+var AOI = table.filter(ee.Filter.inList('NAME_3', municipalities));
+var municipalities = AOI.filter(ee.Filter.eq('NAME_1', 'Chiriquí'));
+var district_list = ee.List(['Gualaca', 'Boquete', 'Dolega', 'David'])
+var municipalities = municipalities.filter(ee.Filter.inList('NAME_2', district_list))
+print(AOI);
+Map.addLayer(municipalities);
+
+var cochea_district = table.filter(ee.Filter.eq('NAME_3', 'Chiriquí'))
+var centroid_cochea_coor = cochea_district.geometry().centroid().coordinates().getInfo()
+var x = centroid_cochea_coor[0];
+var y = centroid_cochea_coor[1];
+print(x); 
+print(y);
+Map.setCenter(x, y, 12);
+
+
+// Elaborating the dates
+// Getting Temperatures for Every Month
+var period = ['-01-01', '-12-01']; 
+
+var years = [['1999', '2000'],
+['2000', '2001'],
+['2001', '2002'],
+['2002', '2003'],
+['2003', '2004'],
+['2004', '2005'],
+['2005', '2006'],
+['2006', '2007'],
+['2007', '2008'],
+['2008', '2009'], 
+['2009', '2010'], 
+['2010', '2011'],
+['2011', '2012'],
+['2012', '2013'],
+['2013', '2014'],
+];
+
+var add_period = function(year){
+var start_date = period[0]; 
+var end_date = period[1];
+return [year[0] + start_date, year[1] + end_date];
+};
+
+var visualization = {
+bands: ['SR_B4', 'SR_B3', 'SR_B2'],
+min: 0.0,
+max: 0.4,
+};
+
+var visualization_ = {
+bands: ['SR_B4_median', 'SR_B3_median', 'SR_B2_median'],
+min: 0.0,
+max: 0.4,
+};
+
+var concatenate_year_with_periods = function(years, period){
+return years.map(add_period);
+};
+
+var Dates = concatenate_year_with_periods(years, period);
+
+print(Dates);
+
+/***********************************************************************
+   Landsat 5
+************************************************************************/
+// Applies scaling factors.
+function applyScaleFactors(image) {
+var opticalBands = image.select('SR_B.').multiply(0.0000275).add(-0.2);
+var thermalBand = image.select('ST_B6').multiply(0.00341802).add(149.0);
+return image.addBands(opticalBands, null, true)
+.addBands(thermalBand, null, true);
+}
+
+var dataset = ee.ImageCollection('LANDSAT/LT05/C02/T1_L2')
+.filterDate('1999-01-01', '2020-12-31')
+.filterBounds(municipalities)
+.map(applyScaleFactors)
+.map(function(image){return image.clip(municipalities)});
+/**************************************************************************************************
+* Downloading Image Chips for Hidroelectrica dos Mares
+* Location: El Valle de Las Lomas, Chiriquí, Panamá
+* Author: Roger Almengor González
+* Data 26.09.2022
+* Project: CAP 2022
+* Land: Panama
+* ***********************************************************************************************/
+
+// Feature Collection 
+//var municipalities = ee.List(['Bijagual', 'Chiriquí', 'Cochea', 'David','Las Lomas','Gualaca', 'Rincón',
+//                            'Paja de Sombrero', 'Caldera', 'Dos Ríos', 'Los Anastacios', 'Dolega', 'Pedregal', 
+//                            'San Pablo Viejo', 'San Pablo Nuevo', 'San Carlos', 'Hornito', 'Tinajas'])
+// Feature Collection 
+var municipalities = ee.List(['Bijagual','Cochea','Las Lomas'])
+var AOI = table.filter(ee.Filter.inList('NAME_3', municipalities));
+var municipalities = AOI.filter(ee.Filter.eq('NAME_1', 'Chiriquí'));
+var district_list = ee.List(['Gualaca', 'Boquete', 'Dolega', 'David'])
+var municipalities = municipalities.filter(ee.Filter.inList('NAME_2', district_list))
+// Gets the bounds and create geometry
+var extent = municipalities.geometry().bounds();
+var buffered_extent = extent.buffer(ee.Number(10000).sqrt().divide(2), 1).bounds();
+//var municipalities = geometry
+Map.addLayer(municipalities);
+
+var cochea_district = table.filter(ee.Filter.eq('NAME_3', 'Bijagual'))
+var centroid_cochea_coor = cochea_district.geometry().centroid().coordinates().getInfo()
+var x = centroid_cochea_coor[0];
+var y = centroid_cochea_coor[1];
+Map.setCenter(x, y, 10);
+
+
+// Elaborating the dates
+// Getting Temperatures for Every Month
+var period = ['-01-01', '-12-01']; 
+
+var years = [['1999', '2000'],
+['2000', '2001'],
+['2001', '2002'],
+['2002', '2003'],
+['2003', '2004'],
+['2004', '2005'],
+['2005', '2006'],
+['2006', '2007'],
+['2007', '2008'],
+['2008', '2009'], 
+['2009', '2010'], 
+['2010', '2011'],
+['2011', '2012'],
+['2012', '2013'],
+['2013', '2014'],
+];
+
+var add_period = function(year){
+var start_date = period[0]; 
+var end_date = period[1];
+return [year[0] + start_date, year[1] + end_date];
+};
+
+var visualization = {
+bands: ['SR_B4', 'SR_B3', 'SR_B2'],
+min: 0.0,
+max: 0.4,
+};
+
+var visualization_ = {
+bands: ['SR_B4_median', 'SR_B3_median', 'SR_B2_median'],
+min: 0.0,
+max: 0.4,
+};
+
+var concatenate_year_with_periods = function(years, period){
+return years.map(add_period);
+};
+
+var Dates = concatenate_year_with_periods(years, period);
+
+
+
+/**********************************************************************
+    Landsat 7 
+***********************************************************************/
+var visualization = {
+bands: ['B4', 'B3', 'B2'],
+min: 0.0,
+max: 0.3,
+};
+
+var visualization_ = {
+bands: ['B4_median', 'B3_median', 'B2_median'],
+min: 0.0,
+max: 0.5,
+gamma: [0.95, 1.1, 1]
+};
+
+// Applies scaling factors.
+var cloudMaskL7 = function(image) {
+var qa = image.select('BQA');
+var cloud = qa.bitwiseAnd(1 &lt;&lt; 4)
+.and(qa.bitwiseAnd(1 &lt;&lt; 6))
+.or(qa.bitwiseAnd(1 &lt;&lt; 8));
+var mask2 = image.mask().reduce(ee.Reducer.min());
+return image
+//.select(['B3', 'B4'], ['Red', 'NIR'])
+.updateMask(cloud.not()).updateMask(mask2)
+.set('system:time_start', image.get('system:time_start'));
+};
+
+var dataset = ee.ImageCollection('LANDSAT/LE07/C01/T1_TOA')
+.filterDate('1999-01-01', '2020-12-31')
+.filterBounds(AOI)
+//.map(applyScaleFactors)
+.map(cloudMaskL7)
+.map(function(image){return image.clip(municipalities)});
+
+//dataset = dataset.map(applyScaleFactors);
+
+// Creating composites using median pixel value
+var median_yearly_landsat_7 = function(start, end){
+var dataset_ =  dataset.filter(ee.Filter.date(start, end));
+var median_yearly = dataset_.reduce(ee.Reducer.median());
+return median_yearly;
+};
+
+var composite_name_list_l7 = ee.List([]);
+
+var apply_monthly_composite = function(date_list){
+var start = date_list[0];
+var end = date_list[1]; 
+var output_name = start + &quot;TO&quot; + end + &quot;_LANSAT_7&quot;;
+var composite = median_yearly_landsat_7(start, end);
+composite_name_list_l7 = composite_name_list_l7.add([composite, output_name]);
+Map.addLayer(composite, visualization_, output_name, false);
+Export.image.toDrive({
+image: composite,
+description: output_name,
+fileFormat: 'GeoTIFF',
+crs : 'EPSG:4326',
+folder : 'LANDSAT_LST_LAS_LOMAS',
+region: municipalities
+});
+return 0; 
+};
+
+Dates.map(apply_monthly_composite); 
+
+
+/******************************************************************
+// Animation gif 
+// Create RGB visualization images for use as animation frames.
+/******************************************************************/
+var text = require('users/gena/packages:text');
+var annotated_collection_list = ee.List([])
+var annotations = [
+{position: 'left', offset: '0.25%', margin: '0.25%', property: 'label', scale: 250} //large scale because image if of the whole world. Use smaller scale otherwise
+];
+
+var create_annotated_collection = function(image_and_id) {
+var img = image_and_id[0];
+var image_id = image_and_id[1];
+print(image_id);
+var img_out = img.visualize(visualization_)
+//.clip(geometry)//.paint(municipalities, 'FF0000', 2)
+.set({'label': image_id});
+Map.addLayer(img_out);
+var annotated = text.annotateImage(img_out, {}, Bayern, annotations);
+annotated_collection.add(annotated);
+return 0;
+};
+
+var municipalities_geom = geometry;
+var n = composite_name_list_l7.size().getInfo();
+print(n);
+for (var i = 0; i &lt; n; i++) {
+var img_info = ee.List(composite_name_list_l7.get(i));
+print(img_info);
+var img = ee.Image(img_info.get(0));
+var img_id = ee.String(img_info.get(1));
+var year = ee.String(ee.List(img_id.split(&quot;-&quot;).get(0)));
+var month = ee.String(ee.List(img_id.split(&quot;-&quot;).get(1)));
+var img_id_ = year.getInfo() // + &quot;_&quot; + month.getInfo();
+var img_out = img.visualize(visualization_)
+//.paint(geometry, 'FF0000', 2)
+.set({'label': img_id_});
+var annotated = text.annotateImage(img_out, {}, buffered_extent, annotations);
+Map.addLayer(annotated);
+var annotated_collection_list = annotated_collection_list.add(annotated)
+}
+
+var annotated_col = ee.ImageCollection(annotated_collection_list)
+
+// Define GIF visualization parameters.
+var gifParams = {
+'region': buffered_extent,
+'dimensions': 508,
+//'crs': 'EPSG:32632',
+'framesPerSecond': 1
+};
+
+// Print the GIF URL to the console.
+print(annotated_col.getVideoThumbURL(gifParams));
+// Render the GIF animation in the console.
+print(ui.Thumbnail(annotated_col, gifParams));
+</code></pre>
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    <script id="__config" type="application/json">{"base": "..", "features": [], "search": "../assets/javascripts/workers/search.208ed371.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.b4d07000.min.js"></script>
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
+      
+        <script src="../javascripts/highlight.js"></script>
+      
+    
+  </body>
+</html>
