@@ -1,0 +1,18 @@
+site_name: geospatial-analysis-tools 
+
+theme: 
+  name: material
+  features:
+    - content.code.copy
+    - content.code.select
+  palette:
+    primary: teal 
+
+  font:
+    code: Roboto Mono
+
+extra_javascript:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js
+  - javascripts/highlight.js
+extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
