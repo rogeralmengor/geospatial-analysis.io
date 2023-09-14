@@ -1,0 +1,9 @@
+/* Reduce font size for code blocks */
+pre code {
+    font-size: 14px; /* Adjust the font size as needed */
+  }
+
+  code {
+    font-family: Consolas;
+  }
+  
