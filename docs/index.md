@@ -1,6 +1,6 @@
 # Description 
 <p align="center">
-      <img src="./../bio.png" alt="Centered Image">
+      <img src="bio.png" alt="Centered Image">
       <br>
       </p>
 
