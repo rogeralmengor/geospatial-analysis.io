@@ -23,7 +23,7 @@ theme:
   name: material 
   icon:
     admonition:
-      <type>: octicons/code-16 
+      <code>: octicons/code-16 
   features:
     - content.code.copy
     - content.code.select

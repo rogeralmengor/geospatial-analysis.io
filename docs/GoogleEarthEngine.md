@@ -5,7 +5,7 @@ If you are unfamiliar with the GEE JavaScript API or need further information on
 
 Feel free to explore the projects and code examples provided here to gain insights into how GEE can be leveraged for various geospatial analysis tasks.
 
-## Time Lapse (Landsat Images)
+##🎥 **Time Lapse (Landsat Images)** 🌍
 Time lapse animations, are an interesting tool used to visualize changes on the earth
 surface over time. The following animation is created by the code provided, and shows the changes over a 20 years period of time by the construction of a river dam in the province of Chiriqui, Republic of Panamá.
 
@@ -335,9 +335,7 @@ print(ui.Thumbnail(annotated_col, gifParams));
 ```
 </details>
 
-## Measuring land surface temperature with MODIS data
-
-
+##🌐 **Measuring land surface temperature with MODIS data** 🌡️🛰️
 
 **Script Description:**
 This script is designed to analyze temperature changes within the Cochea River watershed using the Google Earth Engine (GEE) platform and MODIS (Moderate Resolution Imaging Spectroradiometer) datasets. Specifically, it focuses on measuring temperature variations during both the rainy and dry seasons over a 20-year period. The primary objectives of this script are to generate an animated GIF, a time series graph depicting the Average Median Temperature (°C) as recorded by the MODIS sensor, and a regional overview of the study area.
@@ -381,8 +379,14 @@ This script is designed to analyze temperature changes within the Cochea River w
       </p>
     <br>
 
-   
    - *Regional View:* Lastly, the script produces a regional view of the study area, allowing users to geospatially contextualize the temperature changes observed in the Cochea River watershed.
+
+    <p align="center">
+      <img src="./../Regional_and_country_wide_location.jpg" alt="Centered Image">
+      <br>
+      <i>Regional view of the study area.</i>
+      </p>
+    <br>
 
 By following this technical script, users can conduct a rigorous analysis of temperature fluctuations within the specified region and timeframes, enabling in-depth insights into environmental changes over the 20-year period.
 
@@ -619,3 +623,372 @@ Map.setOptions("SATELLITE");
 
 ```
 </details>
+
+Certainly! Here's a condensed version of your blog post, transformed into a LinkedIn-style geospatial analysis post:
+
+
+## 🌍 **Time Lapse (RADAR Images) - Panama Canal** 🛶 💧
+
+**Objective**
+
+To commemorate World Water Day, this analysis explores the significance of freshwater sources within the Panama Canal Zone.
+Our primary goal is to gain insights into the role of these water bodies in sustaining the Panama Canal and supporting the surrounding ecosystems and communities.
+    <p align="center">
+      <img src="./../panama_canal.gif" alt="Centered Image">
+      <br>
+      <i>Time Series of Radar (Sentinel-1) Imagery. Year 2022, Panama Canal Zone.</i>
+      </p>
+    <br>
+
+
+**Methodology**
+
+In this analysis, we utilize Sentinel-1 imagery due to its exceptional ability to provide clear, all-weather views of the Earth's surface. Our methodology can be broken down into the following key steps:
+
+1. Filtering Area of Interest (AOI): We narrow our focus to specific regions, including the Panama Province and select districts.
+
+2. Date Range Selection: Images from 2022 are chosen for analysis.
+
+3. Image Clipping and Masking: We create buffered extents and apply masks to Sentinel-1 images.
+
+4. Image Collection and Filtering: We gather images with precise properties, including polarization, resolution, and instrument mode.
+
+5. Backscatter Analysis: Backscatter graphs for VH and VV bands are generated to monitor changes over time.
+
+6. Image Visualization: We visualize images and create RGB representations for animations.
+
+<details>
+  <summary>Code</summary>
+``` javascript title="sentinel_1_time_lapse.js" linenums="1"
+// Filtering Feature Collection to Area of Interest (AOI)
+var GAUL_country_boundaries = ee.FeatureCollection("FAO/GAUL/2015/level2");
+
+var provinces = ee.List(['Panamá', 'Colón'])
+var Panama =  GAUL_country_boundaries.filter(ee.Filter.inList('ADM1_NAME', provinces));
+print(Panama)
+
+Map.addLayer(Panama, {color: 'green'}, 'Panama Province');
+var districts = ee.List(['Arraiján', 'Panamá', 'San Miguelito', 'Colón','Chagres']);
+var Panama = Panama.filter(ee.Filter.inList('ADM2_NAME', districts));
+
+Map.addLayer(Panama);
+
+
+//Parameter: Start and End date for images to be queried
+var start = '2022-01-01';
+var end = '2022-12-31';
+var dateRange = ee.DateRange(start, end); 
+
+// Gets the bounds and create geometry (rectangle around the polygon)
+var extent = Panama.geometry().bounds();
+
+//Map.addLayer(extent); // Adds this geometry to the map
+
+// Creating a buffered version of the extent
+var buffered_extent = extent.buffer(ee.Number(50000).sqrt().divide(2), 1).bounds();
+
+Map.addLayer(buffered_extent); // Adds this geometry to the map
+
+// Centering the map to our target parcel
+Map.centerObject(Panama, 15);
+
+// Function to clip image 
+function clip_image(image){
+  return image.clip(buffered_extent); 
+}
+
+// Function to mask image to certain backscatter signal
+function update_s1_mask(image) {
+          var edge = image.lt(-30.0);
+          var maskedImage = image.mask().and(edge.not());
+          return image.updateMask(maskedImage);
+        }
+        
+        
+
+// Getting an image collection of Sentinel-1 GRDH and VV-VH bands
+var s1_collection = ee.ImageCollection('COPERNICUS/S1_GRD')
+                    .filterDate(dateRange)
+                    .filterBounds(buffered_extent)
+                    .filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VV'))
+                    .filter(ee.Filter.listContains('transmitterReceiverPolarisation', 'VH'))
+                    .filter(ee.Filter.eq('resolution_meters', 10))
+                    .filter(ee.Filter.eq('instrumentMode', 'IW'))
+                    .map(update_s1_mask);
+                    
+var s1_collection_ = s1_collection.select(['VV', 'VH']);
+
+// Dividing the collection according to Orbits (Ascending or Descending)
+var desc = s1_collection_.filter(ee.Filter.eq('orbitProperties_pass', 'DESCENDING'));
+var asc = s1_collection_.filter(ee.Filter.eq('orbitProperties_pass', 'ASCENDING'));
+
+// Checking out how many images are in every batch (ascending, descending)
+print('descending tiles ', desc.size());
+print('ascending tiles ', asc.size());
+
+
+// Create backscatter (dB) graph for VH and VV bands of Sentinel-1
+var chart =
+    ui.Chart.image
+        .series({
+          imageCollection: desc,
+          region: Panama,
+          reducer: ee.Reducer.median(),
+          scale: 500,
+          xProperty: 'system:time_start'
+        })
+        .setSeriesNames([])
+        .setOptions({
+          title: 'Median dB for parcel: ' + "Panama_Canal_Zone",
+          hAxis: {title: 'Date', titleTextStyle: {italic: false, bold: true}},
+          vAxis: {
+            title: 'Backscatter (dB)',
+            titleTextStyle: {italic: false, bold: true}
+          },
+          lineWidth: 5,
+          colors: ['#00FF7F', '#3CB371'],
+          curveType: 'function'
+        });
+print(chart);
+
+// Paint the edges with different colors and widths.
+var empty = ee.Image().byte();
+
+var outlines = empty.paint({
+  featureCollection: Panama,
+  width: 'NNH'
+});
+
+var palette = ['#FFFF00'];
+
+// Adding every image of the image collection on the Map
+var s1_vis_params = {bands: ["VV","VH","VV"],
+                        min: -25, 
+                        max: 5, 
+                        gamma:1, 
+                        opacity:1};
+                        
+function addImage(image) { 
+  var id = image.id;
+  var image_ = ee.Image(image.id);
+  Map.addLayer(image_, s1_vis_params, 
+                        id)}
+  asc.evaluate(function(asc) {  // use map on client-side
+  asc.features.map(addImage);
+  Map.addLayer(outlines, {palette: palette, max: 14}, 'Panama');
+});
+
+// Create RGB visualization images for use as animation frames.
+var rgbVis = asc.map(function(img) {
+  return img.visualize(s1_vis_params).clip(buffered_extent);
+});
+
+//Create an animated GIF
+// Define GIF visualization parameters.
+var gifParams = {
+  'region': buffered_extent,
+  'dimensions': 1100,
+  'crs': 'EPSG:4326',
+  'framesPerSecond': 5
+};
+
+// Print the GIF URL to the console.
+print(rgbVis.getVideoThumbURL(gifParams));
+
+// Render the GIF animation in the console.
+print(ui.Thumbnail(rgbVis, gifParams));
+```
+</details>
+
+##💨 **Monitoring Nitrogen Dioxide in Panama City with Sentinel-5P Imagery** 🏙️
+
+**Objective:**
+
+The objective of this analysis is to create composites of Sentinel-5P imagery to measure nitrogen dioxide (NO2) levels in the city of Panama City during the COVID-19 lockdown period. This analysis aims to provide insights into the variations in tropospheric NO2 density over time, particularly during the lockdown period, and visualize these changes using composites and a time-lapse GIF. The analysis also includes the creation of a chart to represent the mean NO2 levels over the selected area of interest.
+
+**Steps:**
+
+1. **Filtering Area of Interest (AOI):** The analysis starts by defining the Area of Interest (AOI) using geographical boundaries data. The AOI encompasses specific districts within the Panama Province, including Arraiján, Panamá, and San Miguelito. The map is centered on the coordinates of this AOI.
+
+2. **Setting Visualization Parameters:** Visualization parameters for the NO2 density are defined, including the minimum, maximum values, and color palette to be used for rendering the imagery.
+
+3. **Setting the Date Range:** The analysis specifies the start and end dates for image collection. In this case, the date range spans from January 1, 2020, to December 31, 2022.
+
+4. **Creating Image Composites:** The script creates monthly image composites of Sentinel-5P tropospheric NO2 density within the defined AOI. These composites are generated for each month of each year in the specified date range.
+
+5. **Renaming Images:** The image composites are renamed to include the year and month information in their system index.
+
+6. **Creating a Time-Lapse GIF:** The script combines the renamed image composites into a time-lapse GIF. It annotates each frame of the GIF with a timestamp to indicate the year and month of the data. The GIF visually shows the changes in tropospheric NO2 density over time within the AOI.
+
+7. **Creating a Chart:** A chart is generated to display the mean tropospheric NO2 column number density for the selected AOI over time. This chart provides a quantitative representation of the NO2 levels during the analysis period.
+    <p align="center">
+      <img src="./../NOx_Panama_City_2019-2022-1024x540.png" alt="Centered Image">
+      <br>
+      <i>Tropospheric NO2 column – Chart</i>
+      </p>
+    <br>
+
+8. **Displaying Yearly Composites:** Finally, yearly composites for 2019, 2020, 2021, and 2022 are added to the map, allowing for a comparison of NO2 levels across these years.
+    <p align="center">
+      <img src="./../nitrogen_dioxide_2019_2022.jpg" alt="Centered Image">
+      <br>
+      <i>Nitrogen Dioxide tropospheric column – Panama City – 2019-2022
+</i>
+      </p>
+    <br>
+This analysis provides a comprehensive overview of tropospheric NO2 density changes in Panama City, with a focus on the COVID-19 lockdown period. The time-lapse GIF and chart enhance the visualization and understanding of these changes over time.
+
+<details>
+  <summary>Code</summary>
+```javascript title="nitrogen_dioxide_monitoring.js" linenums="1"
+// Filtering Feature Collection to Area of Interest (AOI)
+var GAUL_country_boundaries = ee.FeatureCollection("FAO/GAUL/2015/level2");
+
+var Panama = GAUL_country_boundaries.filter(ee.Filter.eq('ADM1_NAME', 'Panamá'));
+print(Panama);
+Map.addLayer(Panama, {color: 'green'}, 'Panama Province');
+var districts = ee.List(['Arraiján', 'Panamá', 'San Miguelito']);
+var AOI = Panama.filter(ee.Filter.inList('ADM2_NAME', districts));
+var AOI_ = AOI.union();
+Map.addLayer(AOI_, {color: 'blue'}, 'Area of Interest');
+
+// Setting the Map to the coordinates of one of our districts
+var centroid_coor =  AOI_.geometry().centroid().coordinates().getInfo();
+var x = centroid_coor[0];
+var y = centroid_coor[1];
+Map.setCenter(x, y, 10);
+
+// Setting visualization parameters
+var band_viz = {
+  min: 0,
+  max: 0.0002,
+   palette: ['white', 'orange', 'red', 'cyan', 'purple', 'green']
+};
+
+// Setting the start and end date
+// and creating the list of month and dates
+var date_start = ee.Date('2020-01-01');
+var date_end= ee.Date('2022-12-31');
+
+var months = ee.List.sequence(1, 12);//separate by years
+var years = ee.List.sequence(date_start.advance(-1,"year")
+                                       .get("year"),
+                             date_end.get("year"));
+
+// Creating the image composites (monthly time series)
+// of Sentinel-5P tropospheric NO2 density
+var year_composite = years.map(function(y){
+  return months.map(function(m){
+    return ee.ImageCollection('COPERNICUS/S5P/OFFL/L3_NO2')
+            .select('tropospheric_NO2_column_number_density')
+            .filter(ee.Filter.calendarRange(y, y,'year'))
+            .filter(ee.Filter.calendarRange(m, m,'month'))
+            .median()
+            .set('year',y)
+            .set('month', m)
+            .clip(AOI_);
+})});
+
+function decomposeList(l) {
+  return ee.ImageCollection.fromImages(l).toList(12);
+}
+
+var list_imgs = year_composite.map(decomposeList).flatten();
+
+// Setting as index the year and month 
+// of the layer being created
+function renameImages(img){
+  var img_1 = ee.Image(img);
+  var value = ee.Number(img_1.get('year')).format('%04d')
+              .cat('_').cat(ee.Number(img_1.get('month')).format('%02d'));
+  var img_2 = img_1.set('system:index', value, 'system:id', value);
+  return img_2;
+}
+
+var list_imgs_renamed = list_imgs.map(renameImages);
+
+var img_collection = ee.ImageCollection.fromImages(list_imgs_renamed);
+
+// Create time lapse 
+var text = require('users/gena/packages:text'); // Import gena's package which allows text overlay on image
+
+var annotations = [
+ {position: 'left', offset: '0.25%', margin: '0.25%', property: 'label', scale: 1000} //large scale because image if of the whole world. Use smaller scale otherwise
+  ];
+
+function addText(image){
+  var timeStamp = image.id();
+  var image_ = image.visualize(band_viz).set({'label':timeStamp}); // set a property called label for each image
+  var annotated = text.annotateImage(image_, {}, AOI_.geometry(), annotations); // create a new image with the label overlayed using gena's package
+  return annotated;
+}
+
+var extent = AOI_.geometry().bounds();
+
+var buffered_extent = extent.buffer(ee.Number(10000).sqrt().divide(2), 1).bounds();
+
+// Define GIF visualization parameters.
+var gifParams = {
+  'region': buffered_extent,
+  'dimensions': 600,
+  //'crs': 'EPSG:3857',
+  'framesPerSecond': 1.5
+};
+
+var annotated_collection = img_collection.map(addText);
+
+
+// Print the GIF URL to the console.
+print(ui.Thumbnail(annotated_collection, gifParams));
+ui.Thumbnail(annotated_collection, gifParams);
+
+// Define the chart and print it to the console.
+var chart =
+    ui.Chart.image
+        .seriesByRegion({
+          imageCollection: img_collection,
+          band: 'tropospheric_NO2_column_number_density',
+          regions: AOI_,
+          reducer: ee.Reducer.mean(),
+          scale: 500,
+          seriesProperty: 'label',
+          xProperty: 'system:id'
+        })
+        .setOptions({
+          title: 'tropospheric NO2 column number density Years 2019-2022',
+          hAxis: {title: 'Date', titleTextStyle: {italic: false, bold: true},
+                   format: 'short'
+          },
+          vAxis: {
+            title: 'NOx µmol/m2',
+            titleTextStyle: {italic: false, bold: true},
+          },
+          lineWidth: 3,
+        });
+        
+//print(chart);
+
+print(img_collection);
+
+// Adding yearly composites
+
+var imgs_2019 = img_collection.filter(ee.Filter.eq('year', 2019));
+
+Map.addLayer(imgs_2019.mean(), band_viz, 'S5P N02_2019');
+
+var imgs_2020 = img_collection.filter(ee.Filter.eq('year', 2020));
+
+Map.addLayer(imgs_2020.mean(), band_viz, 'S5P N02_2020');
+
+var imgs_2021 = img_collection.filter(ee.Filter.eq('year', 2021));
+
+Map.addLayer(imgs_2021.mean(), band_viz, 'S5P N02_2021');
+
+var imgs_2022 = img_collection.filter(ee.Filter.eq('year', 2022));
+
+Map.addLayer(imgs_2022.mean(), band_viz, 'S5P N02_2022');
+```
+</details>
+
+<br>
+<sup><sub><i>Please Note: All examples provided in this documentation have been created within the Google Earth Engine platform with the intention of ensuring reproducibility. If you encounter any issues or have questions, feel free to reach out to me at rogeralmengor@gmail.com. The code is made available for public use without any legal restrictions, but I would greatly appreciate it if you could acknowledge my efforts in developing these tools. Your recognition would mean a lot to me as a fellow developer.</i></sub></sup>
