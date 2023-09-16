@@ -624,9 +624,6 @@ Map.setOptions("SATELLITE");
 ```
 </details>
 
-Certainly! Here's a condensed version of your blog post, transformed into a LinkedIn-style geospatial analysis post:
-
-
 ## 🌍 **Time Lapse (RADAR Images) - Panama Canal** 🛶 💧
 
 **Objective**
