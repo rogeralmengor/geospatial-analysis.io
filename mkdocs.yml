@@ -1,5 +1,10 @@
 site_name: Roger Almengor González 
 
+plugins:
+  - blogging:
+      dirs: # The directories to be included
+        - blog
+
 markdown_extensions:
   - pymdownx.highlight:
       anchor_linenums: true
@@ -27,12 +32,13 @@ theme:
   features:
     - content.code.copy
     - content.code.select
-    - navigation.instant
+#    - navigation.instant
 
   palette:
     primary: teal 
 
   font:
+    text: Montserrat
     code: Roboto Mono
 
   extra_css:
@@ -44,13 +50,23 @@ extra_javascript:
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
 
-plugins:
-  - blog
-  - rss:
-      match_path: posts/.* 
-      date_from_meta:
-        as_creation: date
-      categories:
-        - categories
-        - tags
-      comments_path: "#__comments" 
+
+
+
+
+# plugins:
+#   - blogging:
+#       dirs: # The directories to be included
+#         - blog
+
+
+# plugins:
+#   - blog
+#   - rss:
+#       match_path: blog/posts/.* 
+#       date_from_meta:
+#         as_creation: date
+#       categories:
+#         - categories
+#         - tags
+#       comments_path: "#__comments" 

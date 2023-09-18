@@ -14,5 +14,6 @@ rogeralmengor@gmail.com<br>
 [roger-almengor.xyz](https://roger-almengor.xyz/)
 
 nav:
+  - index.md
   - Blog:
     - blog/index.md
