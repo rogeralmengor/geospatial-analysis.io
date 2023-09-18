@@ -6,4 +6,7 @@ pre code {
   code {
     font-family: Consolas;
   }
-  
+
+.smaller-font {
+    font-size: 12px;
+}
