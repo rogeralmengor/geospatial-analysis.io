@@ -31,7 +31,7 @@ exclude_from_blog: true
     text-align: right;
   }
 </style>
-
+<br>
 # Blogs
 
 {{ blog_content }}
