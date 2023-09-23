@@ -119,13 +119,6 @@ end
 ```
 </details>
 
-Below we can see the resulting raster. As they are randomized values, no pattern can be seen, it is for the sake of this exercise that we have done it this way.
-We have written the code in such a way that the resulting raster has a string pattern, showing us the code from which it was produced, either Julia or Python.
-
-<p align="center">
-      <img src="./../rausch_raster.png" alt="Centered Image">
-      <br>
-</p>
 
 Below we collect the data in a table about the performance in seconds of each of the scripts for a variable input data size.
 
