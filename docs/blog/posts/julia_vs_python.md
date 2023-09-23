@@ -3,6 +3,11 @@ title: Performance benchmarking for Julia and Python in a geospatial task.
 description: This post is more a comparison of two programming languages to perform the same task. One is Python, the language with which I started in this programming world, and the other is Julia, which I am currently ...
 ---
 
+<p align="center">
+    <img src="./../Benchmarking_Python_vs_Julia.png" alt="Centered Image" width="300" height="200">
+    <br>
+</p>
+
 A little while ago, I was confronted with a question. If you could start again to learn programming for geospatial analysis, where would you start?
 
 Knowing that the big geospatial data domains are raster data on the one hand, and vectors on the other, I would start with raster data first.
