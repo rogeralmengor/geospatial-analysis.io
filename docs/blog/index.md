@@ -8,7 +8,7 @@ exclude_from_blog: true
   <i>  This blog is composed of small geospatial analyses, which I have done, primarily tackling questions about environmental phenomena. Most of the examples are written in the JavaScript language for the Google Earth Engine interface. Examples in Python, and the Julia language will also be incorporated over time.</i>
   </div>
   <div class="image-right">
-    <img src="posts/img/cropped-david.jpg" alt="Centered Image">
+    <img src="./../blog/posts/cropped-david.jpg" alt="Centered Image">
   </div>
 </div>
 
