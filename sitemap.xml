@@ -11,6 +11,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/anomalies_corn/</loc>
+         <lastmod>2023-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/download_brandenburg_data/</loc>
          <lastmod>2023-09-30</lastmod>
          <changefreq>daily</changefreq>
