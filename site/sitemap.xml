@@ -26,6 +26,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/nox_levels_in_panama/</loc>
+         <lastmod>2023-09-30</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/refactoring_with_chat_gpt/</loc>
          <lastmod>2023-09-30</lastmod>
          <changefreq>daily</changefreq>
