@@ -1,8 +1,8 @@
 ---
 title: Basic descriptive statistics using SQL
-description: Like C, SQL is a language with great relevance nowadays and which allows us to make database queries, generate statistical analysis, and organize our data.
-SQL stands the test of time, and it is really worth taking the time to learn it if ...
+description: Like C, SQL is a language with great relevance nowadays and which allows us to make database queries, generate statistical analysis, and organize our data. SQL stands the test of time, and it is really worth taking the time to learn it if ...
 ---
+
 I have always had an admiration for ancient architecture. They are the remnants of ancestral cultures, and in them we can see the human need to create something lasting, according to the needs of that time, but with an impeccable beauty that still delights our eyes.
 The same feeling I also have for relatively old programming languages. Although I currently work mainly with the Python programming language, I sporadically venture into programming something simple in C. The latter also opened my eyes to many concepts that are unfortunately taken for granted when starting in the programming world with a high-level language such as Python, such as declaring type variables, the use of pointers or memory management.
 This year though, I am committed to improve my skills in the SQL language, and its PostGIS extension for geospatial analysis. Like C, SQL is a language with great relevance nowadays and which allows us to make database queries, generate statistical analysis, and organize our data.
@@ -281,3 +281,4 @@ ORDER BY avg_area_m2 DESC
 And that concludes this post on my blog. We have started to ingest data in Shapefile format in a database and start making queries using the SQL language.
 
 In a next blog post we will analyze how to make more spatial queries using this table in relation to other tables with other types of information.
+<br>
