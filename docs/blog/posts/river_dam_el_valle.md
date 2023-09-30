@@ -8,13 +8,6 @@ This post is about the latter.
 
 A few years ago I went to the community of El Valle de Las Lomas. This small town, located about 15 minutes from the city of David, Chiriquí, Republic of Panama, has a place in my heart. There I spent part of my summer vacations at my grandmother's house, and it was also the town where I had a lot of friends and family, with whom I played soccer and baseball in the afternoons.
 
-In the photo I have posted here, you can see this boy (me about 4-5 years old), happy in the Cochea river.
-
-<p align="center">
-      <img src="./../child.png" alt="Centered Image">
-      <br>
-</p>
-
 Before the COVID-19 pandemic I had the opportunity to visit this river, and was surprised to see that all that was left was a creek in what used to be a flowing river, where my father and brother would go to spend the occasional afternoon fishing.
 
 I was surprised by the great change in the scenery along some stretches of this river. Some stretches that used to be deep were now reduced to a small creek that could be crossed on foot without the water coming up to your knees. 
