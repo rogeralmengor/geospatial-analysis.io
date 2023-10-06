@@ -1,13 +1,4 @@
 <h1 align="center">About me</h1>
-  <style>
-  img.bordered {
-            border-radius: 15%;
-        }
-  </style>
-  <p align="center">
-    <img src="bio/bio_photo.JPG" alt="Centered Image" width="400" height="600", class="bordered">
-    <p style="font-size: 14px; font-style: italic; text-align: center;"></p>
-  </p>
 
 <div class="container">
   <div class="text-left">
