@@ -1397,9 +1397,11 @@ surface over time. The following animation is created by the code provided, and 
 <h2 id="measuring-land-surface-temperature-with-modis-data">🌐 <strong>Measuring land surface temperature with MODIS data</strong> 🌡️🛰️</h2>
 <p><strong>Script Description:</strong>
 This script is designed to analyze temperature changes within the Cochea River watershed using the Google Earth Engine (GEE) platform and MODIS (Moderate Resolution Imaging Spectroradiometer) datasets. Specifically, it focuses on measuring temperature variations during both the rainy and dry seasons over a 20-year period. The primary objectives of this script are to generate an animated GIF, a time series graph depicting the Average Median Temperature (°C) as recorded by the MODIS sensor, and a regional overview of the study area.</p>
-<p><strong>Script Workflow:</strong>
-1. <strong>Data Acquisition:</strong> The script begins by accessing MODIS datasets, which provide reliable temperature data with global coverage and high temporal resolution.</p>
+<p><strong>Script Workflow:</strong></p>
 <ol>
+<li>
+<p><strong>Data Acquisition:</strong> The script begins by accessing MODIS datasets, which provide reliable temperature data with global coverage and high temporal resolution.</p>
+</li>
 <li>
 <p><strong>Temporal Selection:</strong> It then filters the MODIS data to isolate the specific time periods corresponding to the dry and wet seasons over the 20-year span.</p>
 </li>
@@ -1410,10 +1412,8 @@ This script is designed to analyze temperature changes within the Cochea River w
 <p><strong>Temperature Computation:</strong> Using the MODIS temperature data, the script calculates the Average Median Temperature (°C) for each pixel within the study area, both for the dry and wet seasons.</p>
 </li>
 <li>
-<p><strong>Visualization Generation:</strong></p>
-</li>
-<li>
-<p><em>Animated GIF:</em> The script generates an animated GIF, showcasing the temporal evolution of temperature changes over the 20-year period. Each frame of the GIF represents a specific time step, offering a dynamic visual representation of temperature variations.
+<p><strong>Visualization Generation:</strong>
+  The script generates an animated GIF, showcasing the temporal evolution of temperature changes over the 20-year period. Each frame of the GIF represents a specific time step, offering a dynamic visual representation of temperature variations.
     <p align="center">
       <img src="./../dry_season_20_years_modis.gif" alt="Centered Image">
       <br>
@@ -1428,7 +1428,7 @@ This script is designed to analyze temperature changes within the Cochea River w
     <br></p>
 </li>
 <li>
-<p><em>Time Series Graph:</em> Additionally, the script creates a time series graph, displaying the Average Median Temperature (°C) as a function of time. This graph provides a clear overview of temperature trends during the dry and wet seasons.
+<p><strong>Time Series Graph:</strong> Additionally, the script creates a time series graph, displaying the Average Median Temperature (°C) as a function of time. This graph provides a clear overview of temperature trends during the dry and wet seasons.
     <p align="center">
       <img src="./../Average_Median_Temp_Dry_Season-1024x422.png" alt="Centered Image">
       <br>
@@ -1443,7 +1443,7 @@ This script is designed to analyze temperature changes within the Cochea River w
 <br></p>
 </li>
 <li>
-<p><em>Regional View:</em> Lastly, the script produces a regional view of the study area, allowing users to geospatially contextualize the temperature changes observed in the Cochea River watershed.</p>
+<p><strong>Regional View:</strong> Lastly, the script produces a regional view of the study area, allowing users to geospatially contextualize the temperature changes observed in the Cochea River watershed.</p>
 <p><p align="center">
   <img src="./../Regional_and_country_wide_location.jpg" alt="Centered Image">
   <br>
@@ -2561,16 +2561,16 @@ This analysis provides a comprehensive overview of tropospheric NO2 density chan
 </span></code></pre></div></td></tr></table></div>
 </details>
 
-<h2 id="monitoring-mining-project-using-google-earth-engine-landsat-interactive-app-map">🌐 Monitoring Mining Project ⛏️🔶🔷 using Google Earth Engine: Landsat Interactive App Map 🛰️</h2>
+<h2 id="monitoring-mining-project-using-google-earth-engine-landsat-interactive-app-map">🌐 <strong>Monitoring Mining Project ⛏️🔶🔷 using Google Earth Engine: Landsat Interactive App Map</strong> 🛰️</h2>
 <p align="center">
   <img src="./../minera_panama.jpg" alt="Centered Image">
   <br>
   <i>Median composites of Landsat 7 Images.</i>
 </p>
 
-<p>Introduction:
-The map service created using Google Earth Engine is designed to provide an interactive platform for users to explore median composites of Landsat 7 satellite images over a specific area in Panama. This area includes a mine that has become a focal point for demonstrations and controversy due to allegations of bribery and corruption associated with the government. The objective is to enable users to visually analyze and understand the changes in the landscape over different periods, shedding light on the environmental impact and potential concerns related to the mining project.</p>
-<p>Technical Details:</p>
+<p><strong>Introduction</strong>:</p>
+<p>The map service created using Google Earth Engine is designed to provide an interactive platform for users to explore median composites of Landsat 7 satellite images over a specific area in Panama. This area includes a mine that has become a focal point for demonstrations and controversy due to allegations of bribery and corruption associated with the government. The objective is to enable users to visually analyze and understand the changes in the landscape over different periods, shedding light on the environmental impact and potential concerns related to the mining project.</p>
+<p><strong>Technical Details</strong>:</p>
 <p>🗺️ Map Centering:</p>
 <p>The map is centered on the Region of Interest (ROI), providing an initial overview of the specified area.</p>
 <p>🔍 Data Filtering:</p>
