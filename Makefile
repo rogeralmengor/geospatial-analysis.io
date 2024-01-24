@@ -9,7 +9,6 @@ format:
 lint: 
 	pylint --disable=R,C *.py src/*.py
 mypy:
-	mypy --install-types
 	mypy *.py src/*.py
 build: 
 	# build container
