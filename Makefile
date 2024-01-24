@@ -14,7 +14,7 @@ mypy:
 build: 
 	# build container
 test: 
-	#test
+	python -m pytest -vv *.py --cov=src test_logic.py
 deploy: 
 	#deploy
-all: install lint test deploy
+all: install format lint mypy build test deploy

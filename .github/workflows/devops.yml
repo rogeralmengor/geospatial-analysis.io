@@ -20,7 +20,7 @@ jobs:
           make mypy
       - name: Test with pytest
         run: |
-          #make test
+          make test
       - name: Format Code
         run: |
           #make format
