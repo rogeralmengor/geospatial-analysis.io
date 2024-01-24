@@ -2,6 +2,7 @@ install:
 	# install commands
 	pip install --upgrade pip &&\
 		pip install -r requirements.txt
+	python -m textblob.download_corpora
 format: 
 	#format code
 	black *.py
@@ -13,7 +14,7 @@ mypy:
 build: 
 	# build container
 test: 
-	python -m pytest -vv *.py --cov=src test_logic.py
+	python -m pytest -vv --cov=src --cov=main test_*.py
 deploy: 
 	#deploy
 all: install format lint mypy build test deploy
