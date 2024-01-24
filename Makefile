@@ -11,6 +11,8 @@ lint:
 mypy:
 	mypy --install-types
 	mypy *.py src/*.py
+build: 
+	# build container
 test: 
 	#test
 deploy: 
