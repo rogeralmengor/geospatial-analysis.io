@@ -7,7 +7,10 @@ format:
 	black *.py
 	black src/*
 lint: 
-	#flake8 or #pylint
+	pylint --disable=R,C *.py src/*.py
+mypy:
+	mypy --install-types
+	mypy *.py src/*.py
 test: 
 	#test
 deploy: 
