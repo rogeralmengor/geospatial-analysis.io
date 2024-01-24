@@ -8,4 +8,3 @@ Roger Almengor González
 
 # Contact and website
 rogeralmengor@gmail.com <br>
-roger-almengor.xyz
