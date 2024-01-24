@@ -12,9 +12,11 @@ lint:
 mypy:
 	mypy *.py src/*.py
 build: 
-	# build container
+	docker build -t deploy-fastapi .
 test: 
 	python -m pytest -vv --cov=src --cov=main test_*.py
+run: 
+	docker run -p 127.0.0.1:8080:8080 fa1cf0977a0f
 deploy: 
-	#deploy
+	#docker build -t deploy-fastapi
 all: install format lint mypy build test deploy
