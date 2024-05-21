@@ -2,15 +2,11 @@
 
 <div class="container">
   <div class="text-left">
-  <i><p style="font-size: 14px;"><b>Welcome to my online hub!</b> Here, you'll discover an all-encompassing glimpse into my world -both personal and professional-. This GitHub-hosted website is your gateway to my diverse interests, contact information, side projects, and a captivating blog where I share insights on programming, environmental matters, and the fascinating realm of earth science.</p>
+  <i><p style="font-size: 14px;"><b>Hello, I am Roger Almengor González, an environmental science professional specializing in remote sensing and geographic information sciences. My technical skills include database management, design, and execution, as well as programming in Python, Julia, and C. I am currently learning Rust. I have experience managing forestry projects, including mixed-species reforestation in my home country.
 
-<p style="font-size: 14px;">In recent years, my curiosity has led me down an exciting path of exploring cutting-edge technologies in geospatial data analysis, all while delving deep into the profound impact of human activities on our environment.</p>
+In my free time, I enjoy learning about geopolitics, playing musical instruments, and hiking in the Alps on the Germany-Austria border.
 
-<p style="font-size: 14px;">My academic journey began at the University of Panama, where I earned my degree in Environmental Engineering. This educational foundation opened doors to valuable experiences in the field of forestry engineering, where I dedicated years to tropical forest plantations in my home country.</p>
-
-<p style="font-size: 14px;">However, my quest for knowledge led me to Germany, where I embarked on a master's degree in sustainable resource management. It was during this transformative phase that I unearthed my true passion: remote sensing. Over the years, I've dedicated myself to this field, blending my talents in both the private and research sectors. My recent focus lies in crafting innovative geospatial solutions tailored to the dynamic agricultural landscape of Europe.</p>
-
-<p style="font-size: 14px;">What truly fuels my fire is the opportunity to collaborate with like-minded individuals, not only within the sector but also across diverse disciplines. Together, we can forge ideas that hold the potential to transform our planet into a better, more sustainable place for all of us to call home. Let's connect, share, and make a positive impact on the world around us. Welcome to my world of exploration and innovation!</p>
+For more detailed information about my professional experience, please download my updated CV from the following link.</p>
 </i>
 <br>
 <br>
