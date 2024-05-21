@@ -2,6 +2,6 @@
 import numpy as np 
 import geopandas as gpd
 
-def transform_array_to_gdf(in_arr: np.ndarray)->gpd.GeoDataFrame:
-    """Transform an array to geopandas.GeoDataFrame object."""
-    return 
+def hello_user(user:str)->None:
+    """Say hello to a user"""
+    print(f"Hello {user}!")
