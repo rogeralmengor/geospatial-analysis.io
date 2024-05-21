@@ -5,12 +5,12 @@ install:
 	python -m textblob.download_corpora
 format: 
 	#format code
-	black *.py
-	black src/*
+	black 
+	black src/*.py
 lint: 
-	pylint --disable=R,C *.py src/*.py
+	pylint --disable=R,C src/*.py
 mypy:
-	mypy *.py src/*.py
+	mypy src/*.py
 build: 
 	docker build -t deploy-fastapi .
 test: 
