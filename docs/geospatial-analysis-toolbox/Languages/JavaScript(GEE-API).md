@@ -987,6 +987,59 @@ Map.addLayer(imgs_2022.mean(), band_viz, 'S5P N02_2022');
 ```
 </details>
 
+## **Google Earth Engine App - Minera Panama**
+
+This project utilizes Earth Engine, a cloud-based platform for geospatial analysis, to process Landsat 7 satellite imagery to create True Color COmposites in the region of Petaquilla, Republic of Panama. The script focuses on an area within Donoso District, which is part of the Mesoamerican Biological Corridor.
+
+This workflow automates the creation, visualization, and export of median composites of Landsat 7 images for monitoring the Petaquilla Minera Panama area over time, including the creation of an annotated GIF animation.
+
+
+**Description of Functions and Steps**
+
+***Functions***
+
+***applyScaleFactors(image):***
+
+Adjusts optical and thermal bands of an image using specific scaling factors for accurate representation.
+
+***maskL7srClouds(image):***
+
+Masks out clouds and cloud shadows in Landsat 7 images by using bitwise operations on QA_PIXEL data.
+
+***blendImage(image):***
+
+Applies a focal mean filter to smooth the image and blends it with the original image to reduce noise.
+
+***median_yearly_landsat_7(start, end):***
+
+Creates a median composite of Landsat 7 images for a specified date range, filtered by the AOI and cloud cover threshold.
+
+**Steps for the Application**
+
+* Define Area of Interest (AOI):
+
+* Set the AOI to the geometry variable.
+
+* Create a buffered extent around the AOI for analysis.
+
+* Set Cloud Cover Threshold: Define the maximum acceptable cloud cover for images (set to 100%).
+
+* Prepare Date Ranges: Define periods for data collection and segment years into intervals. Concatenate years with periods to generate specific date ranges.
+
+* Generate Composites: For each date range, create median composites of Landsat 7 images using the median_yearly_landsat_7 function.
+Apply cloud masking and image blending to enhance the quality of the composites. Clip the composites to the AOI and add them to the map.
+
+* Export Composites: Export the generated composites to Google Drive as GeoTIFF files with descriptive names.
+
+* Annotate Images: Use the text package to annotate the composites with labels.
+
+* Create a collection of annotated images.
+
+* Create GIF Animation:
+
+Define GIF parameters, including region, dimensions, and frame rate.
+Generate and display a GIF animation of the annotated image collection.
+
 <details>
   <summary>Code</summary>
 ```javascript title="petaquilla_mosaics.js" linenums="1"
