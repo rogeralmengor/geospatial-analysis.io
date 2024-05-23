@@ -996,6 +996,7 @@ This workflow automates the creation, visualization, and export of median compos
 
 **Description of Functions and Steps**
 
+
 ***Functions***
 
 ***applyScaleFactors(image):***
@@ -1236,6 +1237,10 @@ print(annotated_col.getVideoThumbURL(gifParams));
 // Render the GIF animation in the console.
 print(ui.Thumbnail(annotated_col, gifParams));
 ```
+
+***Google Earth Engine App***
+[Minera Panama Area](**https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama)**
+
 </details>
 
 <br>
