@@ -12,4 +12,4 @@ mypy:
 	mypy src/*.py
 test: 
 	python -m pytest -vv --cov=src --cov=main src/test_*.py
-all: install format lint mypy build test deploy
+all: install format lint mypy test
