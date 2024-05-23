@@ -671,6 +671,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#google-earth-engine-app-minera-panama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Earth Engine App - Minera Panama
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -750,6 +759,15 @@
   <a href="#monitoring-nitrogen-dioxide-in-panama-city-with-sentinel-5p-imagery" class="md-nav__link">
     <span class="md-ellipsis">
       💨 Monitoring Nitrogen Dioxide in Panama City with Sentinel-5P Imagery 🏙️
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#google-earth-engine-app-minera-panama" class="md-nav__link">
+    <span class="md-ellipsis">
+      Google Earth Engine App - Minera Panama
     </span>
   </a>
   
@@ -2579,6 +2597,55 @@ This analysis provides a comprehensive overview of tropospheric NO2 density chan
 </span></code></pre></div></td></tr></table></div>
 </details>
 
+<h2 id="google-earth-engine-app-minera-panama"><strong>Google Earth Engine App - Minera Panama</strong></h2>
+<p>This project utilizes Earth Engine, a cloud-based platform for geospatial analysis, to process Landsat 7 satellite imagery to create True Color COmposites in the region of Petaquilla, Republic of Panama. The script focuses on an area within Donoso District, which is part of the Mesoamerican Biological Corridor.</p>
+<p>This workflow automates the creation, visualization, and export of median composites of Landsat 7 images for monitoring the Petaquilla Minera Panama area over time, including the creation of an annotated GIF animation.</p>
+<p><strong>Description of Functions and Steps</strong></p>
+<p><strong><em>Functions</em></strong></p>
+<p><strong><em>applyScaleFactors(image):</em></strong></p>
+<p>Adjusts optical and thermal bands of an image using specific scaling factors for accurate representation.</p>
+<p><strong><em>maskL7srClouds(image):</em></strong></p>
+<p>Masks out clouds and cloud shadows in Landsat 7 images by using bitwise operations on QA_PIXEL data.</p>
+<p><strong><em>blendImage(image):</em></strong></p>
+<p>Applies a focal mean filter to smooth the image and blends it with the original image to reduce noise.</p>
+<p><strong><em>median_yearly_landsat_7(start, end):</em></strong></p>
+<p>Creates a median composite of Landsat 7 images for a specified date range, filtered by the AOI and cloud cover threshold.</p>
+<p><strong>Steps for the Application</strong></p>
+<ul>
+<li>
+<p>Define Area of Interest (AOI):</p>
+</li>
+<li>
+<p>Set the AOI to the geometry variable.</p>
+</li>
+<li>
+<p>Create a buffered extent around the AOI for analysis.</p>
+</li>
+<li>
+<p>Set Cloud Cover Threshold: Define the maximum acceptable cloud cover for images (set to 100%).</p>
+</li>
+<li>
+<p>Prepare Date Ranges: Define periods for data collection and segment years into intervals. Concatenate years with periods to generate specific date ranges.</p>
+</li>
+<li>
+<p>Generate Composites: For each date range, create median composites of Landsat 7 images using the median_yearly_landsat_7 function.
+Apply cloud masking and image blending to enhance the quality of the composites. Clip the composites to the AOI and add them to the map.</p>
+</li>
+<li>
+<p>Export Composites: Export the generated composites to Google Drive as GeoTIFF files with descriptive names.</p>
+</li>
+<li>
+<p>Annotate Images: Use the text package to annotate the composites with labels.</p>
+</li>
+<li>
+<p>Create a collection of annotated images.</p>
+</li>
+<li>
+<p>Create GIF Animation:</p>
+</li>
+</ul>
+<p>Define GIF parameters, including region, dimensions, and frame rate.
+Generate and display a GIF animation of the annotated image collection.</p>
 <details>
   <summary>Code</summary>
 <div class="language-javascript highlight"><table class="highlighttable"><tr><th colspan="2" class="filename"><span class="filename">petaquilla_mosaics.js</span></th></tr><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1">  1</a></span>
