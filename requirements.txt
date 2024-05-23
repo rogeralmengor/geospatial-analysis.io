@@ -12,3 +12,4 @@ httpx==0.26.0
 mkdocs-material
 numpy
 geopandas
+mkdocs-blogging-plugin
