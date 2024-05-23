@@ -987,7 +987,7 @@ Map.addLayer(imgs_2022.mean(), band_viz, 'S5P N02_2022');
 ```
 </details>
 
-## :tree: :tiger: :parrot: **Google Earth Engine App - Minera Panama** :truck: :diamond:
+## :frog: :monkey: :tiger: :parrot: **Google Earth Engine App - Minera Panama** :truck: :diamonds:
 
 This project utilizes Earth Engine, a cloud-based platform for geospatial analysis, to process Landsat 7 satellite imagery to create True Color COmposites in the region of Petaquilla, Republic of Panama. The script focuses on an area within Donoso District, which is part of the Mesoamerican Biological Corridor.
 
