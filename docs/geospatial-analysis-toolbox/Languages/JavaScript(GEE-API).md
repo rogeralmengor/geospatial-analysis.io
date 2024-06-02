@@ -1243,6 +1243,8 @@ print(ui.Thumbnail(annotated_col, gifParams));
 <html>
 [Minera Panama](https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama)
 </html>
+<iframe src="https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+
 
 <br>
 <sup><sub><i>Please Note: All examples provided in this documentation have been created within the Google Earth Engine platform with the intention of ensuring reproducibility. If you encounter any issues or have questions, feel free to reach out to me at rogeralmengor@gmail.com. The code is made available for public use without any legal restrictions, but I would greatly appreciate it if you could acknowledge my efforts in developing these tools. Your recognition would mean a lot to me as a fellow developer.</i></sub></sup>
