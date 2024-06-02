@@ -1239,7 +1239,7 @@ print(ui.Thumbnail(annotated_col, gifParams));
 ```
 
 ***Google Earth Engine App***
-[Minera Panama Area](**https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama)**
+[Minera Panama](https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama)
 
 </details>
 
