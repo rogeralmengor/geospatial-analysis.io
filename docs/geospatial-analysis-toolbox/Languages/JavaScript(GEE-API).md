@@ -1237,10 +1237,10 @@ print(annotated_col.getVideoThumbURL(gifParams));
 // Render the GIF animation in the console.
 print(ui.Thumbnail(annotated_col, gifParams));
 ```
-
+<details>
 ***Google Earth Engine App***
 [Minera Panama](https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama)
-
+</details>
 </details>
 
 <br>
