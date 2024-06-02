@@ -1240,9 +1240,9 @@ print(ui.Thumbnail(annotated_col, gifParams));
 </details>
 
 ***Google Earth Engine App***
+<html>
 [Minera Panama](https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama)
-[] (https://code.earthengine.google.com/553fb2c5b5a0973c10fa71e200eba258)
-
+</html>
 
 <br>
 <sup><sub><i>Please Note: All examples provided in this documentation have been created within the Google Earth Engine platform with the intention of ensuring reproducibility. If you encounter any issues or have questions, feel free to reach out to me at rogeralmengor@gmail.com. The code is made available for public use without any legal restrictions, but I would greatly appreciate it if you could acknowledge my efforts in developing these tools. Your recognition would mean a lot to me as a fellow developer.</i></sub></sup>
