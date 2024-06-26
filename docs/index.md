@@ -6,7 +6,7 @@
 
 In my free time, I enjoy learning about geopolitics, playing musical instruments, and hiking in the Alps on the Germany-Austria border, near my based town.
 
-For more detailed information about my professional experience, please download my updated CV from the following [link]("bio/CV_ROGER_ALMENGOR_GONZALEZ.pdf"){:target="_blank" rel="noopener"}.</p>
+For more detailed information about my professional experience, please download my updated CV from the following <a href="bio/CV_ROGER_ALMENGOR_GONZALEZ.pdf" target="_blank" rel="noopener">link</a>..</p>
 </i>
 <br>
 <br>
