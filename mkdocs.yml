@@ -83,7 +83,7 @@ theme:
 #    - navigation.instant
 
   palette:
-    primary: teal 
+    primary: grey 
 
   font:
     text: Montserrat
