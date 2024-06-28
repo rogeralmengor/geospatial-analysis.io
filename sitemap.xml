@@ -6,6 +6,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://rogeralmengor.github.io/geospatial-analysis.io/CV/</loc>
+         <lastmod>2024-06-28</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
@@ -47,11 +52,6 @@
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/statistics_with_SQL/</loc>
-         <lastmod>2024-06-28</lastmod>
-         <changefreq>daily</changefreq>
-    </url>
-    <url>
-         <loc>https://rogeralmengor.github.io/geospatial-analysis.io/cv/CV/</loc>
          <lastmod>2024-06-28</lastmod>
          <changefreq>daily</changefreq>
     </url>
