@@ -166,7 +166,7 @@
 </tr>
 </tbody>
 </table>
-<p><a href="http://de.wikipedia.org/wiki/Gemeinsamer_Europ%C3%A4ischer_Referenzrahmen">http://de.wikipedia.org/wiki/Gemeinsamer_Europ%C3%A4ischer_Referenzrahmen</a></p>
+<p><a href="https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages">https://en.wikipedia.org/wiki/Common_European_Framework_of_Reference_for_Languages</a></p>
 <p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Digital competence:</strong></p>
@@ -243,8 +243,6 @@
 <p><strong>&nbsp;</strong></p>
 <p><strong>Countries of Work Experience:</strong></p>
 <p>Republic of Panama</p>
-<p>&nbsp;</p>
-<p>&nbsp;</p>
 <p>&nbsp;</p>
 <p><strong>Employment Record: </strong></p>
 <table>
