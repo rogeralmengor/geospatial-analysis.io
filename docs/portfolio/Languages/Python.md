@@ -1,4 +1,4 @@
-##🎥 **Download imagery using the Asyncio library** 
+## 💾 **Download imagery using the Asyncio library** 
 
 Python has become the go-to programming language for data analysts and AI professionals in recent years. While it's praised for its simplicity and extensive libraries, developers often criticize its speed. However, by optimizing code and leveraging Python's built-in concurrency features, we can significantly improve performance, especially for I/O-bound tasks.
 In this practical tutorial, we'll explore two approaches to downloading satellite imagery using the Google Earth Engine API: a sequential method and an asynchronous method using asyncio. Asyncio, introduced in Python 3.4 (2014), is particularly well-suited for I/O-bound tasks like API calls and file downloads.
