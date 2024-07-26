@@ -90,7 +90,7 @@ image_ids now contains a list of all image IDs that meet our criteria.
 ### 4. Define download functions:
 
 <summary>Code</summary>
-````python
+```python
 def download_snippet(image_id:str, collection_id:str, roi:ee.Geometry, fc, output_folder)->str:
     """Downloads the 4 images but only for 1 image id"""
     print(f"Downloading {image_id}")
