@@ -5,6 +5,34 @@ In this practical tutorial, we'll explore two approaches to downloading satellit
 We'll demonstrate these concepts by downloading Sentinel-2 satellite images for a region in David, Chiriquí, Panama. Our experiment will compare the performance of both methods, providing insights into the benefits of asynchronous programming for data retrieval tasks.
 This tutorial focuses on practical implementation rather than deep theoretical concepts. By the end, you'll have a better understanding of how to optimize Python code for I/O-bound scenarios, enhancing your geospatial data processing toolkit.
 
+
+Let's start with the code explanation:
+
+### Import statements and initialization:
+<summary>Code</summary>
+```python
+import os
+import pathlib
+import time
+import asyncio
+from functools import partial
+
+import ee
+import geemap
+import nest_asyncio
+
+# Apply nest_asyncio to allow running asyncio within Jupyter or similar environments
+nest_asyncio.apply()
+
+# Initialize Earth Engine
+try:
+    ee.Initialize()
+except Exception:
+    ee.Authenticate()
+    ee.Initialize(project="ee-thebeautyofthepixel")
+```
+
+
 <details>
   <summary>Code</summary>
 ```python title="download_s2_snippets.py" linenums="1"
