@@ -5,7 +5,10 @@ In this practical tutorial, we'll explore two approaches to downloading satellit
 We'll demonstrate these concepts by downloading Sentinel-2 satellite images for a region in David, Chiriquí, Panama. Our experiment will compare the performance of both methods, providing insights into the benefits of asynchronous programming for data retrieval tasks.
 This tutorial focuses on practical implementation rather than deep theoretical concepts. By the end, you'll have a better understanding of how to optimize Python code for I/O-bound scenarios, enhancing your geospatial data processing toolkit. Let's start with the code explanation:
 
-### 1. Import statements and initialization:
+### 1. Setting Up the Environment:
+
+First, we need to import the necessary libraries and initialize our environment:
+
 <summary>Code</summary>
 ```python
 import os
@@ -27,18 +30,7 @@ try:
 except Exception:
     ee.Authenticate()
     ee.Initialize(project="ee-thebeautyofthepixel")
-```
-### Explanation:
 
-We import necessary Python modules, including os, pathlib, time, and asyncio for file operations, timing, and asynchronous programming.
-We import ee (Earth Engine API) and geemap for working with satellite imagery.
-nest_asyncio is applied to allow running asyncio in environments like Jupyter notebooks.
-We initialize the Earth Engine API, authenticating if necessary.
-
-### 2. Define constants and set up the area of interest:
-
-<summary>Code</summary>
-```python
 # Define constants
 OUT_DIR = os.path.expanduser("~/Downloads")
 START_DATE = "2024-01-01"
@@ -58,15 +50,11 @@ bbox = ee.Geometry.Rectangle([
     CENTER_LAT + SIDE_LENGTH/2   # max latitude
 ])
 ```
+In this section, we set up our working environment by importing required libraries and initializing the Earth Engine API. We also define our constants, including the geographical area of interest centered on David, Chiriquí, Panama.
 
-### Explanation:
+### 2. Filter image collection:
 
-We define constants for the output directory, date range, satellite collection ID, and geographical area of interest.
-The area of interest is centered on David, Chiriquí, Panama (8.3958° N, 82.4350° W).
-We create the output directory if it doesn't exist.
-A bounding box is defined using Earth Engine's geometry functions.
-
-### 3. Filter image collection:
+Next, we filter the Sentinel-2 image collection to get the images we need:
 
 <summary>Code</summary>
 ```python
@@ -81,13 +69,11 @@ bandNames_l2a = l2a_images.aggregate_array('system:index')
 image_ids = [image_id for image_id in bandNames_l2a.getInfo()]
 ```
 
-### Explanation:
+This step narrows down our dataset to the specific images we want to download, based on date range, location, and cloud cover.
 
-We filter the Sentinel-2 image collection based on date range, geographical bounds, and cloud cover.
-The filtered images are unmasked and their IDs are extracted.
-image_ids now contains a list of all image IDs that meet our criteria.
+### 3. Define download functions:
 
-### 4. Define download functions:
+To compare sequential and asynchronous downloads, we define several functions:
 
 <summary>Code</summary>
 ```python
@@ -147,14 +133,11 @@ async def download_all_snippets_async(image_ids, collection_id, roi, fc, output_
     return await asyncio.gather(*tasks)
 ```
 
-### Explanation:
+These functions handle the actual download process for both sequential and asynchronous methods. The asynchronous functions use Python's asyncio library to enable concurrent downloads.
 
-download_snippet: A synchronous function that downloads a single image.
-download_snippet_async: An asynchronous wrapper for the download function.
-download_snippet_sync: The synchronous part of the download process, separated to work with asyncio.
-download_all_snippets_async: An asynchronous function that creates tasks for downloading all images concurrently.
+### 4. Running comparison
 
-### 5. Running comparison
+Finally, we perform both sequential and asynchronous downloads and compare their performance:
 
 <summary>Code</summary>
 ```python 
@@ -188,13 +171,13 @@ speedup = execution_time_sequential / execution_time_async
 print(f"Speedup factor: {speedup:.2f}x")
 ```
 
-### Explanation: 
+This section demonstrates how to execute both download methods and measure their performance. By comparing the execution times, we can see the benefits of asynchronous programming for I/O-bound tasks like downloading satellite imagery.
 
-We perform both sequential and asynchronous downloads, timing each method.
-The sequential method uses a simple for loop to download images one by one.
-The asynchronous method uses asyncio to download images concurrently.
-We compare the execution times and calculate the speedup factor.
+### Conclusion:
+Proper implementation of asynchronous programming can lead to substantial performance improvements.
+For geospatial data processing, optimizing data retrieval can significantly reduce overall processing time. As in some videos I've seen in the past recommend: weigh the use of asyncronous Programming for response-driven applications, which depends on external services. If your process is depending on your CPU power, then go for multiprocessing as an option, and to try to utilize the full capacity of your multicore machine. Only by understanding and applying these concepts (experimenting I would suggest), data analysts and AI professionals can significantly improve the performance of their geospatial data processing workflows.
 
+For the record, I will post in the next lines, the complete code, so you can play around with it, and modify it according to your needs.
 
 <details>
   <summary>Code</summary>
