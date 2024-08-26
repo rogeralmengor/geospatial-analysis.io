@@ -6,24 +6,32 @@
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width,initial-scale=1">
       
+        <meta name="description" content="Exploring a powerful technique from git tools to split a commit by the patches added in a file.">
       
       
       
+        <link rel="canonical" href="https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/iteractive_staging/">
       
       
-      <link rel="icon" href="/geospatial-analysis.io/assets/images/favicon.png">
+        <link rel="prev" href="../functional_programming/">
+      
+      
+        <link rel="next" href="../julia_vs_python/">
+      
+      
+      <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.6.0, mkdocs-material-9.5.24">
     
     
       
-        <title>Roger Almengor González</title>
+        <title>Using iteractive staging to split a commit - Roger Almengor González</title>
       
     
     
-      <link rel="stylesheet" href="/geospatial-analysis.io/assets/stylesheets/main.6543a935.min.css">
+      <link rel="stylesheet" href="../../../assets/stylesheets/main.6543a935.min.css">
       
         
-        <link rel="stylesheet" href="/geospatial-analysis.io/assets/stylesheets/palette.06af60db.min.css">
+        <link rel="stylesheet" href="../../../assets/stylesheets/palette.06af60db.min.css">
       
       
   
@@ -83,9 +91,9 @@
       
     
     
-      <link rel="stylesheet" href="/geospatial-analysis.io/stylesheets/extra.css">
+      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
-    <script>__md_scope=new URL("/geospatial-analysis.io/",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
       
 
@@ -108,6 +116,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#using-iteractive-staging-to-split-a-commit" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -120,7 +133,7 @@
 
 <header class="md-header md-header--shadow" data-md-component="header">
   <nav class="md-header__inner md-grid" aria-label="Header">
-    <a href="/geospatial-analysis.io/." title="Roger Almengor González" class="md-header__button md-logo" aria-label="Roger Almengor González" data-md-component="logo">
+    <a href="../../.." title="Roger Almengor González" class="md-header__button md-logo" aria-label="Roger Almengor González" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -140,7 +153,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              
+              Using iteractive staging to split a commit
             
           </span>
         </div>
@@ -178,7 +191,7 @@
 
 <nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
   <label class="md-nav__title" for="__drawer">
-    <a href="/geospatial-analysis.io/." title="Roger Almengor González" class="md-nav__button md-logo" aria-label="Roger Almengor González" data-md-component="logo">
+    <a href="../../.." title="Roger Almengor González" class="md-nav__button md-logo" aria-label="Roger Almengor González" data-md-component="logo">
       
   
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54Z"/></svg>
@@ -196,7 +209,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/." class="md-nav__link">
+      <a href="../../.." class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -216,7 +229,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/CV/" class="md-nav__link">
+      <a href="../../../CV/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -233,17 +246,19 @@
       
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
         
           
           <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
@@ -257,7 +272,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3">
             <span class="md-nav__icon md-icon"></span>
             Blog
@@ -271,7 +286,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/" class="md-nav__link">
+      <a href="../../" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -289,17 +304,19 @@
                 
   
   
+    
   
   
+  
     
     
     
     
-    <li class="md-nav__item md-nav__item--nested">
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
       
         
         
-        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" >
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3_2" checked>
         
           
           <label class="md-nav__link" for="__nav_3_2" id="__nav_3_2_label" tabindex="0">
@@ -313,7 +330,7 @@
             <span class="md-nav__icon md-icon"></span>
           </label>
         
-        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="false">
+        <nav class="md-nav" data-md-level="2" aria-labelledby="__nav_3_2_label" aria-expanded="true">
           <label class="md-nav__title" for="__nav_3_2">
             <span class="md-nav__icon md-icon"></span>
             Posts
@@ -327,7 +344,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/download_brandenburg_data/" class="md-nav__link">
+      <a href="../download_brandenburg_data/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -348,7 +365,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/functional_programming/" class="md-nav__link">
+      <a href="../functional_programming/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -366,10 +383,19 @@
                 
   
   
+    
   
   
-    <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/iteractive_staging/" class="md-nav__link">
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
         
   
   <span class="md-ellipsis">
@@ -378,6 +404,7 @@
   
 
       </a>
+      
     </li>
   
 
@@ -390,7 +417,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/julia_vs_python/" class="md-nav__link">
+      <a href="../julia_vs_python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -411,7 +438,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/lst_modis/" class="md-nav__link">
+      <a href="../lst_modis/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -432,7 +459,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/nox_levels_in_panama/" class="md-nav__link">
+      <a href="../nox_levels_in_panama/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -453,7 +480,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/refactoring_with_chat_gpt/" class="md-nav__link">
+      <a href="../refactoring_with_chat_gpt/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -474,7 +501,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/river_dam_el_valle/" class="md-nav__link">
+      <a href="../river_dam_el_valle/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -495,7 +522,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/blog/posts/statistics_with_SQL/" class="md-nav__link">
+      <a href="../statistics_with_SQL/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -566,7 +593,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/portfolio/" class="md-nav__link">
+      <a href="../../../portfolio/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -622,7 +649,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/portfolio/Languages/JavaScript%28GEE-API%29/" class="md-nav__link">
+      <a href="../../../portfolio/Languages/JavaScript%28GEE-API%29/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -643,7 +670,7 @@
   
   
     <li class="md-nav__item">
-      <a href="/geospatial-analysis.io/portfolio/Languages/Python/" class="md-nav__link">
+      <a href="../../../portfolio/Languages/Python/" class="md-nav__link">
         
   
   <span class="md-ellipsis">
@@ -689,6 +716,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -700,8 +729,28 @@
             <div class="md-content" data-md-component="content">
               <article class="md-content__inner md-typeset">
                 
-  <h1>404 - Not found</h1>
+                  
 
+
+<h1 id="using-iteractive-staging-to-split-a-commit">Using iteractive staging to split a commit</h1>
+<p>I'm generally very curious about my work. However, in recent days, I had an pending task with Git. So I picked up the Git book written by Scott Chacon and Ben Straub, and I started reading it assiduously during this vacation. I thought I already knew and applied many things in my workflow, but the more I read through the pages of this book, the more I realized how far I was from using some of the powerful strategies and tools that Git makes available to improve my experience as a programmer.</p>
+<p>Today, I want to talk about a common problem we sometimes face when reviewing or publishing commits in our repository: how to split a commit that adds several independent lines of code, but which are added in a single commit. This is what we're going to describe in detail in the following blog post.</p>
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+
+                
               </article>
             </div>
           
@@ -735,14 +784,14 @@
     </div>
     
     
-    <script id="__config" type="application/json">{"base": "/geospatial-analysis.io/", "features": ["content.code.copy", "content.code.select"], "search": "/geospatial-analysis.io/assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
+    <script id="__config" type="application/json">{"base": "../../..", "features": ["content.code.copy", "content.code.select"], "search": "../../../assets/javascripts/workers/search.b8dbb3d2.min.js", "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}}</script>
     
     
-      <script src="/geospatial-analysis.io/assets/javascripts/bundle.081f42fc.min.js"></script>
+      <script src="../../../assets/javascripts/bundle.081f42fc.min.js"></script>
       
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
       
-        <script src="/geospatial-analysis.io/javascripts/highlight.js"></script>
+        <script src="../../../javascripts/highlight.js"></script>
       
     
   </body>
