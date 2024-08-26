@@ -13,3 +13,10 @@ def divide(a: float, b: float) -> float:
 def multiply(a: float, b: float) -> float:
     """Multiply a and b."""
     return a * b
+
+def factorial(n: int) -> int:
+    """Calculate the factorial of n."""
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
