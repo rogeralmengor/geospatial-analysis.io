@@ -46,7 +46,7 @@ We commit the changes:
 
 ```bash
 $ git add math_operations.py
-$ git commit -m "feat: adding module basic arithmetic operations." 
+$ git commit -m "feat: add module basic arithmetic operations." 
 ```
 
 # Creating factorial function
@@ -82,7 +82,7 @@ We add and commit the changes:
 
 ```bash
 $ git add math_operations.py
-$ git commit -m "feat: add factorial function.
+$ git commit -m "feat: add factorial function."
 ```
 
 We visualize our commit's tree by running:
@@ -93,8 +93,8 @@ git log --oneline --graph main
 The output looks like this:
 
 ```bash
-36710a0 (HEAD -> main, origin/main, origin/HEAD) feat: add factorial function.
-* 2c3a6ae feat: adding module basic arithmetic operations.
+* c291adb (HEAD -> main) feat: add factorial function.
+* fd18571 feat: add module basic arithmetic operations.
 ```
 
 # Starting the interactive rebasing/staging.
@@ -109,8 +109,8 @@ hint: Waiting for your editor to close the file...
 A text editor, (normaly VIM will open... if you set another text editor then, the latter will open), opens, and asks you to change the actions of the commit list, from which you are doing the rebasing. We change the <b>pick</b> keyword for the <b>edit</b> keyword.
 
 ```bash
-edit 2c3a6ae feat: adding module basic arithmetic operations.
-pick 36710a0 feat: add factorial function.
+edit fd18571 feat: adding module basic arithmetic operations.
+pick c291adb feat: add factorial function.
 
 # Rebase 8cca62b..36710a0 onto 8cca62b (2 commands)
 #
@@ -158,41 +158,210 @@ M       docs/blog/math_operations.py
 
 As you can see the the math_opeartions.py file has gone to a unstaged status. And we can start doing our modifications of the commits.
 
-For that sake run the following git command: 
+This is an important concept to bear in mind when doing this specific modification of the git history. There is the staging area in a git repository, which contains a copy of the files being changed in the next commits. However since the math_operations.py file does not exists in the previous commit, in order to add changes in this file, we have to create a file which will be patched against. The following command will do that for us, which basically adds an empty `math_operations.py` file in the index to start the interactive staging.
 
 ```bash 
-git add -i
+git add -N math_operations.py
 ```
 
-The output should look like that: 
+Once we do that, we can start adding the patches.
 
 ```bash
-staged     unstaged path
- 1:    unchanged        +8/-1 docs/blog/math_operations.py
-
-*** Commands ***
-  1: status       2: update       3: revert       4: add untracked
-  5: patch        6: diff         7: quit         8: help
-
-What now>5
+git add -p match_operations.py
 ```
 
-By entering <b>5 or p</b>, you will tell git to start the updating of the file you want to edit. Now, you can add the file number you want to edit:
+The output will look like this: 
 
 ```bash
-What now> p 
-           staged     unstaged path
-  1:    unchanged        +8/-1 docs/blog/math_operations.py
-
-Patch update>>1
+diff --git a/math_operations.py b/math_operations.py
+new file mode 100644
+index 0000000..615a19b
+--- /dev/null
++++ b/math_operations.py
+@@ -0,0 +1,15 @@
++def add(a: float, b: float) -> float:
++    """Add two numbers."""
++    return a + b
++
++def subtract(a: float, b: float) -> float:
++    """Subtract b from a."""
++    return a - b
++
++def divide(a: float, b: float) -> float:
++    """Divide a by b."""
++    return a / b
++
++def multiply(a: float, b: float) -> float:
++    """Multiply a and b."""
++    return a * b
+\ No newline at end of file
+(1/1) Stage addition [y,n,q,a,d,e,p,?]? 
 ```
+
+As you can see, since all the changes were introduced in the same commit at once, the patches, which are called hunks in this tool, appear as the entire file. That is not very usefull, since we want to create single commits for every function we are introducing.
+For that, lets type the option e, which stands for editing. And we'll start adding the changes one by one, in single commits.
+
+When typing `e`, a file named addp-hunk-edit.diff will be opened in your text editor, with the following contents:
 
 ```bash
-Patch update>> 1
-           staged     unstaged path
-* 1:    unchanged        +8/-1 docs/blog/math_operations.py
+# Manual hunk edit mode -- see bottom for a quick guide.
+@@ -0,0 +1,15 @@
++def add(a: float, b: float) -> float:
++    """Add two numbers."""
++    return a + b
++
++def subtract(a: float, b: float) -> float:
++    """Subtract b from a."""
++    return a - b
++
++def divide(a: float, b: float) -> float:
++    """Divide a by b."""
++    return a / b
++
++def multiply(a: float, b: float) -> float:
++    """Multiply a and b."""
++    return a * b
+\ No newline at end of file
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+# If the patch applies cleanly, the edited hunk will immediately be marked for staging.
+# If it does not apply cleanly, you will be given an opportunity to
+# edit again.  If all lines of the hunk are removed, then the edit is
+# aborted and the hunk is left unchanged.
 ```
 
-Important: the * next to each file means the file is to be staged.
+As you can see all the lines with the four functions we want to add individually are listed as an entire patch. Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: 
 
+```bash
+# Manual hunk edit mode -- see bottom for a quick guide.
+@@ -0,0 +1,15 @@
++def add(a: float, b: float) -> float:
++    """Add two numbers."""
++    return a + b
++
+\ No newline at end of file
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+# If the patch applies cleanly, the edited hunk will immediately be marked for staging.
+# If it does not apply cleanly, you will be given an opportunity to
+# edit again.  If all lines of the hunk are removed, then the edit is
+# aborted and the hunk is left unchanged.
+```
 
+After that being done, we can check out the status and the following should appear:
+
+```bash
+interactive rebase in progress; onto 6d5b423
+Last command done (1 command done):
+   edit fd18571 feat: add module basic arithmetic operations.
+Next command to do (1 remaining command):
+   pick 03413b7 feat: add factorial function.
+  (use "git rebase --edit-todo" to view and edit)
+You are currently splitting a commit while rebasing branch 'main' on '6d5b423'.
+  (Once your working directory is clean, run "git rebase --continue")
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   math_operations.py
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   math_operations.py
+```
+
+As you can see there are in the same file, changes that are ready to be commited (the step where we only left the function add, and remove all others), and changes to be staged (all the changes from the original hunk, or patch).
+
+Now just create a commit for the first function.
+
+```bash
+$ git commit -m "feat: add add function."
+
+[detached HEAD f78a69a] feat: add add function.
+ 1 file changed, 3 insertions(+)
+ create mode 100644 math_operations.py
+```
+
+Now we can again start the addition of the next patches.
+
+```bash
+$ git add -p math_operations.py
+
+diff --git a/math_operations.py b/math_operations.py
+index 81d2d3b..615a19b 100644
+--- a/math_operations.py
++++ b/math_operations.py
+@@ -1,3 +1,15 @@
+ def add(a: float, b: float) -> float:
+     """Add two numbers."""
+     return a + b
++
++def subtract(a: float, b: float) -> float:
++    """Subtract b from a."""
++    return a - b
++
++def divide(a: float, b: float) -> float:
++    """Divide a by b."""
++    return a / b
++
++def multiply(a: float, b: float) -> float:
++    """Multiply a and b."""
++    return a * b
+\ No newline at end of file
+(1/1) Stage this hunk [y,n,q,a,d,e,p,?]? 
+```
+
+As we can see now, the only patches to be added, are the lines where the subtract, divide and multiply function were added. We have to repeat the process, by deleting the lines we don't need by the next commit which is the addition of the subtract function. We have to start again the edit mode, by typing e, and then leaving only the lines which add the subtract function:
+
+```bash
+# Manual hunk edit mode -- see bottom for a quick guide.
+@@ -1,3 +1,15 @@
+ def add(a: float, b: float) -> float:
+     """Add two numbers."""
+     return a + b
++
++def subtract(a: float, b: float) -> float:
++    """Subtract b from a."""
++    return a - b
++
+\ No newline at end of file
+# ---
+# To remove '-' lines, make them ' ' lines (context).
+# To remove '+' lines, delete them.
+# Lines starting with # will be removed.
+# If the patch applies cleanly, the edited hunk will immediately be marked for staging.
+# If it does not apply cleanly, you will be given an opportunity to
+# edit again.  If all lines of the hunk are removed, then the edit is
+# aborted and the hunk is left unchanged.
+```
+
+Now we add and commit the subtract function.
+
+```bash
+$ git commit -m "feat: add subtract func."
+```
+
+We have to repeat the same sequence for the functions remaining: divide and multiply. For sake of simplicity we won't add these steps in this tutorial, you surely at this point know how to do so for the remaning code. The message is clear: just type `git add -p <file_name>`, type `e` for the manual editing, delete the lines which don't belong to this commit, then `git commit -m <message>`, and repeat until the last commit.
+
+Now we can continue with the interactive rebasing, since the next commit is only to add the factorial function, and it should apply without complains.
+
+```bash
+$ git rebase --continue
+Successfully rebased and updated refs/heads/main
+```
+
+Let's see our commit's tree:
+
+```bash
+c291adb (HEAD -> main) feat: add factorial function.
+92e7ccb feat: add multiply func.
+2c08167 feat: add divide func.
+2d5b8d7 feat: add subtract func.
+2a3a6c2 feat: add add func.
+```
+
+Yes!, we just created four commits which comprise the individual changes made in a file, from one commit which had all of the changes as a big chunk. In that way, we can keep our commit history cristal clear, and with individual, incremental changes on the file. If later we want to squeeze those changes or add them as an individual one by using the fix keyword, is our decision.
