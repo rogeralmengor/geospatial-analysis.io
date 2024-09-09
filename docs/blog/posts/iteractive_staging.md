@@ -26,23 +26,24 @@ The first thing we do is to create a file called math_operations.py. I am in a l
 
 Now we want to create the 4 functions for basic arithmetic operations (add, subtract, multiply and divide) in the math_opeartions.py file.
 
-```python
-def add(a: float, b: float) -> float:
-    """Add two numbers."""
-    return a + b
+!!! abstract "math_operations.py"
+    ```python
+    def add(a: float, b: float) -> float:
+        """Add two numbers."""
+        return a + b
 
-def subtract(a: float, b: float) -> float:
-    """Subtract b from a."""
-    return a - b
+    def subtract(a: float, b: float) -> float:
+        """Subtract b from a."""
+        return a - b
 
-def divide(a: float, b: float) -> float:
-    """Divide a by b."""
-    return a / b
+    def divide(a: float, b: float) -> float:
+        """Divide a by b."""
+        return a / b
 
-def multiply(a: float, b: float) -> float:
-    """Multiply a and b."""
-    return a * b
-```
+    def multiply(a: float, b: float) -> float:
+        """Multiply a and b."""
+        return a * b
+    ```
 
 We commit the changes:
 
@@ -56,30 +57,31 @@ We commit the changes:
 
 To create a bit of complexity in our rebasing, we add the factorial function to the math_operations.py file.
 
-```python
-def add(a: float, b: float) -> float:
-    """Add two numbers."""
-    return a + b
+!!! abstract "math_operations.py"
+    ```python
+    def add(a: float, b: float) -> float:
+        """Add two numbers."""
+        return a + b
 
-def subtract(a: float, b: float) -> float:
-    """Subtract b from a."""
-    return a - b
+    def subtract(a: float, b: float) -> float:
+        """Subtract b from a."""
+        return a - b
 
-def divide(a: float, b: float) -> float:
-    """Divide a by b."""
-    return a / b
+    def divide(a: float, b: float) -> float:
+        """Divide a by b."""
+        return a / b
 
-def multiply(a: float, b: float) -> float:
-    """Multiply a and b."""
-    return a * b
+    def multiply(a: float, b: float) -> float:
+        """Multiply a and b."""
+        return a * b
 
-def factorial(n: int) -> int:
-    """Calculate the factorial of n."""
-    if n == 0 or n == 1:
-        return 1
-    else:
-        return n * factorial(n-1)
-```
+    def factorial(n: int) -> int:
+        """Calculate the factorial of n."""
+        if n == 0 or n == 1:
+            return 1
+        else:
+            return n * factorial(n-1)
+    ```
 
 We add and commit the changes:
 
