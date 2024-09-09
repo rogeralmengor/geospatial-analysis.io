@@ -81,10 +81,13 @@ def factorial(n: int) -> int:
         return n * factorial(n-1)
 ```
 
-We add and commit the changes: 
+We add and commit the changes:
 
-!!! warning "$ git add math_operations.py"
-!!! warning "$ git commit -m 'feat: add factorial function.'"
+!!! warning "Adding and commiting new changes"
+    ```bash
+    $ git add math_operations.py
+    $ git commit -m 'feat: add factorial function.
+    ```
 
 We visualize our commit's tree by running:
 
