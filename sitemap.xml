@@ -2,77 +2,87 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/CV/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/download_brandenburg_data/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/functional_programming/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/iteractive_staging/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/julia_vs_python/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/lst_modis/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/nox_levels_in_panama/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/refactoring_with_chat_gpt/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/river_dam_el_valle/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/statistics_with_SQL/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://rogeralmengor.github.io/geospatial-analysis.io/geospatial-analysis-toolbox/</loc>
+         <lastmod>2024-09-09</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
+         <loc>https://rogeralmengor.github.io/geospatial-analysis.io/geospatial-analysis-toolbox/Languages/JavaScript%28GEE-API%29/</loc>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/portfolio/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/portfolio/Languages/JavaScript%28GEE-API%29/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
     <url>
          <loc>https://rogeralmengor.github.io/geospatial-analysis.io/portfolio/Languages/Python/</loc>
-         <lastmod>2024-08-26</lastmod>
+         <lastmod>2024-09-09</lastmod>
          <changefreq>daily</changefreq>
     </url>
 </urlset>
