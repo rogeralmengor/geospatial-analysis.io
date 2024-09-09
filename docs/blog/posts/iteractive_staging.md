@@ -17,7 +17,10 @@ Today, I want to explore the following question:
 
 The first thing we do is to create a file called math_operations.py. I am in a linux environment using <a href="https://github.com/features/codespaces" target="_blank">coding spaces</a>, so I create the file using the touch command.
 
-!!! warning "$ touch math_operations.py" 
+!!! warning "Creating initial file"
+    ```bash
+    $ touch math_operations.py
+    ```
 
 ## Create basic arithmethic functions and commit
 
@@ -43,8 +46,11 @@ def multiply(a: float, b: float) -> float:
 
 We commit the changes:
 
-!!! warning "$ git add math_operations.py"
-!!! warning "$ git commit -m 'feat: add module basic arithmetic operations.'"
+!!! warning "Adding and commiting changes in initial file"
+    ```bash
+    $ git add math_operations.py"
+    $ git commit -m "feat: add module basic arithmetic operations."
+    ```
 
 ## Creating factorial function
 
