@@ -4,7 +4,7 @@ description: Exploring a powerful technique from git tools to split a commit by 
 time: 2024-8-26
 ---
 
-# Using iteractive staging to split a commit
+## Using iteractive staging to split a commit
 
 I'm generally very curious about my work. However, in recent days, I had an pending task with Git. So I picked up the <a href="https://git-scm.com/book/en/v2" target="_blank">Git Book</a> written by Scott Chacon and Ben Straub, and I started reading it assiduously during this vacation. 
 
@@ -12,7 +12,7 @@ I thought I already knew and applied many things in my workflow, but the more I 
 
 Today, I want to talk about a common problem we sometimes face when reviewing or publishing commits in our repository: how to split a commit that adds several independent lines of code, but which are added in a single commit. This is what we're going to describe in detail in the following blog post.
 
-# Create initial python file. 
+## Create initial python file. 
 
 The first thing we do is to create a file called math_operations.py. I am in a linux environment using <a href="https://github.com/features/codespaces" target="_blank">coding spaces</a>, so I create the file using the touch command.
 
@@ -20,7 +20,7 @@ The first thing we do is to create a file called math_operations.py. I am in a l
 $ touch math_operations.py
 ```
 
-# Create basic arithmethic functions and commit
+## Create basic arithmethic functions and commit
 
 Now we want to create the 4 functions for basic arithmetic operations (add, subtract, multiply and divide) in the math_opeartions.py file.
 
@@ -49,7 +49,7 @@ $ git add math_operations.py
 $ git commit -m "feat: add module basic arithmetic operations." 
 ```
 
-# Creating factorial function
+## Creating factorial function
 
 To create a bit of complexity in our rebasing, we add the factorial function to the math_operations.py file.
 
@@ -97,7 +97,7 @@ The output looks like this:
 * fd18571 feat: add module basic arithmetic operations.
 ```
 
-# Starting the interactive rebasing/staging.
+## Starting the interactive rebasing/staging.
 
 Now we'll use the interactive rebasing to start our split of the first commit we did in this tutorial (This commit is the second commit going from top-down in our commit's tree):
 
