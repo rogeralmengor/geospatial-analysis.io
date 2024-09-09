@@ -48,7 +48,7 @@ We commit the changes:
 
 !!! warning "Adding and commiting changes in initial file"
     ```bash
-    $ git add math_operations.py"
+    $ git add math_operations.py
     $ git commit -m "feat: add module basic arithmetic operations."
     ```
 
@@ -101,14 +101,15 @@ We visualize our commit's tree by running:
 
 Now we'll use the interactive rebasing to start our split of the first commit we did in this tutorial (This commit is the second commit going from top-down in our commit's tree):
 
-!!! warning "git rebase -i HEAD~2
+!!! warning "Starting interactive rebasing to second commit down the tree"
     ```bash 
+    $ git rebase -i HEAD~2
     hint: Waiting for your editor to close the file...
     ```
 
 A text editor, (normaly VIM will open... if you set another text editor then, the latter will open), opens, and asks you to change the actions of the commit list, from which you are doing the rebasing. We change the <b>pick</b> keyword for the <b>edit</b> keyword.
 
-!!! warning ""
+!!! warning "Editing the git todo file"
     ```bash
     edit fd18571 feat: adding module basic arithmetic operations.
     pick c291adb feat: add factorial function.
@@ -143,12 +144,13 @@ A text editor, (normaly VIM will open... if you set another text editor then, th
     #
     # However, if you remove everything, the rebase will be aborted.
     #
-```
+    ```
 
 If you are in vim, you can close the file by pressing ```:wq```. Once closed you can make a reset of the HEAD, because we are at the level of the commit we want to split.
 
-!!! warning "$ git reset HEAD^"
+!!! warning "Resetting the last changes"
     ```bash
+    $ git reset HEAD^
     Unstaged changes after reset:
     M       docs/blog/math_operations.py
     ```
@@ -157,12 +159,16 @@ As you can see the the math_opeartions.py file has gone to a unstaged status. An
 
 This is an important concept to bear in mind when doing this specific modification of the git history. There is the staging area in a git repository, which contains a copy of the files being changed in the next commits. However since the math_operations.py file does not exists in the previous commit, in order to add changes in this file, we have to create a file which will be patched against. The following command will do that for us, which basically adds an empty `math_operations.py` file in the index to start the interactive staging.
 
-!!! warning "git add -N math_operations.py"
+!!! warning "Adding file to index"
+    ```bash
+    $ git add -N math_operations.py
+    ```
 
 Once we do that, we can start adding the patches.
 
-!!! warning "git add -p match_operations.py"
+!!! warning "Start adding patches"
     ```bash
+    $ git add -p match_operations.py
     diff --git a/math_operations.py b/math_operations.py
     new file mode 100644
     index 0000000..615a19b
@@ -193,7 +199,7 @@ For that, lets type the option e, which stands for editing. And we'll start addi
 
 When typing `e`, a file named addp-hunk-edit.diff will be opened in your text editor, with the following contents:
 
-!!! warning ""
+!!! warning "Manual editing of hunks"
     ```bash
     # Manual hunk edit mode -- see bottom for a quick guide.
     @@ -0,0 +1,15 @@
@@ -225,7 +231,7 @@ When typing `e`, a file named addp-hunk-edit.diff will be opened in your text ed
 
 As you can see all the lines with the four functions we want to add individually are listed as an entire patch. Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: 
 
-!!! warning ""
+!!! warning "Leaving only the lines we are going to first commit"
     ```bash
     # Manual hunk edit mode -- see bottom for a quick guide.
     @@ -0,0 +1,15 @@
@@ -246,8 +252,9 @@ As you can see all the lines with the four functions we want to add individually
 
 After that being done, we can check out the status and the following should appear:
 
-!!! warning "$ git status"
+!!! warning "Checking out status"
     ```bash
+    $ git status
     interactive rebase in progress; onto 6d5b423
     Last command done (1 command done):
     edit fd18571 feat: add module basic arithmetic operations.
@@ -271,8 +278,9 @@ As you can see there are in the same file, changes that are ready to be commited
 
 Now just create a commit for the first function.
 
-!!! warning "$ git commit -m feat: add add function."
+!!! warning "Commiting first changes"
     ```bash
+    $ git commit -m feat: add add function.
     [detached HEAD f78a69a] feat: add add function.
     1 file changed, 3 insertions(+)
     create mode 100644 math_operations.py
@@ -280,8 +288,9 @@ Now just create a commit for the first function.
 
 Now we can again start the addition of the next patches.
 
-!!! warning "$ git add -p math_operations.py"
+!!! warning "Adding second patches (subtract function)"
     ```bash
+    $ git add -p math_operations.py
     diff --git a/math_operations.py b/math_operations.py
     index 81d2d3b..615a19b 100644
     --- a/math_operations.py
@@ -308,8 +317,9 @@ Now we can again start the addition of the next patches.
 
 As we can see now, the only patches to be added, are the lines where the subtract, divide and multiply function were added. We have to repeat the process, by deleting the lines we don't need by the next commit which is the addition of the subtract function. We have to start again the edit mode, by typing e, and then leaving only the lines which add the subtract function:
 
-!!! warning "e"
+!!! warning "Manual editing of patches"
     ```bash
+    $ e
     # Manual hunk edit mode -- see bottom for a quick guide.
     @@ -1,3 +1,15 @@
     def add(a: float, b: float) -> float:
@@ -333,7 +343,10 @@ As we can see now, the only patches to be added, are the lines where the subtrac
 
 Now we add and commit the subtract function.
 
-!!! warning "$ git commit -m "feat: add subtract func."
+!!! warning "Commiting second patch"
+    ```bash
+    $ git commit -m "feat: add subtract func.
+    ```
 
 We have to repeat the same sequence for the functions remaining: divide and multiply. For sake of simplicity we won't add these steps in this tutorial, you surely at this point know how to do so for the remaning code. The message is clear: just type `git add -p <file_name>`, type `e` for the manual editing, delete the lines which don't belong to this commit, then `git commit -m <message>`, and repeat until the last commit.
 
