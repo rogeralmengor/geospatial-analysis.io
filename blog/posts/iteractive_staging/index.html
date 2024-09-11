@@ -1172,7 +1172,17 @@ For that, lets type the option e, which stands for editing. And we'll start addi
 </span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="c1"># aborted and the hunk is left unchanged.</span>
 </span></code></pre></div>
 </div>
-<p>As you can see all the lines with the four functions we want to add individually are listed as an entire patch. Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: </p>
+<p>As you can see all the lines with the four functions we want to add individually are listed as an entire patch.</p>
+<div class="admonition danger">
+<p class="admonition-title">Important!</p>
+<p>If you're using Git with VSCode and the editor doesn't open when you press 'e' during interactive staging (git add -p), there are a few steps you can take to resolve this issue:</p>
+<p>Check your Git configuration:
+* Make sure Git is configured to use VSCode as your default editor. 
+* You can do this by running:
+    <code>git config --global core.editor "code --wait"</code>
+* This sets VSCode as the default editor and tells Git to wait for the file to be closed before proceeding.</p>
+</div>
+<p>Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: </p>
 <div class="admonition warning">
 <p class="admonition-title">Leaving only the lines we are going to first commit</p>
 <div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Manual hunk edit mode -- see bottom for a quick guide.</span>
