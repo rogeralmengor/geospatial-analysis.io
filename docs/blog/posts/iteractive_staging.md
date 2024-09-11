@@ -231,7 +231,18 @@ When typing `e`, a file named addp-hunk-edit.diff will be opened in your text ed
     # aborted and the hunk is left unchanged.
     ```
 
-As you can see all the lines with the four functions we want to add individually are listed as an entire patch. Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: 
+As you can see all the lines with the four functions we want to add individually are listed as an entire patch.
+
+!!! danger "Important!"
+    If you're using Git with VSCode and the editor doesn't open when you press 'e' during interactive staging (git add -p), there are a few steps you can take to resolve this issue:
+
+    Check your Git configuration:
+    * Make sure Git is configured to use VSCode as your default editor. 
+    * You can do this by running:
+        ```git config --global core.editor "code --wait"```
+    * This sets VSCode as the default editor and tells Git to wait for the file to be closed before proceeding.
+
+Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: 
 
 !!! warning "Leaving only the lines we are going to first commit"
     ```bash
