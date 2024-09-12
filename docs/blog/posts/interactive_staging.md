@@ -1,5 +1,5 @@
 ---
-title: Using iteractive staging to split a commit 
+title: Using git add -N and git add -patch to split a single's file commit into several commits 
 description: Exploring a powerful technique from git tools to split a commit by the patches added in a file. 
 time: 2024-8-26
 ---
@@ -237,10 +237,10 @@ As you can see all the lines with the four functions we want to add individually
     If you're using Git with VSCode and the editor doesn't open when you press 'e' during interactive staging (git add -p), there are a few steps you can take to resolve this issue:
 
     Check your Git configuration:
-    * Make sure Git is configured to use VSCode as your default editor. 
-    * You can do this by running:
-        ```git config --global core.editor "code --wait"```
-    * This sets VSCode as the default editor and tells Git to wait for the file to be closed before proceeding.
+        Make sure Git is configured to use VSCode as your default editor. 
+        You can do this by running:
+            ```git config --global core.editor "code --wait"```
+        This sets VSCode as the default editor and tells Git to wait for the file to be closed before proceeding.
 
 Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: 
 
