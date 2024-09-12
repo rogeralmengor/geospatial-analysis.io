@@ -1,5 +1,5 @@
 ---
-title: Using *git add -N* and *git add -patch* to split a single's file commit into several commits 
+title: Using git add -N and git add -patch to split a single's file commit into several commits 
 description: Exploring a powerful technique from git tools to split a commit by the patches added in a file. 
 time: 2024-8-26
 ---
