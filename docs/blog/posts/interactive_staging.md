@@ -4,14 +4,14 @@ description: Exploring a powerful technique from git tools to split a commit by 
 time: 2024-8-26
 ---
 
-I'm generally very curious about my work. However, in recent days, I had an pending task with Git. So I picked up the <a href="https://git-scm.com/book/en/v2" target="_blank">Git Book</a> written by Scott Chacon and Ben Straub, and I started reading it assiduously during this vacation. 
+"We've all been there." You're making changes to one or more files, with a clear goal: implement a logging system. But as you tweak lines of code, you also end up improving a function here, removing some comments, adding a new function, getting rid of a few print statements… all unrelated to the logging system. Now, you're stuck with a bunch of mixed changes, and it's time to git add. Imagine you've already committed everything under the message "changes to the logging system"—sound familiar? Frustrating, right?
 
-I thought I already knew and applied many things in my workflow, but the more I read through the pages of this book, the more I realized how far I was from using some of the powerful strategies and tools that Git makes available to improve my experience as a programmer.
+Fortunately, Git provides a great tool called interactive staging. While it’s typically used for organizing changes from the working directory to the staging area, you can also apply it to older commits. This lets you cleanly organize your commits by theme, so each commit truly reflects the purpose of the changes.
 
-Today, I want to explore the following question: 
+In this tutorial, we'll explore how to do that and answer this key question:
 
 !!! question
-    How to split a commit that adds several independent lines of code, but which are added in a single commit?
+    How to split a commit that adds several independent lines of code, in a commit down the tree?
 
 ## Create initial python file. 
 
@@ -382,3 +382,8 @@ Let's see our commit's tree:
     ```
 
 Yes!, we just created four commits which comprise the individual changes made in a file, from one commit which had all of the changes as a big chunk. In that way, we can keep our commit history cristal clear, and with individual, incremental changes on the file. If later we want to squeeze those changes or add them as an individual one by using the fix keyword, is our decision.
+
+
+#### References
+
+Chacon, Scott, and Ben Straub. Pro Git. 2nd ed. Berkeley, CA: Apress, 2014. <a href="https://git-scm.com/book/en/v2." target="_blank">Git Book</a>
