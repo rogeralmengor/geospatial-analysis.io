@@ -55,6 +55,8 @@ theme:
   
   palette:
 
+    - scheme: slate
+
     # Palette toggle for automatic mode
     - media: "(prefers-color-scheme)"
       toggle:
