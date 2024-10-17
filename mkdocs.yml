@@ -36,7 +36,9 @@ markdown_extensions:
         custom_icons:
           - overrides/.icons
 
-theme: 
+theme:
+  palette:
+    - scheme: slate 
   name: material 
   icon:
     admonition:
@@ -53,10 +55,6 @@ theme:
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
   
-  palette:
-
-    - scheme: slate
-
     # Palette toggle for automatic mode
     #- media: "(prefers-color-scheme)"
     #  toggle:
