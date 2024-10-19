@@ -10,6 +10,8 @@
       
       
       
+        <link rel="canonical" href="https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/lst_modis/">
+      
       
         <link rel="prev" href="../julia_vs_python/">
       
@@ -84,10 +86,12 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Roboto Mono"}</style>
       
     
+    
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
     
       <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
@@ -166,9 +170,19 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
       </label>
     
@@ -176,9 +190,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
+    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
       </label>
     
@@ -190,43 +204,6 @@
       <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
-    
-      <label class="md-header__button md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-      </label>
-      <div class="md-search" data-md-component="search" role="dialog">
-  <label class="md-search__overlay" for="__search"></label>
-  <div class="md-search__inner" role="search">
-    <form class="md-search__form" name="search">
-      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
-      <label class="md-search__icon md-icon" for="__search">
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
-        
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
-      </label>
-      <nav class="md-search__options" aria-label="Search">
-        
-        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
-        </button>
-      </nav>
-      
-    </form>
-    <div class="md-search__output">
-      <div class="md-search__scrollwrap" data-md-scrollfix>
-        <div class="md-search-result" data-md-component="search-result">
-          <div class="md-search-result__meta">
-            Initializing search
-          </div>
-          <ol class="md-search-result__list" role="presentation"></ol>
-        </div>
-      </div>
-    </div>
-  </div>
-</div>
     
     
   </nav>
@@ -891,212 +868,350 @@ In this post, we are going to measure the changes in land temperature in this ar
 <p>First we filter our Feature collection using the method ee.Filter.inList which find all the records in a feature collection which values for a certain column ('NAME_3' in this case), match a declared list ('districts'). We will work with the municipalities of Bijagual, Cochea and Las Lomas. </p>
 <p>Because there are one than two districs in different provices named 'Bijagual', we apply an additional filter to keep all records for which the province 'Chiriquí' is found (filtering by the column 'NAME_1'). </p>
 <p>We add the layer, by applying an union algorithm, so the vector won't have any boundaries between the selected districts.</p>
-<p>```javascript linenums="1"
-// Feature Collection 
-var districts = ee.List(['Bijagual','Cochea','Las Lomas'])
-var AOI = table.filter(ee.Filter.inList('NAME_3', districts));
-var districts = AOI.filter(ee.Filter.eq('NAME_1', 'Chiriquí'));
-Map.addLayer(districts.union())</p>
-<pre><code>
-Now we'll try to center our may view. First we filter our feature collection, and keep only the 'Bijagual' district. Now we get the x, and y coordinate from this district and store it in the centroid_cochea_coor variable, by using the series of methods geometry, centroid, coordinates and getInfo. By array subscript we get the x and y variable. Finally we center the Map view using the x, and y coordinates.
-
-```javascript linenums=&quot;1&quot; 
-// Setting the Map to the coordinates of one of our districts
-var cochea_district = table.filter(ee.Filter.eq('NAME_3', 'Bijagual'));
-var centroid_cochea_coor = cochea_district.geometry().centroid().coordinates().getInfo();
-var x = centroid_cochea_coor[0];
-var y = centroid_cochea_coor[1];
-Map.setCenter(x, y, 10);
-</code></pre>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-0-1">1</a></span>
+<span class="normal"><a href="#__codelineno-0-2">2</a></span>
+<span class="normal"><a href="#__codelineno-0-3">3</a></span>
+<span class="normal"><a href="#__codelineno-0-4">4</a></span>
+<span class="normal"><a href="#__codelineno-0-5">5</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1"></a><span class="c1">// Feature Collection </span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">districts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">List</span><span class="p">([</span><span class="s1">&#39;Bijagual&#39;</span><span class="p">,</span><span class="s1">&#39;Cochea&#39;</span><span class="p">,</span><span class="s1">&#39;Las Lomas&#39;</span><span class="p">])</span>
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3"></a><span class="kd">var</span><span class="w"> </span><span class="nx">AOI</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">inList</span><span class="p">(</span><span class="s1">&#39;NAME_3&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">districts</span><span class="p">));</span>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4"></a><span class="kd">var</span><span class="w"> </span><span class="nx">districts</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">AOI</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="s1">&#39;NAME_1&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Chiriquí&#39;</span><span class="p">));</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5"></a><span class="nb">Map</span><span class="p">.</span><span class="nx">addLayer</span><span class="p">(</span><span class="nx">districts</span><span class="p">.</span><span class="nx">union</span><span class="p">())</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Now we'll try to center our may view. First we filter our feature collection, and keep only the 'Bijagual' district. Now we get the x, and y coordinate from this district and store it in the centroid_cochea_coor variable, by using the series of methods geometry, centroid, coordinates and getInfo. By array subscript we get the x and y variable. Finally we center the Map view using the x, and y coordinates.</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-1-1">1</a></span>
+<span class="normal"><a href="#__codelineno-1-2">2</a></span>
+<span class="normal"><a href="#__codelineno-1-3">3</a></span>
+<span class="normal"><a href="#__codelineno-1-4">4</a></span>
+<span class="normal"><a href="#__codelineno-1-5">5</a></span>
+<span class="normal"><a href="#__codelineno-1-6">6</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1"></a><span class="c1">// Setting the Map to the coordinates of one of our districts</span>
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">cochea_district</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">table</span><span class="p">.</span><span class="nx">filter</span><span class="p">(</span><span class="nx">ee</span><span class="p">.</span><span class="nx">Filter</span><span class="p">.</span><span class="nx">eq</span><span class="p">(</span><span class="s1">&#39;NAME_3&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;Bijagual&#39;</span><span class="p">));</span>
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3"></a><span class="kd">var</span><span class="w"> </span><span class="nx">centroid_cochea_coor</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">cochea_district</span><span class="p">.</span><span class="nx">geometry</span><span class="p">().</span><span class="nx">centroid</span><span class="p">().</span><span class="nx">coordinates</span><span class="p">().</span><span class="nx">getInfo</span><span class="p">();</span>
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4"></a><span class="kd">var</span><span class="w"> </span><span class="nx">x</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">centroid_cochea_coor</span><span class="p">[</span><span class="mf">0</span><span class="p">];</span>
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5"></a><span class="kd">var</span><span class="w"> </span><span class="nx">y</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">centroid_cochea_coor</span><span class="p">[</span><span class="mf">1</span><span class="p">];</span>
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6"></a><span class="nb">Map</span><span class="p">.</span><span class="nx">setCenter</span><span class="p">(</span><span class="nx">x</span><span class="p">,</span><span class="w"> </span><span class="nx">y</span><span class="p">,</span><span class="w"> </span><span class="mf">10</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
 <p>We set the visualization parameters to map values from 0 to a maximum of 40 for degrees Celsius, and pick up a color palette suitable to the range of values we want to represent.</p>
-<p>```javascript linenums="1"
-// Raster Visualization Parameters
-var landSurfaceTemperatureVis = {
-  min: 0, max: 40,
-  palette: ['blue', 'limegreen', 'yellow', 'darkorange', 'red']};</p>
-<pre><code>
-For this analysis we will divide a year into two seasons, the dry season and the rainy season. This is due to the seasonal pattern of the year that predominates in the tropics, which lacks the four seasons of the year that exist in other latitudes of the planet. The temporal analysis will be made for a period of 20 years, counting 2001 as year 1, until 2020.
-
-We declare two variables (&quot;DrySeasonMedianCollection&quot; and &quot;WetSeasonMedianCollection&quot;), which will contain a collection of MODIS Land Surface images. There is no use (or it is not very recommended) of for loops to perform filtering and application of algorithms on a collection, so the body inside the &quot;ee.ImageCollection&quot; with which we create the two variables mentioned above seems a bit counterintuitive.
-Google Earth Engine uses an approach more inclined to functional programming than imperative or object-based programming, mapping functions to collections that can be vector data called &quot;Feature Collections&quot;, or Images called &quot;ImageCollections&quot; (it can also be applied to another type of Collections, Lists, but these are the most interesting cases for geospatial data analyzers).
-What is done is to create a list with ee.List.sequence taking the first year &quot;2001&quot; and the last year 2020, and on that list we are going to apply the function &quot;createDrySeasonMedianComposite&quot;, and &quot;createWetSeasonMedianComposite&quot; respectively.
-
-```javascript linenums=&quot;1&quot;
-// Image Collection MODIS Surface Temperature Median Values 
-// (Dry Season January - March)
-// (Wet Season April - December)
-var startYear = 2001;
-var endYear = 2020;
-var DrySeasonMedianCollection = ee.ImageCollection(
-  ee.List.sequence(startYear, endYear)
-    .map(createDrySeasonMedianComposite)
-);
-
-var WetSeasonMedianCollection = ee.ImageCollection( 
-  ee.List.sequence(startYear, endYear)
-  .map(createWetSeasonMedianComposite)
-);
-</code></pre>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-2-1">1</a></span>
+<span class="normal"><a href="#__codelineno-2-2">2</a></span>
+<span class="normal"><a href="#__codelineno-2-3">3</a></span>
+<span class="normal"><a href="#__codelineno-2-4">4</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1"></a><span class="c1">// Raster Visualization Parameters</span>
+</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">landSurfaceTemperatureVis</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-2-3"><a id="__codelineno-2-3" name="__codelineno-2-3"></a><span class="w">  </span><span class="nx">min</span><span class="o">:</span><span class="w"> </span><span class="mf">0</span><span class="p">,</span><span class="w"> </span><span class="nx">max</span><span class="o">:</span><span class="w"> </span><span class="mf">40</span><span class="p">,</span>
+</span><span id="__span-2-4"><a id="__codelineno-2-4" name="__codelineno-2-4"></a><span class="w">  </span><span class="nx">palette</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;limegreen&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;darkorange&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="p">]};</span>
+</span></code></pre></div></td></tr></table></div>
+<p>For this analysis we will divide a year into two seasons, the dry season and the rainy season. This is due to the seasonal pattern of the year that predominates in the tropics, which lacks the four seasons of the year that exist in other latitudes of the planet. The temporal analysis will be made for a period of 20 years, counting 2001 as year 1, until 2020.</p>
+<p>We declare two variables ("DrySeasonMedianCollection" and "WetSeasonMedianCollection"), which will contain a collection of MODIS Land Surface images. There is no use (or it is not very recommended) of for loops to perform filtering and application of algorithms on a collection, so the body inside the "ee.ImageCollection" with which we create the two variables mentioned above seems a bit counterintuitive.
+Google Earth Engine uses an approach more inclined to functional programming than imperative or object-based programming, mapping functions to collections that can be vector data called "Feature Collections", or Images called "ImageCollections" (it can also be applied to another type of Collections, Lists, but these are the most interesting cases for geospatial data analyzers).
+What is done is to create a list with ee.List.sequence taking the first year "2001" and the last year 2020, and on that list we are going to apply the function "createDrySeasonMedianComposite", and "createWetSeasonMedianComposite" respectively.</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-3-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-3-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-3-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-3-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-3-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-3-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-3-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-3-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-3-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-3-10">10</a></span>
+<span class="normal"><a href="#__codelineno-3-11">11</a></span>
+<span class="normal"><a href="#__codelineno-3-12">12</a></span>
+<span class="normal"><a href="#__codelineno-3-13">13</a></span>
+<span class="normal"><a href="#__codelineno-3-14">14</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1"></a><span class="c1">// Image Collection MODIS Surface Temperature Median Values </span>
+</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2"></a><span class="c1">// (Dry Season January - March)</span>
+</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3"></a><span class="c1">// (Wet Season April - December)</span>
+</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4"></a><span class="kd">var</span><span class="w"> </span><span class="nx">startYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2001</span><span class="p">;</span>
+</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5"></a><span class="kd">var</span><span class="w"> </span><span class="nx">endYear</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="mf">2020</span><span class="p">;</span>
+</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6"></a><span class="kd">var</span><span class="w"> </span><span class="nx">DrySeasonMedianCollection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span>
+</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7"></a><span class="w">  </span><span class="nx">ee</span><span class="p">.</span><span class="nx">List</span><span class="p">.</span><span class="nx">sequence</span><span class="p">(</span><span class="nx">startYear</span><span class="p">,</span><span class="w"> </span><span class="nx">endYear</span><span class="p">)</span>
+</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8"></a><span class="w">    </span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">createDrySeasonMedianComposite</span><span class="p">)</span>
+</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9"></a><span class="p">);</span>
+</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10"></a>
+</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11"></a><span class="kd">var</span><span class="w"> </span><span class="nx">WetSeasonMedianCollection</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span><span class="w"> </span>
+</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12"></a><span class="w">  </span><span class="nx">ee</span><span class="p">.</span><span class="nx">List</span><span class="p">.</span><span class="nx">sequence</span><span class="p">(</span><span class="nx">startYear</span><span class="p">,</span><span class="w"> </span><span class="nx">endYear</span><span class="p">)</span>
+</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13"></a><span class="w">  </span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">createWetSeasonMedianComposite</span><span class="p">)</span>
+</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14"></a><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
 <p>The two functions below have a similar purpose, and the only thing that differentiates them is the time period used to filter the images.
 They use as argument "year", and based on that a startDate and endDate are created to delimit a period of time. Then a variable "description" is created, which is basically a data type "string" that comes from the concatenation of "StartDate" + " TO " + EndDate. The function returns an "ImageCollection", to which the "filterBounds" method is applied to obtain the images that intersect our region of interest (ROI). Then we apply to our "ImageCollection" the "filterDate" method, to obtain the images of the period we declared at the beginning, we select the layer "LST_Day_1km" and to that layer (raster layer) we multiply it by 0.02 which is the scale factor that comes in the MODIS products user guide for the transformation of digital numbers (DN) to Kelvin degrees, and finally we subtract the resulting values by 273.15 to transform the Kelvin degrees to Celcius which are the ones we will be working with.
 As you can see the same logic is observed in both functions, what changes are the time periods.</p>
-<p>```javascript linenums="1"
-function createDrySeasonMedianComposite(year) {
-var startDate = ee.Date.fromYMD(year, 1, 1);
-var endDate = ee.Date.fromYMD(year, 3, 31);
-var description = startDate.format('yyyy-MM-dd')
-.cat(' TO ')
-.cat(endDate.format('yyyy-MM-dd'));
-return ee.ImageCollection('MODIS/061/MOD11A1')
-.filterBounds(districts)
-.filterDate(startDate, endDate)
-.select('LST_Day_1km')
-.map(function(img) {
-return img
-.multiply(0.02)
-.subtract(273.15)
-.copyProperties(img, ['system:time_start']);
-})
-.median()
-.set('year', year)
-.set('description', description);
-}</p>
-<p>function createWetSeasonMedianComposite(year) {
-var startDate = ee.Date.fromYMD(year, 4, 1);
-var endDate = ee.Date.fromYMD(year, 12, 31);
-var description = startDate.format('yyyy-MM-dd')
-.cat(' TO ')
-.cat(endDate.format('yyyy-MM-dd'));
-return ee.ImageCollection('MODIS/061/MOD11A1')
-.filterBounds(districts)
-.filterDate(startDate, endDate)
-.select('LST_Day_1km')
-.map(function(img) {
-return img
-.multiply(0.02)
-.subtract(273.15)
-.copyProperties(img, ['system:time_start']);
-})
-.median()
-.set('year', year)
-.set('description', description);
-}</p>
-<pre><code>
-To the new imageCollection we apply the method &quot;toBands&quot; to convert it from its &quot;collection&quot; state to a &quot;multi-band&quot; image, using after the method &quot;select&quot; and a regular expression to get the images that come with a numerical prefix, starting by 0, e.g. (&quot;0_LST_Day_1km&quot;, &quot;1_LST_Day_1km&quot; ...) .
-
-```javascript linenums=&quot;1&quot;
-DrySeasonMedianMultiBandImg = DrySeasonMedianCollection
-      .toBands()
-      .select('[0-9]{1,2}_LST_Day_1km');
-
-WetSeasonMedianMultiBandImg = WetSeasonMedianCollection
-      .toBands()
-      .select('[0-9]{1,2}_LST_Day_1km');
-</code></pre>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-4-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-4-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-4-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-4-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-4-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-4-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-4-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-4-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-4-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-4-10">10</a></span>
+<span class="normal"><a href="#__codelineno-4-11">11</a></span>
+<span class="normal"><a href="#__codelineno-4-12">12</a></span>
+<span class="normal"><a href="#__codelineno-4-13">13</a></span>
+<span class="normal"><a href="#__codelineno-4-14">14</a></span>
+<span class="normal"><a href="#__codelineno-4-15">15</a></span>
+<span class="normal"><a href="#__codelineno-4-16">16</a></span>
+<span class="normal"><a href="#__codelineno-4-17">17</a></span>
+<span class="normal"><a href="#__codelineno-4-18">18</a></span>
+<span class="normal"><a href="#__codelineno-4-19">19</a></span>
+<span class="normal"><a href="#__codelineno-4-20">20</a></span>
+<span class="normal"><a href="#__codelineno-4-21">21</a></span>
+<span class="normal"><a href="#__codelineno-4-22">22</a></span>
+<span class="normal"><a href="#__codelineno-4-23">23</a></span>
+<span class="normal"><a href="#__codelineno-4-24">24</a></span>
+<span class="normal"><a href="#__codelineno-4-25">25</a></span>
+<span class="normal"><a href="#__codelineno-4-26">26</a></span>
+<span class="normal"><a href="#__codelineno-4-27">27</a></span>
+<span class="normal"><a href="#__codelineno-4-28">28</a></span>
+<span class="normal"><a href="#__codelineno-4-29">29</a></span>
+<span class="normal"><a href="#__codelineno-4-30">30</a></span>
+<span class="normal"><a href="#__codelineno-4-31">31</a></span>
+<span class="normal"><a href="#__codelineno-4-32">32</a></span>
+<span class="normal"><a href="#__codelineno-4-33">33</a></span>
+<span class="normal"><a href="#__codelineno-4-34">34</a></span>
+<span class="normal"><a href="#__codelineno-4-35">35</a></span>
+<span class="normal"><a href="#__codelineno-4-36">36</a></span>
+<span class="normal"><a href="#__codelineno-4-37">37</a></span>
+<span class="normal"><a href="#__codelineno-4-38">38</a></span>
+<span class="normal"><a href="#__codelineno-4-39">39</a></span>
+<span class="normal"><a href="#__codelineno-4-40">40</a></span>
+<span class="normal"><a href="#__codelineno-4-41">41</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1"></a><span class="kd">function</span><span class="w"> </span><span class="nx">createDrySeasonMedianComposite</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-4-3"><a id="__codelineno-4-3" name="__codelineno-4-3"></a><span class="kd">var</span><span class="w"> </span><span class="nx">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="mf">31</span><span class="p">);</span>
+</span><span id="__span-4-4"><a id="__codelineno-4-4" name="__codelineno-4-4"></a><span class="kd">var</span><span class="w"> </span><span class="nx">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">startDate</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">)</span>
+</span><span id="__span-4-5"><a id="__codelineno-4-5" name="__codelineno-4-5"></a><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="s1">&#39; TO &#39;</span><span class="p">)</span>
+</span><span id="__span-4-6"><a id="__codelineno-4-6" name="__codelineno-4-6"></a><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="nx">endDate</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">));</span>
+</span><span id="__span-4-7"><a id="__codelineno-4-7" name="__codelineno-4-7"></a><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/061/MOD11A1&#39;</span><span class="p">)</span>
+</span><span id="__span-4-8"><a id="__codelineno-4-8" name="__codelineno-4-8"></a><span class="p">.</span><span class="nx">filterBounds</span><span class="p">(</span><span class="nx">districts</span><span class="p">)</span>
+</span><span id="__span-4-9"><a id="__codelineno-4-9" name="__codelineno-4-9"></a><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="nx">startDate</span><span class="p">,</span><span class="w"> </span><span class="nx">endDate</span><span class="p">)</span>
+</span><span id="__span-4-10"><a id="__codelineno-4-10" name="__codelineno-4-10"></a><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;LST_Day_1km&#39;</span><span class="p">)</span>
+</span><span id="__span-4-11"><a id="__codelineno-4-11" name="__codelineno-4-11"></a><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-12"><a id="__codelineno-4-12" name="__codelineno-4-12"></a><span class="k">return</span><span class="w"> </span><span class="nx">img</span>
+</span><span id="__span-4-13"><a id="__codelineno-4-13" name="__codelineno-4-13"></a><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+</span><span id="__span-4-14"><a id="__codelineno-4-14" name="__codelineno-4-14"></a><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="mf">273.15</span><span class="p">)</span>
+</span><span id="__span-4-15"><a id="__codelineno-4-15" name="__codelineno-4-15"></a><span class="p">.</span><span class="nx">copyProperties</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">]);</span>
+</span><span id="__span-4-16"><a id="__codelineno-4-16" name="__codelineno-4-16"></a><span class="p">})</span>
+</span><span id="__span-4-17"><a id="__codelineno-4-17" name="__codelineno-4-17"></a><span class="p">.</span><span class="nx">median</span><span class="p">()</span>
+</span><span id="__span-4-18"><a id="__codelineno-4-18" name="__codelineno-4-18"></a><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="p">)</span>
+</span><span id="__span-4-19"><a id="__codelineno-4-19" name="__codelineno-4-19"></a><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">);</span>
+</span><span id="__span-4-20"><a id="__codelineno-4-20" name="__codelineno-4-20"></a><span class="p">}</span>
+</span><span id="__span-4-21"><a id="__codelineno-4-21" name="__codelineno-4-21"></a>
+</span><span id="__span-4-22"><a id="__codelineno-4-22" name="__codelineno-4-22"></a><span class="kd">function</span><span class="w"> </span><span class="nx">createWetSeasonMedianComposite</span><span class="p">(</span><span class="nx">year</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-23"><a id="__codelineno-4-23" name="__codelineno-4-23"></a><span class="kd">var</span><span class="w"> </span><span class="nx">startDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="mf">1</span><span class="p">);</span>
+</span><span id="__span-4-24"><a id="__codelineno-4-24" name="__codelineno-4-24"></a><span class="kd">var</span><span class="w"> </span><span class="nx">endDate</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">Date</span><span class="p">.</span><span class="nx">fromYMD</span><span class="p">(</span><span class="nx">year</span><span class="p">,</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="mf">31</span><span class="p">);</span>
+</span><span id="__span-4-25"><a id="__codelineno-4-25" name="__codelineno-4-25"></a><span class="kd">var</span><span class="w"> </span><span class="nx">description</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">startDate</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">)</span>
+</span><span id="__span-4-26"><a id="__codelineno-4-26" name="__codelineno-4-26"></a><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="s1">&#39; TO &#39;</span><span class="p">)</span>
+</span><span id="__span-4-27"><a id="__codelineno-4-27" name="__codelineno-4-27"></a><span class="p">.</span><span class="nx">cat</span><span class="p">(</span><span class="nx">endDate</span><span class="p">.</span><span class="nx">format</span><span class="p">(</span><span class="s1">&#39;yyyy-MM-dd&#39;</span><span class="p">));</span>
+</span><span id="__span-4-28"><a id="__codelineno-4-28" name="__codelineno-4-28"></a><span class="k">return</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">ImageCollection</span><span class="p">(</span><span class="s1">&#39;MODIS/061/MOD11A1&#39;</span><span class="p">)</span>
+</span><span id="__span-4-29"><a id="__codelineno-4-29" name="__codelineno-4-29"></a><span class="p">.</span><span class="nx">filterBounds</span><span class="p">(</span><span class="nx">districts</span><span class="p">)</span>
+</span><span id="__span-4-30"><a id="__codelineno-4-30" name="__codelineno-4-30"></a><span class="p">.</span><span class="nx">filterDate</span><span class="p">(</span><span class="nx">startDate</span><span class="p">,</span><span class="w"> </span><span class="nx">endDate</span><span class="p">)</span>
+</span><span id="__span-4-31"><a id="__codelineno-4-31" name="__codelineno-4-31"></a><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;LST_Day_1km&#39;</span><span class="p">)</span>
+</span><span id="__span-4-32"><a id="__codelineno-4-32" name="__codelineno-4-32"></a><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="kd">function</span><span class="p">(</span><span class="nx">img</span><span class="p">)</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-4-33"><a id="__codelineno-4-33" name="__codelineno-4-33"></a><span class="k">return</span><span class="w"> </span><span class="nx">img</span>
+</span><span id="__span-4-34"><a id="__codelineno-4-34" name="__codelineno-4-34"></a><span class="p">.</span><span class="nx">multiply</span><span class="p">(</span><span class="mf">0.02</span><span class="p">)</span>
+</span><span id="__span-4-35"><a id="__codelineno-4-35" name="__codelineno-4-35"></a><span class="p">.</span><span class="nx">subtract</span><span class="p">(</span><span class="mf">273.15</span><span class="p">)</span>
+</span><span id="__span-4-36"><a id="__codelineno-4-36" name="__codelineno-4-36"></a><span class="p">.</span><span class="nx">copyProperties</span><span class="p">(</span><span class="nx">img</span><span class="p">,</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;system:time_start&#39;</span><span class="p">]);</span>
+</span><span id="__span-4-37"><a id="__codelineno-4-37" name="__codelineno-4-37"></a><span class="p">})</span>
+</span><span id="__span-4-38"><a id="__codelineno-4-38" name="__codelineno-4-38"></a><span class="p">.</span><span class="nx">median</span><span class="p">()</span>
+</span><span id="__span-4-39"><a id="__codelineno-4-39" name="__codelineno-4-39"></a><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;year&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">year</span><span class="p">)</span>
+</span><span id="__span-4-40"><a id="__codelineno-4-40" name="__codelineno-4-40"></a><span class="p">.</span><span class="nx">set</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">description</span><span class="p">);</span>
+</span><span id="__span-4-41"><a id="__codelineno-4-41" name="__codelineno-4-41"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>To the new imageCollection we apply the method "toBands" to convert it from its "collection" state to a "multi-band" image, using after the method "select" and a regular expression to get the images that come with a numerical prefix, starting by 0, e.g. ("0_LST_Day_1km", "1_LST_Day_1km" ...) .</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-5-1">1</a></span>
+<span class="normal"><a href="#__codelineno-5-2">2</a></span>
+<span class="normal"><a href="#__codelineno-5-3">3</a></span>
+<span class="normal"><a href="#__codelineno-5-4">4</a></span>
+<span class="normal"><a href="#__codelineno-5-5">5</a></span>
+<span class="normal"><a href="#__codelineno-5-6">6</a></span>
+<span class="normal"><a href="#__codelineno-5-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1"></a><span class="nx">DrySeasonMedianMultiBandImg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DrySeasonMedianCollection</span>
+</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2"></a><span class="w">      </span><span class="p">.</span><span class="nx">toBands</span><span class="p">()</span>
+</span><span id="__span-5-3"><a id="__codelineno-5-3" name="__codelineno-5-3"></a><span class="w">      </span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;[0-9]{1,2}_LST_Day_1km&#39;</span><span class="p">);</span>
+</span><span id="__span-5-4"><a id="__codelineno-5-4" name="__codelineno-5-4"></a>
+</span><span id="__span-5-5"><a id="__codelineno-5-5" name="__codelineno-5-5"></a><span class="nx">WetSeasonMedianMultiBandImg</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">WetSeasonMedianCollection</span>
+</span><span id="__span-5-6"><a id="__codelineno-5-6" name="__codelineno-5-6"></a><span class="w">      </span><span class="p">.</span><span class="nx">toBands</span><span class="p">()</span>
+</span><span id="__span-5-7"><a id="__codelineno-5-7" name="__codelineno-5-7"></a><span class="w">      </span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s1">&#39;[0-9]{1,2}_LST_Day_1km&#39;</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
 <p>Now we create a dictionary called "TempInfo" which contains as key values the names of the layers in the multi-band images "DrySeasonMedianMultiBandImg" and "WetSeasonMedianMultiBandImg", and the value is a dictionary with ordinal values and the corresponding year for each band.</p>
-<p>```javascript linenums="1"
-// Define a dictionary that associates band names with values 
-var TempInfo = {
-  '0_LST_Day_1km': {v: 1, f: '2001'},
-  '1_LST_Day_1km': {v: 2, f: '2002'},
-  '2_LST_Day_1km': {v: 3, f: '2003'},
-  '3_LST_Day_1km': {v: 4, f: '2004'},
-  '4_LST_Day_1km': {v: 5, f: '2005'},
-  '5_LST_Day_1km': {v: 6, f: '2006'},
-  '6_LST_Day_1km': {v: 7, f: '2007'},
-  '7_LST_Day_1km': {v: 8, f: '2008'},
-  '8_LST_Day_1km': {v: 9, f: '2009'},
-  '9_LST_Day_1km': {v: 10, f: '2010'},
-  '10_LST_Day_1km': {v: 11, f: '2011'},
-  '11_LST_Day_1km': {v: 12, f: '2012'},
-  '12_LST_Day_1km': {v: 13, f: '2013'},
-  '13_LST_Day_1km': {v: 14, f: '2014'},
-  '14_LST_Day_1km': {v: 15, f: '2015'},
-  '15_LST_Day_1km': {v: 16, f: '2016'},
-  '16_LST_Day_1km': {v: 17, f: '2017'},
-  '17_LST_Day_1km': {v: 18, f: '2018'},
-  '18_LST_Day_1km': {v: 19, f: '2019'},
-  '19_LST_Day_1km': {v: 20, f: '2020'},
-}</p>
-<pre><code>
-Now we are going to declare two lists to obtain the values and the dictionary keys that will be used to define the axis values in the graphs.
-
-```javascript linenums=&quot;1&quot;
-var xPropVals = [];
-var xPropLabels = [];
-
-for (var key in TempInfo){
-  xPropVals.push(TempInfo[key].v);
-  xPropLabels.push(TempInfo[key]);
-}
-</code></pre>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-6-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-6-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-6-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-6-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-6-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-6-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-6-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-6-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-6-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-6-10">10</a></span>
+<span class="normal"><a href="#__codelineno-6-11">11</a></span>
+<span class="normal"><a href="#__codelineno-6-12">12</a></span>
+<span class="normal"><a href="#__codelineno-6-13">13</a></span>
+<span class="normal"><a href="#__codelineno-6-14">14</a></span>
+<span class="normal"><a href="#__codelineno-6-15">15</a></span>
+<span class="normal"><a href="#__codelineno-6-16">16</a></span>
+<span class="normal"><a href="#__codelineno-6-17">17</a></span>
+<span class="normal"><a href="#__codelineno-6-18">18</a></span>
+<span class="normal"><a href="#__codelineno-6-19">19</a></span>
+<span class="normal"><a href="#__codelineno-6-20">20</a></span>
+<span class="normal"><a href="#__codelineno-6-21">21</a></span>
+<span class="normal"><a href="#__codelineno-6-22">22</a></span>
+<span class="normal"><a href="#__codelineno-6-23">23</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1"></a><span class="c1">// Define a dictionary that associates band names with values </span>
+</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">TempInfo</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-6-3"><a id="__codelineno-6-3" name="__codelineno-6-3"></a><span class="w">  </span><span class="s1">&#39;0_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">1</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2001&#39;</span><span class="p">},</span>
+</span><span id="__span-6-4"><a id="__codelineno-6-4" name="__codelineno-6-4"></a><span class="w">  </span><span class="s1">&#39;1_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">2</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2002&#39;</span><span class="p">},</span>
+</span><span id="__span-6-5"><a id="__codelineno-6-5" name="__codelineno-6-5"></a><span class="w">  </span><span class="s1">&#39;2_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2003&#39;</span><span class="p">},</span>
+</span><span id="__span-6-6"><a id="__codelineno-6-6" name="__codelineno-6-6"></a><span class="w">  </span><span class="s1">&#39;3_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">4</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2004&#39;</span><span class="p">},</span>
+</span><span id="__span-6-7"><a id="__codelineno-6-7" name="__codelineno-6-7"></a><span class="w">  </span><span class="s1">&#39;4_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">5</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2005&#39;</span><span class="p">},</span>
+</span><span id="__span-6-8"><a id="__codelineno-6-8" name="__codelineno-6-8"></a><span class="w">  </span><span class="s1">&#39;5_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">6</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2006&#39;</span><span class="p">},</span>
+</span><span id="__span-6-9"><a id="__codelineno-6-9" name="__codelineno-6-9"></a><span class="w">  </span><span class="s1">&#39;6_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">7</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2007&#39;</span><span class="p">},</span>
+</span><span id="__span-6-10"><a id="__codelineno-6-10" name="__codelineno-6-10"></a><span class="w">  </span><span class="s1">&#39;7_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2008&#39;</span><span class="p">},</span>
+</span><span id="__span-6-11"><a id="__codelineno-6-11" name="__codelineno-6-11"></a><span class="w">  </span><span class="s1">&#39;8_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">9</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2009&#39;</span><span class="p">},</span>
+</span><span id="__span-6-12"><a id="__codelineno-6-12" name="__codelineno-6-12"></a><span class="w">  </span><span class="s1">&#39;9_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">10</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2010&#39;</span><span class="p">},</span>
+</span><span id="__span-6-13"><a id="__codelineno-6-13" name="__codelineno-6-13"></a><span class="w">  </span><span class="s1">&#39;10_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">11</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2011&#39;</span><span class="p">},</span>
+</span><span id="__span-6-14"><a id="__codelineno-6-14" name="__codelineno-6-14"></a><span class="w">  </span><span class="s1">&#39;11_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">12</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2012&#39;</span><span class="p">},</span>
+</span><span id="__span-6-15"><a id="__codelineno-6-15" name="__codelineno-6-15"></a><span class="w">  </span><span class="s1">&#39;12_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">13</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2013&#39;</span><span class="p">},</span>
+</span><span id="__span-6-16"><a id="__codelineno-6-16" name="__codelineno-6-16"></a><span class="w">  </span><span class="s1">&#39;13_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">14</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2014&#39;</span><span class="p">},</span>
+</span><span id="__span-6-17"><a id="__codelineno-6-17" name="__codelineno-6-17"></a><span class="w">  </span><span class="s1">&#39;14_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">15</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2015&#39;</span><span class="p">},</span>
+</span><span id="__span-6-18"><a id="__codelineno-6-18" name="__codelineno-6-18"></a><span class="w">  </span><span class="s1">&#39;15_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">16</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2016&#39;</span><span class="p">},</span>
+</span><span id="__span-6-19"><a id="__codelineno-6-19" name="__codelineno-6-19"></a><span class="w">  </span><span class="s1">&#39;16_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">17</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2017&#39;</span><span class="p">},</span>
+</span><span id="__span-6-20"><a id="__codelineno-6-20" name="__codelineno-6-20"></a><span class="w">  </span><span class="s1">&#39;17_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">18</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2018&#39;</span><span class="p">},</span>
+</span><span id="__span-6-21"><a id="__codelineno-6-21" name="__codelineno-6-21"></a><span class="w">  </span><span class="s1">&#39;18_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">19</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2019&#39;</span><span class="p">},</span>
+</span><span id="__span-6-22"><a id="__codelineno-6-22" name="__codelineno-6-22"></a><span class="w">  </span><span class="s1">&#39;19_LST_Day_1km&#39;</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">v</span><span class="o">:</span><span class="w"> </span><span class="mf">20</span><span class="p">,</span><span class="w"> </span><span class="nx">f</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;2020&#39;</span><span class="p">},</span>
+</span><span id="__span-6-23"><a id="__codelineno-6-23" name="__codelineno-6-23"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Now we are going to declare two lists to obtain the values and the dictionary keys that will be used to define the axis values in the graphs.</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-7-1">1</a></span>
+<span class="normal"><a href="#__codelineno-7-2">2</a></span>
+<span class="normal"><a href="#__codelineno-7-3">3</a></span>
+<span class="normal"><a href="#__codelineno-7-4">4</a></span>
+<span class="normal"><a href="#__codelineno-7-5">5</a></span>
+<span class="normal"><a href="#__codelineno-7-6">6</a></span>
+<span class="normal"><a href="#__codelineno-7-7">7</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1"></a><span class="kd">var</span><span class="w"> </span><span class="nx">xPropVals</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">xPropLabels</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[];</span>
+</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3"></a>
+</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4"></a><span class="k">for</span><span class="w"> </span><span class="p">(</span><span class="kd">var</span><span class="w"> </span><span class="nx">key</span><span class="w"> </span><span class="ow">in</span><span class="w"> </span><span class="nx">TempInfo</span><span class="p">){</span>
+</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5"></a><span class="w">  </span><span class="nx">xPropVals</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">TempInfo</span><span class="p">[</span><span class="nx">key</span><span class="p">].</span><span class="nx">v</span><span class="p">);</span>
+</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6"></a><span class="w">  </span><span class="nx">xPropLabels</span><span class="p">.</span><span class="nx">push</span><span class="p">(</span><span class="nx">TempInfo</span><span class="p">[</span><span class="nx">key</span><span class="p">]);</span>
+</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7"></a><span class="p">}</span>
+</span></code></pre></div></td></tr></table></div>
 <p>To unify the geometries of the different districts, we are going to join them using the "union" method in the "FeatureCollection".</p>
-<p>```javascript linenums="1"
-// Apply the dissolve method to the Geometry object.
-print(districts)
-var geometryDissolve = districts.union();</p>
-<pre><code>
-Now we are going to define two graphs to print on our console. One will be created for the dry season, and the other for the rainy season. For this we use the ui.Chart.image object and apply the &quot;regions&quot; method. In this method we have to define the multiband image whose values we want to plot. Then the region in which we want to calculate the average temperature values, and a reducer, which in this case will be &quot;mean&quot; because we want to calculate the average of pixels in our study area for the given time period. For the seriesProperty parameter we set it to 'label', and define that the xLabels parameter will take the values from the xPropVals list.
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-8-1">1</a></span>
+<span class="normal"><a href="#__codelineno-8-2">2</a></span>
+<span class="normal"><a href="#__codelineno-8-3">3</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1"></a><span class="c1">// Apply the dissolve method to the Geometry object.</span>
+</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2"></a><span class="nx">print</span><span class="p">(</span><span class="nx">districts</span><span class="p">)</span>
+</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3"></a><span class="kd">var</span><span class="w"> </span><span class="nx">geometryDissolve</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">districts</span><span class="p">.</span><span class="nx">union</span><span class="p">();</span>
+</span></code></pre></div></td></tr></table></div>
+<p>Now we are going to define two graphs to print on our console. One will be created for the dry season, and the other for the rainy season. For this we use the ui.Chart.image object and apply the "regions" method. In this method we have to define the multiband image whose values we want to plot. Then the region in which we want to calculate the average temperature values, and a reducer, which in this case will be "mean" because we want to calculate the average of pixels in our study area for the given time period. For the seriesProperty parameter we set it to 'label', and define that the xLabels parameter will take the values from the xPropVals list.
 The following are parameters for the elements found in the graph we are going to produce. First we define that it will be a line chart by setting the value of 'LineChart' using the 'setChartType' method.
 Among the options we define the title, the name of the X axis (with the font type parameters), and the ticks for the horizontal axis will be the years, taken from the xPropLabels list.
 For the vertical axis, we will give it the title Temperature (°C), define the parameters for the font. Finally we define the color that our line will take in the graph and the thickness of it.
-We apply the print method to see our graph in the console.
-
-```javascript linenums=&quot;1&quot;
-// Define the chart and print it to the console.
-var chartDrySeason = ui.Chart.image
-                .regions({
-                  image: DrySeasonMedianMultiBandImg,
-                  regions: districts.union(),
-                  reducer: ee.Reducer.mean(),
-                  scale: 500,
-                  seriesProperty: 'label',
-                  xLabels: xPropVals
-                })
-                .setChartType('LineChart')
-                .setOptions({
-                  title: 'Average (Median) Temperature (°C) Dry Season (Jan-Mar)',
-                  hAxis: {
-                    title: 'Year',
-                    titleTextStyle: {italic: false, bold: true},
-                    ticks: xPropLabels
-                  },
-                  vAxis: {
-                    title: 'Temperature (°C)',
-                    titleTextStyle: {italic: false, bold: true}
-                  },
-                  colors: ['f0af07', '0f8755', '76b349'],
-                  lineSize: 3
-});
-print(chartDrySeason);
-
-// Define the chart and print it to the console.
-var chartWetSeason = ui.Chart.image
-                .regions({
-                  image: WetSeasonMedianMultiBandImg ,
-                  regions: districts.union(),
-                  reducer: ee.Reducer.mean(),
-                  scale: 500,
-                  seriesProperty: 'label',
-                  xLabels: xPropVals
-                })
-                .setChartType('LineChart')
-                .setOptions({
-                  title: 'Average (Median) Temperature (°C) Rainy Season (Apr-Dec)',
-                  hAxis: {
-                    title: 'Year',
-                    titleTextStyle: {italic: false, bold: true},
-                    ticks: xPropLabels
-                  },
-                  vAxis: {
-                    title: 'Temperature (°C)',
-                    titleTextStyle: {italic: false, bold: true}
-                  },
-                  colors: ['0f8755', '76b349'],
-                  lineSize: 3
-});
-print(chartWetSeason);
-</code></pre>
+We apply the print method to see our graph in the console.</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-9-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-9-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-9-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-9-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-9-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-9-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-9-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-9-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-9-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-9-10">10</a></span>
+<span class="normal"><a href="#__codelineno-9-11">11</a></span>
+<span class="normal"><a href="#__codelineno-9-12">12</a></span>
+<span class="normal"><a href="#__codelineno-9-13">13</a></span>
+<span class="normal"><a href="#__codelineno-9-14">14</a></span>
+<span class="normal"><a href="#__codelineno-9-15">15</a></span>
+<span class="normal"><a href="#__codelineno-9-16">16</a></span>
+<span class="normal"><a href="#__codelineno-9-17">17</a></span>
+<span class="normal"><a href="#__codelineno-9-18">18</a></span>
+<span class="normal"><a href="#__codelineno-9-19">19</a></span>
+<span class="normal"><a href="#__codelineno-9-20">20</a></span>
+<span class="normal"><a href="#__codelineno-9-21">21</a></span>
+<span class="normal"><a href="#__codelineno-9-22">22</a></span>
+<span class="normal"><a href="#__codelineno-9-23">23</a></span>
+<span class="normal"><a href="#__codelineno-9-24">24</a></span>
+<span class="normal"><a href="#__codelineno-9-25">25</a></span>
+<span class="normal"><a href="#__codelineno-9-26">26</a></span>
+<span class="normal"><a href="#__codelineno-9-27">27</a></span>
+<span class="normal"><a href="#__codelineno-9-28">28</a></span>
+<span class="normal"><a href="#__codelineno-9-29">29</a></span>
+<span class="normal"><a href="#__codelineno-9-30">30</a></span>
+<span class="normal"><a href="#__codelineno-9-31">31</a></span>
+<span class="normal"><a href="#__codelineno-9-32">32</a></span>
+<span class="normal"><a href="#__codelineno-9-33">33</a></span>
+<span class="normal"><a href="#__codelineno-9-34">34</a></span>
+<span class="normal"><a href="#__codelineno-9-35">35</a></span>
+<span class="normal"><a href="#__codelineno-9-36">36</a></span>
+<span class="normal"><a href="#__codelineno-9-37">37</a></span>
+<span class="normal"><a href="#__codelineno-9-38">38</a></span>
+<span class="normal"><a href="#__codelineno-9-39">39</a></span>
+<span class="normal"><a href="#__codelineno-9-40">40</a></span>
+<span class="normal"><a href="#__codelineno-9-41">41</a></span>
+<span class="normal"><a href="#__codelineno-9-42">42</a></span>
+<span class="normal"><a href="#__codelineno-9-43">43</a></span>
+<span class="normal"><a href="#__codelineno-9-44">44</a></span>
+<span class="normal"><a href="#__codelineno-9-45">45</a></span>
+<span class="normal"><a href="#__codelineno-9-46">46</a></span>
+<span class="normal"><a href="#__codelineno-9-47">47</a></span>
+<span class="normal"><a href="#__codelineno-9-48">48</a></span>
+<span class="normal"><a href="#__codelineno-9-49">49</a></span>
+<span class="normal"><a href="#__codelineno-9-50">50</a></span>
+<span class="normal"><a href="#__codelineno-9-51">51</a></span>
+<span class="normal"><a href="#__codelineno-9-52">52</a></span>
+<span class="normal"><a href="#__codelineno-9-53">53</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1"></a><span class="c1">// Define the chart and print it to the console.</span>
+</span><span id="__span-9-2"><a id="__codelineno-9-2" name="__codelineno-9-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">chartDrySeason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">Chart</span><span class="p">.</span><span class="nx">image</span>
+</span><span id="__span-9-3"><a id="__codelineno-9-3" name="__codelineno-9-3"></a><span class="w">                </span><span class="p">.</span><span class="nx">regions</span><span class="p">({</span>
+</span><span id="__span-9-4"><a id="__codelineno-9-4" name="__codelineno-9-4"></a><span class="w">                  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="nx">DrySeasonMedianMultiBandImg</span><span class="p">,</span>
+</span><span id="__span-9-5"><a id="__codelineno-9-5" name="__codelineno-9-5"></a><span class="w">                  </span><span class="nx">regions</span><span class="o">:</span><span class="w"> </span><span class="nx">districts</span><span class="p">.</span><span class="nx">union</span><span class="p">(),</span>
+</span><span id="__span-9-6"><a id="__codelineno-9-6" name="__codelineno-9-6"></a><span class="w">                  </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">mean</span><span class="p">(),</span>
+</span><span id="__span-9-7"><a id="__codelineno-9-7" name="__codelineno-9-7"></a><span class="w">                  </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span>
+</span><span id="__span-9-8"><a id="__codelineno-9-8" name="__codelineno-9-8"></a><span class="w">                  </span><span class="nx">seriesProperty</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="p">,</span>
+</span><span id="__span-9-9"><a id="__codelineno-9-9" name="__codelineno-9-9"></a><span class="w">                  </span><span class="nx">xLabels</span><span class="o">:</span><span class="w"> </span><span class="nx">xPropVals</span>
+</span><span id="__span-9-10"><a id="__codelineno-9-10" name="__codelineno-9-10"></a><span class="w">                </span><span class="p">})</span>
+</span><span id="__span-9-11"><a id="__codelineno-9-11" name="__codelineno-9-11"></a><span class="w">                </span><span class="p">.</span><span class="nx">setChartType</span><span class="p">(</span><span class="s1">&#39;LineChart&#39;</span><span class="p">)</span>
+</span><span id="__span-9-12"><a id="__codelineno-9-12" name="__codelineno-9-12"></a><span class="w">                </span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span>
+</span><span id="__span-9-13"><a id="__codelineno-9-13" name="__codelineno-9-13"></a><span class="w">                  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Average (Median) Temperature (°C) Dry Season (Jan-Mar)&#39;</span><span class="p">,</span>
+</span><span id="__span-9-14"><a id="__codelineno-9-14" name="__codelineno-9-14"></a><span class="w">                  </span><span class="nx">hAxis</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-15"><a id="__codelineno-9-15" name="__codelineno-9-15"></a><span class="w">                    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Year&#39;</span><span class="p">,</span>
+</span><span id="__span-9-16"><a id="__codelineno-9-16" name="__codelineno-9-16"></a><span class="w">                    </span><span class="nx">titleTextStyle</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">italic</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">bold</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+</span><span id="__span-9-17"><a id="__codelineno-9-17" name="__codelineno-9-17"></a><span class="w">                    </span><span class="nx">ticks</span><span class="o">:</span><span class="w"> </span><span class="nx">xPropLabels</span>
+</span><span id="__span-9-18"><a id="__codelineno-9-18" name="__codelineno-9-18"></a><span class="w">                  </span><span class="p">},</span>
+</span><span id="__span-9-19"><a id="__codelineno-9-19" name="__codelineno-9-19"></a><span class="w">                  </span><span class="nx">vAxis</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-20"><a id="__codelineno-9-20" name="__codelineno-9-20"></a><span class="w">                    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Temperature (°C)&#39;</span><span class="p">,</span>
+</span><span id="__span-9-21"><a id="__codelineno-9-21" name="__codelineno-9-21"></a><span class="w">                    </span><span class="nx">titleTextStyle</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">italic</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">bold</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-9-22"><a id="__codelineno-9-22" name="__codelineno-9-22"></a><span class="w">                  </span><span class="p">},</span>
+</span><span id="__span-9-23"><a id="__codelineno-9-23" name="__codelineno-9-23"></a><span class="w">                  </span><span class="nx">colors</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;f0af07&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;0f8755&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;76b349&#39;</span><span class="p">],</span>
+</span><span id="__span-9-24"><a id="__codelineno-9-24" name="__codelineno-9-24"></a><span class="w">                  </span><span class="nx">lineSize</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span>
+</span><span id="__span-9-25"><a id="__codelineno-9-25" name="__codelineno-9-25"></a><span class="p">});</span>
+</span><span id="__span-9-26"><a id="__codelineno-9-26" name="__codelineno-9-26"></a><span class="nx">print</span><span class="p">(</span><span class="nx">chartDrySeason</span><span class="p">);</span>
+</span><span id="__span-9-27"><a id="__codelineno-9-27" name="__codelineno-9-27"></a>
+</span><span id="__span-9-28"><a id="__codelineno-9-28" name="__codelineno-9-28"></a><span class="c1">// Define the chart and print it to the console.</span>
+</span><span id="__span-9-29"><a id="__codelineno-9-29" name="__codelineno-9-29"></a><span class="kd">var</span><span class="w"> </span><span class="nx">chartWetSeason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nx">Chart</span><span class="p">.</span><span class="nx">image</span>
+</span><span id="__span-9-30"><a id="__codelineno-9-30" name="__codelineno-9-30"></a><span class="w">                </span><span class="p">.</span><span class="nx">regions</span><span class="p">({</span>
+</span><span id="__span-9-31"><a id="__codelineno-9-31" name="__codelineno-9-31"></a><span class="w">                  </span><span class="nx">image</span><span class="o">:</span><span class="w"> </span><span class="nx">WetSeasonMedianMultiBandImg</span><span class="w"> </span><span class="p">,</span>
+</span><span id="__span-9-32"><a id="__codelineno-9-32" name="__codelineno-9-32"></a><span class="w">                  </span><span class="nx">regions</span><span class="o">:</span><span class="w"> </span><span class="nx">districts</span><span class="p">.</span><span class="nx">union</span><span class="p">(),</span>
+</span><span id="__span-9-33"><a id="__codelineno-9-33" name="__codelineno-9-33"></a><span class="w">                  </span><span class="nx">reducer</span><span class="o">:</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nx">Reducer</span><span class="p">.</span><span class="nx">mean</span><span class="p">(),</span>
+</span><span id="__span-9-34"><a id="__codelineno-9-34" name="__codelineno-9-34"></a><span class="w">                  </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">500</span><span class="p">,</span>
+</span><span id="__span-9-35"><a id="__codelineno-9-35" name="__codelineno-9-35"></a><span class="w">                  </span><span class="nx">seriesProperty</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="p">,</span>
+</span><span id="__span-9-36"><a id="__codelineno-9-36" name="__codelineno-9-36"></a><span class="w">                  </span><span class="nx">xLabels</span><span class="o">:</span><span class="w"> </span><span class="nx">xPropVals</span>
+</span><span id="__span-9-37"><a id="__codelineno-9-37" name="__codelineno-9-37"></a><span class="w">                </span><span class="p">})</span>
+</span><span id="__span-9-38"><a id="__codelineno-9-38" name="__codelineno-9-38"></a><span class="w">                </span><span class="p">.</span><span class="nx">setChartType</span><span class="p">(</span><span class="s1">&#39;LineChart&#39;</span><span class="p">)</span>
+</span><span id="__span-9-39"><a id="__codelineno-9-39" name="__codelineno-9-39"></a><span class="w">                </span><span class="p">.</span><span class="nx">setOptions</span><span class="p">({</span>
+</span><span id="__span-9-40"><a id="__codelineno-9-40" name="__codelineno-9-40"></a><span class="w">                  </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Average (Median) Temperature (°C) Rainy Season (Apr-Dec)&#39;</span><span class="p">,</span>
+</span><span id="__span-9-41"><a id="__codelineno-9-41" name="__codelineno-9-41"></a><span class="w">                  </span><span class="nx">hAxis</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-42"><a id="__codelineno-9-42" name="__codelineno-9-42"></a><span class="w">                    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Year&#39;</span><span class="p">,</span>
+</span><span id="__span-9-43"><a id="__codelineno-9-43" name="__codelineno-9-43"></a><span class="w">                    </span><span class="nx">titleTextStyle</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">italic</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">bold</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">},</span>
+</span><span id="__span-9-44"><a id="__codelineno-9-44" name="__codelineno-9-44"></a><span class="w">                    </span><span class="nx">ticks</span><span class="o">:</span><span class="w"> </span><span class="nx">xPropLabels</span>
+</span><span id="__span-9-45"><a id="__codelineno-9-45" name="__codelineno-9-45"></a><span class="w">                  </span><span class="p">},</span>
+</span><span id="__span-9-46"><a id="__codelineno-9-46" name="__codelineno-9-46"></a><span class="w">                  </span><span class="nx">vAxis</span><span class="o">:</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-9-47"><a id="__codelineno-9-47" name="__codelineno-9-47"></a><span class="w">                    </span><span class="nx">title</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;Temperature (°C)&#39;</span><span class="p">,</span>
+</span><span id="__span-9-48"><a id="__codelineno-9-48" name="__codelineno-9-48"></a><span class="w">                    </span><span class="nx">titleTextStyle</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">italic</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">,</span><span class="w"> </span><span class="nx">bold</span><span class="o">:</span><span class="w"> </span><span class="kc">true</span><span class="p">}</span>
+</span><span id="__span-9-49"><a id="__codelineno-9-49" name="__codelineno-9-49"></a><span class="w">                  </span><span class="p">},</span>
+</span><span id="__span-9-50"><a id="__codelineno-9-50" name="__codelineno-9-50"></a><span class="w">                  </span><span class="nx">colors</span><span class="o">:</span><span class="w"> </span><span class="p">[</span><span class="s1">&#39;0f8755&#39;</span><span class="p">,</span><span class="w"> </span><span class="s1">&#39;76b349&#39;</span><span class="p">],</span>
+</span><span id="__span-9-51"><a id="__codelineno-9-51" name="__codelineno-9-51"></a><span class="w">                  </span><span class="nx">lineSize</span><span class="o">:</span><span class="w"> </span><span class="mf">3</span>
+</span><span id="__span-9-52"><a id="__codelineno-9-52" name="__codelineno-9-52"></a><span class="p">});</span>
+</span><span id="__span-9-53"><a id="__codelineno-9-53" name="__codelineno-9-53"></a><span class="nx">print</span><span class="p">(</span><span class="nx">chartWetSeason</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
 <p align="center">
       <img src="./../Average_Median_Temp_Dry_Season-1024x422.png" alt="Centered Image">
       <br>
@@ -1110,71 +1225,125 @@ print(chartWetSeason);
       </p>
 <p><br></p>
 <p>The following lines prepare an annotated collection (with a text showing the time period to which the layer belongs). This annotated collection will be displayed in the console as a GIF, which can be saved on your PC in GIF format.</p>
-<p>```javascript linenums="1"
-// Define GIF visualization parameters.
-var gifParams = {
-  'region': buffered_extent,
-  'dimensions': 600,
-  'framesPerSecond': 1.5
-};</p>
-<p>var text = require('users/gena/packages:text'); // Import gena's package which allows text overlay on image</p>
-<p>var annotations = [
- {position: 'left', offset: '0.25%', margin: '0.25%', property: 'label', scale: 100} //large scale because image if of the whole world. Use smaller scale otherwise
-  ];</p>
-<p>function addText(image){
-  var image_0 = image.clip(districts.union());
-  var timeStamp = image.get('description'); // get the time stamp of each frame. This can be any string. Date, Years, Hours, etc.
-  var timeStamp_ = ee.String(timeStamp); //convert time stamp to string 
-  var image_ = image_0.visualize(landSurfaceTemperatureVis).set({'label':timeStamp}); // set a property called label for each image
-  var annotated = text.annotateImage(image_, {}, extent, annotations); // create a new image with the label overlayed using gena's package
-  return annotated;
-}</p>
-<p>var AnnotatedCollectionWetSeason = WetSeasonMedianCollection.map(addText); //add time stamp to all images
-var AnnotatedCollectionDrySeason = DrySeasonMedianCollection.map(addText);</p>
-<p>print(ui.Thumbnail(AnnotatedCollectionWetSeason,  gifParams));</p>
-<p>var AnnotatedCollectionDrySeason = DrySeasonMedianCollection.map(addText);</p>
-<p>print(ui.Thumbnail(AnnotatedCollectionDrySeason,  gifParams));</p>
-<pre><code>
-&lt;p align=&quot;center&quot;&gt;
-      &lt;img src=&quot;./../rainy_season_20_years_modis.gif&quot; alt=&quot;Centered Image&quot;&gt;
-      &lt;br&gt;
-      &lt;i&gt;Rainy Season (Apr-Dec) MODIS Composites (20 years)&lt;/i&gt;
-      &lt;/p&gt;
-&lt;br&gt;
-
-&lt;p align=&quot;center&quot;&gt;
-      &lt;img src=&quot;./../dry_season_20_years_modis.gif&quot; alt=&quot;Centered Image&quot;&gt;
-      &lt;br&gt;
-      &lt;i&gt;Dry Season (Jan-Mar) MODIS Composites (20 years)&lt;/i&gt;
-      &lt;/p&gt;
-&lt;br&gt;
-
-Finally, we present our area of interest. For this we create a map of the regional location of our area of interest and another with the location within the country.  This is done with the help of the ui.Map object. Note how at the end we present the map with the location within the country with satellite images as background.
-
-```javascript linenums=&quot;1&quot;
-// ui.Map objects can be constructed. Here, a new map is declared.
-var newMap = ui.Map({
-  center: {lat: 8, lon: -80, zoom: 5.5
-  },
-  style: {position: 'bottom-right', width: '400px'}
-});
-
-var geomLayer = ui.Map.Layer(districts.union(), {color: 'red'}, 'Area of Interest');
-var extentLayer = ui.Map.Layer(districts.bounds, {color:'red'}, 'Extent');
-newMap.add(geomLayer);
-newMap.add(extentLayer);
-
-// Add the newMap to the defaultMap;
-Map.add(newMap);
-
-// Other UI widgets can be added to ui.Map objects, for example labels:
-defaultMap.add(ui.Label('Countrywide location', {position: 'bottom-left'}));
-newMap.add(ui.Label('Regional Location', {position: 'bottom-left'}));
-
-Map.setControlVisibility({all: false});
-newMap.setControlVisibility({all: false});
-Map.setOptions(&quot;SATELLITE&quot;);
-</code></pre>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-10-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-10-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-10-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-10-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-10-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-10-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-10-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-10-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-10-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-10-10">10</a></span>
+<span class="normal"><a href="#__codelineno-10-11">11</a></span>
+<span class="normal"><a href="#__codelineno-10-12">12</a></span>
+<span class="normal"><a href="#__codelineno-10-13">13</a></span>
+<span class="normal"><a href="#__codelineno-10-14">14</a></span>
+<span class="normal"><a href="#__codelineno-10-15">15</a></span>
+<span class="normal"><a href="#__codelineno-10-16">16</a></span>
+<span class="normal"><a href="#__codelineno-10-17">17</a></span>
+<span class="normal"><a href="#__codelineno-10-18">18</a></span>
+<span class="normal"><a href="#__codelineno-10-19">19</a></span>
+<span class="normal"><a href="#__codelineno-10-20">20</a></span>
+<span class="normal"><a href="#__codelineno-10-21">21</a></span>
+<span class="normal"><a href="#__codelineno-10-22">22</a></span>
+<span class="normal"><a href="#__codelineno-10-23">23</a></span>
+<span class="normal"><a href="#__codelineno-10-24">24</a></span>
+<span class="normal"><a href="#__codelineno-10-25">25</a></span>
+<span class="normal"><a href="#__codelineno-10-26">26</a></span>
+<span class="normal"><a href="#__codelineno-10-27">27</a></span>
+<span class="normal"><a href="#__codelineno-10-28">28</a></span>
+<span class="normal"><a href="#__codelineno-10-29">29</a></span>
+<span class="normal"><a href="#__codelineno-10-30">30</a></span>
+<span class="normal"><a href="#__codelineno-10-31">31</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1"></a><span class="c1">// Define GIF visualization parameters.</span>
+</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">gifParams</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">{</span>
+</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3"></a><span class="w">  </span><span class="s1">&#39;region&#39;</span><span class="o">:</span><span class="w"> </span><span class="nx">buffered_extent</span><span class="p">,</span>
+</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4"></a><span class="w">  </span><span class="s1">&#39;dimensions&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">600</span><span class="p">,</span>
+</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5"></a><span class="w">  </span><span class="s1">&#39;framesPerSecond&#39;</span><span class="o">:</span><span class="w"> </span><span class="mf">1.5</span>
+</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6"></a><span class="p">};</span>
+</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7"></a>
+</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8"></a><span class="kd">var</span><span class="w"> </span><span class="nx">text</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">require</span><span class="p">(</span><span class="s1">&#39;users/gena/packages:text&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// Import gena&#39;s package which allows text overlay on image</span>
+</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9"></a>
+</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10"></a><span class="kd">var</span><span class="w"> </span><span class="nx">annotations</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="p">[</span>
+</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11"></a><span class="w"> </span><span class="p">{</span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;left&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">offset</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0.25%&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">margin</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;0.25%&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">property</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">scale</span><span class="o">:</span><span class="w"> </span><span class="mf">100</span><span class="p">}</span><span class="w"> </span><span class="c1">//large scale because image if of the whole world. Use smaller scale otherwise</span>
+</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12"></a><span class="w">  </span><span class="p">];</span>
+</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13"></a>
+</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14"></a><span class="kd">function</span><span class="w"> </span><span class="nx">addText</span><span class="p">(</span><span class="nx">image</span><span class="p">){</span>
+</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">image_0</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">image</span><span class="p">.</span><span class="nx">clip</span><span class="p">(</span><span class="nx">districts</span><span class="p">.</span><span class="nx">union</span><span class="p">());</span>
+</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">timeStamp</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">image</span><span class="p">.</span><span class="nx">get</span><span class="p">(</span><span class="s1">&#39;description&#39;</span><span class="p">);</span><span class="w"> </span><span class="c1">// get the time stamp of each frame. This can be any string. Date, Years, Hours, etc.</span>
+</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">timeStamp_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ee</span><span class="p">.</span><span class="nb">String</span><span class="p">(</span><span class="nx">timeStamp</span><span class="p">);</span><span class="w"> </span><span class="c1">//convert time stamp to string </span>
+</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">image_</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">image_0</span><span class="p">.</span><span class="nx">visualize</span><span class="p">(</span><span class="nx">landSurfaceTemperatureVis</span><span class="p">).</span><span class="nx">set</span><span class="p">({</span><span class="s1">&#39;label&#39;</span><span class="o">:</span><span class="nx">timeStamp</span><span class="p">});</span><span class="w"> </span><span class="c1">// set a property called label for each image</span>
+</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19"></a><span class="w">  </span><span class="kd">var</span><span class="w"> </span><span class="nx">annotated</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">text</span><span class="p">.</span><span class="nx">annotateImage</span><span class="p">(</span><span class="nx">image_</span><span class="p">,</span><span class="w"> </span><span class="p">{},</span><span class="w"> </span><span class="nx">extent</span><span class="p">,</span><span class="w"> </span><span class="nx">annotations</span><span class="p">);</span><span class="w"> </span><span class="c1">// create a new image with the label overlayed using gena&#39;s package</span>
+</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20"></a><span class="w">  </span><span class="k">return</span><span class="w"> </span><span class="nx">annotated</span><span class="p">;</span>
+</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21"></a><span class="p">}</span>
+</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22"></a>
+</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23"></a><span class="kd">var</span><span class="w"> </span><span class="nx">AnnotatedCollectionWetSeason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">WetSeasonMedianCollection</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">addText</span><span class="p">);</span><span class="w"> </span><span class="c1">//add time stamp to all images</span>
+</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24"></a><span class="kd">var</span><span class="w"> </span><span class="nx">AnnotatedCollectionDrySeason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DrySeasonMedianCollection</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">addText</span><span class="p">);</span>
+</span><span id="__span-10-25"><a id="__codelineno-10-25" name="__codelineno-10-25"></a>
+</span><span id="__span-10-26"><a id="__codelineno-10-26" name="__codelineno-10-26"></a>
+</span><span id="__span-10-27"><a id="__codelineno-10-27" name="__codelineno-10-27"></a><span class="nx">print</span><span class="p">(</span><span class="nx">ui</span><span class="p">.</span><span class="nx">Thumbnail</span><span class="p">(</span><span class="nx">AnnotatedCollectionWetSeason</span><span class="p">,</span><span class="w">  </span><span class="nx">gifParams</span><span class="p">));</span>
+</span><span id="__span-10-28"><a id="__codelineno-10-28" name="__codelineno-10-28"></a>
+</span><span id="__span-10-29"><a id="__codelineno-10-29" name="__codelineno-10-29"></a><span class="kd">var</span><span class="w"> </span><span class="nx">AnnotatedCollectionDrySeason</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">DrySeasonMedianCollection</span><span class="p">.</span><span class="nx">map</span><span class="p">(</span><span class="nx">addText</span><span class="p">);</span>
+</span><span id="__span-10-30"><a id="__codelineno-10-30" name="__codelineno-10-30"></a>
+</span><span id="__span-10-31"><a id="__codelineno-10-31" name="__codelineno-10-31"></a><span class="nx">print</span><span class="p">(</span><span class="nx">ui</span><span class="p">.</span><span class="nx">Thumbnail</span><span class="p">(</span><span class="nx">AnnotatedCollectionDrySeason</span><span class="p">,</span><span class="w">  </span><span class="nx">gifParams</span><span class="p">));</span>
+</span></code></pre></div></td></tr></table></div>
+<p align="center">
+      <img src="./../rainy_season_20_years_modis.gif" alt="Centered Image">
+      <br>
+      <i>Rainy Season (Apr-Dec) MODIS Composites (20 years)</i>
+      </p>
+<p><br></p>
+<p align="center">
+      <img src="./../dry_season_20_years_modis.gif" alt="Centered Image">
+      <br>
+      <i>Dry Season (Jan-Mar) MODIS Composites (20 years)</i>
+      </p>
+<p><br></p>
+<p>Finally, we present our area of interest. For this we create a map of the regional location of our area of interest and another with the location within the country.  This is done with the help of the ui.Map object. Note how at the end we present the map with the location within the country with satellite images as background.</p>
+<div class="language-javascript highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal"><a href="#__codelineno-11-1"> 1</a></span>
+<span class="normal"><a href="#__codelineno-11-2"> 2</a></span>
+<span class="normal"><a href="#__codelineno-11-3"> 3</a></span>
+<span class="normal"><a href="#__codelineno-11-4"> 4</a></span>
+<span class="normal"><a href="#__codelineno-11-5"> 5</a></span>
+<span class="normal"><a href="#__codelineno-11-6"> 6</a></span>
+<span class="normal"><a href="#__codelineno-11-7"> 7</a></span>
+<span class="normal"><a href="#__codelineno-11-8"> 8</a></span>
+<span class="normal"><a href="#__codelineno-11-9"> 9</a></span>
+<span class="normal"><a href="#__codelineno-11-10">10</a></span>
+<span class="normal"><a href="#__codelineno-11-11">11</a></span>
+<span class="normal"><a href="#__codelineno-11-12">12</a></span>
+<span class="normal"><a href="#__codelineno-11-13">13</a></span>
+<span class="normal"><a href="#__codelineno-11-14">14</a></span>
+<span class="normal"><a href="#__codelineno-11-15">15</a></span>
+<span class="normal"><a href="#__codelineno-11-16">16</a></span>
+<span class="normal"><a href="#__codelineno-11-17">17</a></span>
+<span class="normal"><a href="#__codelineno-11-18">18</a></span>
+<span class="normal"><a href="#__codelineno-11-19">19</a></span>
+<span class="normal"><a href="#__codelineno-11-20">20</a></span>
+<span class="normal"><a href="#__codelineno-11-21">21</a></span>
+<span class="normal"><a href="#__codelineno-11-22">22</a></span></pre></div></td><td class="code"><div><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1"></a><span class="c1">// ui.Map objects can be constructed. Here, a new map is declared.</span>
+</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2"></a><span class="kd">var</span><span class="w"> </span><span class="nx">newMap</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nb">Map</span><span class="p">({</span>
+</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3"></a><span class="w">  </span><span class="nx">center</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">lat</span><span class="o">:</span><span class="w"> </span><span class="mf">8</span><span class="p">,</span><span class="w"> </span><span class="nx">lon</span><span class="o">:</span><span class="w"> </span><span class="o">-</span><span class="mf">80</span><span class="p">,</span><span class="w"> </span><span class="nx">zoom</span><span class="o">:</span><span class="w"> </span><span class="mf">5.5</span>
+</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4"></a><span class="w">  </span><span class="p">},</span>
+</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5"></a><span class="w">  </span><span class="nx">style</span><span class="o">:</span><span class="w"> </span><span class="p">{</span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottom-right&#39;</span><span class="p">,</span><span class="w"> </span><span class="nx">width</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;400px&#39;</span><span class="p">}</span>
+</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6"></a><span class="p">});</span>
+</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7"></a>
+</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8"></a><span class="kd">var</span><span class="w"> </span><span class="nx">geomLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nb">Map</span><span class="p">.</span><span class="nx">Layer</span><span class="p">(</span><span class="nx">districts</span><span class="p">.</span><span class="nx">union</span><span class="p">(),</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;red&#39;</span><span class="p">},</span><span class="w"> </span><span class="s1">&#39;Area of Interest&#39;</span><span class="p">);</span>
+</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9"></a><span class="kd">var</span><span class="w"> </span><span class="nx">extentLayer</span><span class="w"> </span><span class="o">=</span><span class="w"> </span><span class="nx">ui</span><span class="p">.</span><span class="nb">Map</span><span class="p">.</span><span class="nx">Layer</span><span class="p">(</span><span class="nx">districts</span><span class="p">.</span><span class="nx">bounds</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">color</span><span class="o">:</span><span class="s1">&#39;red&#39;</span><span class="p">},</span><span class="w"> </span><span class="s1">&#39;Extent&#39;</span><span class="p">);</span>
+</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10"></a><span class="nx">newMap</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">geomLayer</span><span class="p">);</span>
+</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11"></a><span class="nx">newMap</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">extentLayer</span><span class="p">);</span>
+</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12"></a>
+</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13"></a><span class="c1">// Add the newMap to the defaultMap;</span>
+</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14"></a><span class="nb">Map</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">newMap</span><span class="p">);</span>
+</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15"></a>
+</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16"></a><span class="c1">// Other UI widgets can be added to ui.Map objects, for example labels:</span>
+</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17"></a><span class="nx">defaultMap</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ui</span><span class="p">.</span><span class="nx">Label</span><span class="p">(</span><span class="s1">&#39;Countrywide location&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottom-left&#39;</span><span class="p">}));</span>
+</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18"></a><span class="nx">newMap</span><span class="p">.</span><span class="nx">add</span><span class="p">(</span><span class="nx">ui</span><span class="p">.</span><span class="nx">Label</span><span class="p">(</span><span class="s1">&#39;Regional Location&#39;</span><span class="p">,</span><span class="w"> </span><span class="p">{</span><span class="nx">position</span><span class="o">:</span><span class="w"> </span><span class="s1">&#39;bottom-left&#39;</span><span class="p">}));</span>
+</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19"></a>
+</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20"></a><span class="nb">Map</span><span class="p">.</span><span class="nx">setControlVisibility</span><span class="p">({</span><span class="nx">all</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">});</span>
+</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21"></a><span class="nx">newMap</span><span class="p">.</span><span class="nx">setControlVisibility</span><span class="p">({</span><span class="nx">all</span><span class="o">:</span><span class="w"> </span><span class="kc">false</span><span class="p">});</span>
+</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22"></a><span class="nb">Map</span><span class="p">.</span><span class="nx">setOptions</span><span class="p">(</span><span class="s2">&quot;SATELLITE&quot;</span><span class="p">);</span>
+</span></code></pre></div></td></tr></table></div>
 <p align="center">
       <img src="./../Regional_and_country_wide_location.jpg" alt="Centered Image">
       <br>
@@ -1241,8 +1410,6 @@ Map.setOptions(&quot;SATELLITE&quot;);
         <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
       
         <script src="../../../javascripts/highlight.js"></script>
-      
-        <script src="../../../javascripts/theme-toggle.js"></script>
       
     
   </body>
