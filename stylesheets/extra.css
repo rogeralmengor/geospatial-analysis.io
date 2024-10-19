@@ -24,3 +24,26 @@
   .md-typeset details {
   font-size: 18px
   }
+
+/* Style the top ribbon (header) */
+.md-header {
+  background-color: #333333;  /* Darker color for the ribbon */
+}
+
+/* Adjust the text color in the header */
+.md-header .md-logo,
+.md-header .md-nav__item {
+  color: white;  /* Make sure the text is visible */
+}
+
+/* Customize the ribbon for dark mode */
+@media (prefers-color-scheme: dark) {
+  .md-header {
+    background-color: #1C1C1C;  /* Even darker color for dark mode */
+  }
+  
+  .md-header .md-logo,
+  .md-header .md-nav__item {
+    color: #F0F0F0;  /* Light text for contrast in dark mode */
+  }
+}
