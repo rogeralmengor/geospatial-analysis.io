@@ -39,7 +39,7 @@
 /* Customize the ribbon for dark mode */
 @media (prefers-color-scheme: dark) {
   .md-header {
-    background-color: #1C1C1C;  /* Even darker color for dark mode */
+    background-color: #194569;  /* Even darker color for dark mode */
   }
   
   .md-header .md-logo,
