@@ -27,7 +27,7 @@
 
 /* Style the top ribbon (header) */
 .md-header {
-  background-color: #194569;  /* Darker color for the ribbon */
+  background-color: #112230;  /* Darker color for the ribbon */
 }
 
 /* Adjust the text color in the header */
@@ -39,7 +39,7 @@
 /* Customize the ribbon for dark mode */
 @media (prefers-color-scheme: dark) {
   .md-header {
-    background-color: #194569;  /* Even darker color for dark mode */
+    background-color: #112230;  /* Even darker color for dark mode */
   }
   
   .md-header .md-logo,
