@@ -1,4 +1,36 @@
-site_name: Roger Almengor González 
+site_name: Roger Almengor González
+
+plugins:
+  - blogging:
+      dirs: # The directories to be included
+        - blog
+      theme:
+        name: card
+        options:
+          plain_button: true
+          label: Read
+
+site_url: https://rogeralmengor.github.io/geospatial-analysis.io/
+
+time_format: '%Y-%m-%d'
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+      line_spans: __span
+      pygments_lang_class: true
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.emoji:
+      emoji_index: !!python/name:material.extensions.emoji.twemoji
+      emoji_generator: !!python/name:material.extensions.emoji.to_svg
+      options:
+        custom_icons:
+          - overrides/.icons
+
 theme:
   name: material
   icon:
@@ -16,28 +48,40 @@ theme:
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
   
-  # Remove automatic system-based color scheme
+  # Palette toggle for automatic mode
   palette:
+    - media: "(prefers-color-scheme)"
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to light mode
+
     # Palette toggle for light mode
-    - scheme: default
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
     # Palette toggle for dark mode
-    - scheme: slate
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to light mode
+        name: Switch to system preference
 
   features:
     - content.code.copy
     - content.code.select
+    # - navigation.instant
+
+  font:
+    text: Montserrat
+    code: Roboto Mono
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js
   - javascripts/highlight.js
-  - javascripts/theme-toggle.js  # Add this new file
 
 extra_css:
+  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
   - stylesheets/extra.css
