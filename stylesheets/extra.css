@@ -1,26 +1,61 @@
+/* Define Gruvbox color palette */
 :root {
-    --md-admonition-icon--pied-piper: url('data:image/svg+xml;charset=utf-8 <svg xmlns="http://www.w3.org/2000/svg" height="1em" viewBox="0 0 640 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. --><path d="M392.8 1.2c-17-4.9-34.7 5-39.6 22l-128 448c-4.9 17 5 34.7 22 39.6s34.7-5 39.6-22l128-448c4.9-17-5-34.7-22-39.6zm80.6 120.1c-12.5 12.5-12.5 32.8 0 45.3L562.7 256l-89.4 89.4c-12.5 12.5-12.5 32.8 0 45.3s32.8 12.5 45.3 0l112-112c12.5-12.5 12.5-32.8 0-45.3l-112-112c-12.5-12.5-32.8-12.5-45.3 0zm-306.7 0c-12.5-12.5-32.8-12.5-45.3 0l-112 112c-12.5 12.5-12.5 32.8 0 45.3l112 112c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L77.3 256l89.4-89.4c12.5-12.5 12.5-32.8 0-45.3z"/></svg>') 
-  }
-  
-  .md-typeset .admonition.pied-piper,
-  .md-typeset details.pied-piper {
-    border-color: rgb(43, 150, 210);
-  }
-  
-  .md-typeset .pied-piper > .admonition-title,
-  .md-typeset .pied-piper > summary {
-    background-color: rgba(43, 155, 210, 0.1);
-  }
-  
-  .md-typeset .pied-piper > .admonition-title::before,
-  .md-typeset .pied-piper > summary::before {
-    content: var(--md-admonition-icon--pied-piper); /* Use the custom icon content */
-    background-color: rgb(43, 150, 210);
-    padding: 0 0.2em; /* Add padding for better visual appearance */
-    border-radius: 4px; /* Optionally, add border-radius for rounded corners */
+  --gruvbox-dark-bg: #282828;
+  --gruvbox-light-bg: #fbf1c7;
+  --gruvbox-text-light: #ebdbb2;
+  --gruvbox-text-dark: #3c3836;
+  --gruvbox-yellow: #fabd2f;
+  --gruvbox-orange: #fe8019;
+  --gruvbox-green: #b8bb26;
+  --gruvbox-red: #fb4934;
+  --gruvbox-blue: #83a598;
+  --gruvbox-purple: #d3869b;
+}
+
+/* Apply Gruvbox theme for dark mode */
+@media (prefers-color-scheme: dark) {
+  body {
+    background-color: var(--gruvbox-dark-bg);
+    color: var(--gruvbox-text-light);
   }
 
-  .md-typeset .admonition,
-  .md-typeset details {
-  font-size: 18px
+  a {
+    color: var(--gruvbox-yellow);
   }
+
+  .md-nav__title, .md-header__title {
+    color: var(--gruvbox-text-light);
+  }
+
+  /* Code blocks */
+  .md-typeset .codehilite {
+    background-color: var(--gruvbox-dark-bg);
+    color: var(--gruvbox-text-light);
+  }
+
+  /* Customize admonitions for Gruvbox theme */
+  .md-typeset .admonition {
+    background-color: var(--gruvbox-light-bg);
+    border-left-color: var(--gruvbox-orange);
+  }
+
+  /* Additional styling for specific admonitions */
+  .md-typeset .admonition.note {
+    border-left-color: var(--gruvbox-blue);
+  }
+  
+  .md-typeset .admonition.warning {
+    border-left-color: var(--gruvbox-red);
+  }
+
+  /* Code blocks highlighting */
+  .md-typeset pre {
+    background-color: var(--gruvbox-dark-bg);
+    color: var(--gruvbox-text-light);
+  }
+
+  /* Links in dark mode */
+  .md-typeset a {
+    color: var(--gruvbox-yellow);
+  }
+}
