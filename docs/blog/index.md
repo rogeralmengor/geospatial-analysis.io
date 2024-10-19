@@ -21,7 +21,7 @@ exclude_from_blog: true
 
   .text-left {
     flex: 1;
-    background-color: white;
+    background-color: transparent;
     padding: 20px;
     box-shadow: -10px 0px 10px rgba(0, 0, 0, 0.1); /* Add a shade effect to the left */
   }
