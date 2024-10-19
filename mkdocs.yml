@@ -1,45 +1,6 @@
 site_name: Roger Almengor González 
-
-plugins:
-  - blogging:
-      dirs: # The directories to be included
-        - blog
-      theme:
-        name: card
-        name: button
-        options: # Optional
-          # `true` if display the button as plain text
-          # `false` or not present if display as rectangle button
-          plain_button: true
-          # Replacement for 'Continue Reading'
-          label: Read
-site_url: https://rogeralmengor.github.io/geospatial-analysis.io/
-
-time_format: '%Y-%m-%d'
-
-markdown_extensions:
-  - pymdownx.highlight:
-      anchor_linenums: true
-      line_spans: __span
-      pygments_lang_class: true
-  - admonition
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.inlinehilite
-  - pymdownx.snippets
-  - pymdownx.superfences
-
-  - pymdownx.emoji:
-      emoji_index: !!python/name:material.extensions.emoji.twemoji
-      emoji_generator: !!python/name:material.extensions.emoji.to_svg
-      options:
-        custom_icons:
-          - overrides/.icons
-
 theme:
-  palette:
-    - scheme: slate 
-  name: material 
+  name: material
   icon:
     admonition:
       note: fontawesome/solid/code
@@ -55,47 +16,25 @@ theme:
       example: fontawesome/solid/flask
       quote: fontawesome/solid/quote-left
   
-    Palette toggle for automatic mode
-    - media: "(prefers-color-scheme)"
-      toggle:
-        icon: material/brightness-auto
-        name: Switch to light mode
-
-    Palette toggle for light mode
-    - media: "(prefers-color-scheme: light)"
-      scheme: default 
-
-
+  # Remove automatic system-based color scheme
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
       toggle:
         icon: material/brightness-7
         name: Switch to dark mode
 
-    Palette toggle for dark mode
-    - media: "(prefers-color-scheme: dark)"
-    scheme: slate
+    # Palette toggle for dark mode
+    - scheme: slate
       toggle:
         icon: material/brightness-4
-        name: Switch to system preference
-  
+        name: Switch to light mode
+
   features:
     - content.code.copy
     - content.code.select
-#    - navigation.instant
-
-  palette:
-    primary: white 
-
-  font:
-    text: Montserrat
-    code: Roboto Mono
-
-  extra_css:
-    - custom.css
 
 extra_javascript:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js
   - javascripts/highlight.js
-extra_css:
-  - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
-extra_css:
-  - stylesheets/extra.css
+  - javascripts/theme-toggle.js  # Add this new file
