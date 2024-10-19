@@ -10,8 +10,6 @@
       
       
       
-        <link rel="canonical" href="https://rogeralmengor.github.io/geospatial-analysis.io/blog/posts/interactive_staging/">
-      
       
         <link rel="prev" href="../functional_programming/">
       
@@ -86,14 +84,10 @@
         
         
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
-        <style>:root{--md-text-font:"Montserrat";--md-code-font:"Roboto Mono"}</style>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
       
     
-    
-      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css">
-    
-      <link rel="stylesheet" href="../../../stylesheets/extra.css">
     
     <script>__md_scope=new URL("../../..",location),__md_hash=e=>[...e].reduce((e,_)=>(e<<5)-e+_.charCodeAt(0),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
     
@@ -170,19 +164,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_0">
     
-      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m14.3 16-.7-2h-3.2l-.7 2H7.8L11 7h2l3.2 9h-1.9M20 8.69V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69m-9.15 3.96h2.3L12 9l-1.15 3.65Z"/></svg>
-      </label>
-    
-  
-    
-    
-    
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: light)" data-md-color-scheme="default" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
-    
-      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_2" hidden>
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_1" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
       </label>
     
@@ -190,9 +174,9 @@
     
     
     
-    <input class="md-option" data-md-color-media="(prefers-color-scheme: dark)" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to system preference"  type="radio" name="__palette" id="__palette_2">
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="indigo" data-md-color-accent="indigo"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_1">
     
-      <label class="md-header__button md-icon" title="Switch to system preference" for="__palette_0" hidden>
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_0" hidden>
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12c0-2.42-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12 20 8.69Z"/></svg>
       </label>
     
@@ -204,6 +188,43 @@
       <script>var media,input,key,value,palette=__md_get("__palette");if(palette&&palette.color){"(prefers-color-scheme)"===palette.color.media&&(media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']"),palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent"));for([key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
     
     
+    
+      <label class="md-header__button md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+      </label>
+      <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.516 6.516 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5Z"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11h12Z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12 19 6.41Z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
     
     
   </nav>
@@ -911,349 +932,310 @@
 <p>"We've all been there." You're making changes to one or more files, with a clear goal: implement a logging system. But as you tweak lines of code, you also end up improving a function here, removing some comments, adding a new function, getting rid of a few print statements… all unrelated to the logging system. Now, you're stuck with a bunch of mixed changes, and it's time to git add. Imagine you've already committed everything under the message "changes to the logging system"—sound familiar? Frustrating, right?</p>
 <p>Fortunately, Git provides a great tool called interactive staging. While it’s typically used for organizing changes from the working directory to the staging area, you can also apply it to older commits. This lets you cleanly organize your commits by theme, so each commit truly reflects the purpose of the changes.</p>
 <p>In this tutorial, we'll explore how to do that and answer this key question:</p>
-<div class="admonition question">
-<p class="admonition-title">Question</p>
-<p>How to split a commit that adds several independent lines of code, in a commit down the tree?</p>
-</div>
+<p>!!! question
+    How to split a commit that adds several independent lines of code, in a commit down the tree?</p>
 <h2 id="create-initial-python-file">Create initial python file.</h2>
 <p>The first thing we do is to create a file called math_operations.py. I am in a linux environment using <a href="https://github.com/features/codespaces" target="_blank">coding spaces</a>, so I create the file using the touch command.</p>
-<div class="admonition warning">
-<p class="admonition-title">Creating initial file</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>$<span class="w"> </span>touch<span class="w"> </span>math_operations.py
-</span></code></pre></div>
-</div>
+<p>!!! warning "Creating initial file"
+    <code>bash
+    $ touch math_operations.py</code></p>
 <h2 id="create-basic-arithmethic-functions-and-commit">Create basic arithmethic functions and commit</h2>
 <p>Now we want to create the 4 functions for basic arithmetic operations (add, subtract, multiply and divide) in the math_opeartions.py file.</p>
-<div class="admonition abstract">
-<p class="admonition-title">math_operations.py</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>
-</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Subtract b from a.&quot;&quot;&quot;</span>
-</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>
-</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Divide a by b.&quot;&quot;&quot;</span>
-</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>
-</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Multiply a and b.&quot;&quot;&quot;</span>
-</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-</span></code></pre></div>
-</div>
+<p>!!! abstract "math_operations.py"
+    ```python
+    def add(a: float, b: float) -&gt; float:
+        """Add two numbers."""
+        return a + b</p>
+<pre><code>def subtract(a: float, b: float) -&gt; float:
+    """Subtract b from a."""
+    return a - b
+
+def divide(a: float, b: float) -&gt; float:
+    """Divide a by b."""
+    return a / b
+
+def multiply(a: float, b: float) -&gt; float:
+    """Multiply a and b."""
+    return a * b
+```
+</code></pre>
 <p>We commit the changes:</p>
-<div class="admonition warning">
-<p class="admonition-title">Adding and commiting changes in initial file</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-2-1"><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>math_operations.py
-</span><span id="__span-2-2"><a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add module basic arithmetic operations.&quot;</span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Adding and commiting changes in initial file"
+    <code>bash
+    $ git add math_operations.py
+    $ git commit -m "feat: add module basic arithmetic operations."</code></p>
 <h2 id="creating-factorial-function">Creating factorial function</h2>
 <p>To create a bit of complexity in our rebasing, we add the factorial function to the math_operations.py file.</p>
-<div class="admonition abstract">
-<p class="admonition-title">math_operations.py</p>
-<div class="language-python highlight"><pre><span></span><code><span id="__span-3-1"><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-3-2"><a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-</span><span id="__span-3-3"><a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">+</span> <span class="n">b</span>
-</span><span id="__span-3-4"><a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>
-</span><span id="__span-3-5"><a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="k">def</span> <span class="nf">subtract</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-3-6"><a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Subtract b from a.&quot;&quot;&quot;</span>
-</span><span id="__span-3-7"><a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">-</span> <span class="n">b</span>
-</span><span id="__span-3-8"><a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a>
-</span><span id="__span-3-9"><a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="k">def</span> <span class="nf">divide</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-3-10"><a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Divide a by b.&quot;&quot;&quot;</span>
-</span><span id="__span-3-11"><a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">/</span> <span class="n">b</span>
-</span><span id="__span-3-12"><a id="__codelineno-3-12" name="__codelineno-3-12" href="#__codelineno-3-12"></a>
-</span><span id="__span-3-13"><a id="__codelineno-3-13" name="__codelineno-3-13" href="#__codelineno-3-13"></a><span class="k">def</span> <span class="nf">multiply</span><span class="p">(</span><span class="n">a</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">b</span><span class="p">:</span> <span class="nb">float</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span><span class="p">:</span>
-</span><span id="__span-3-14"><a id="__codelineno-3-14" name="__codelineno-3-14" href="#__codelineno-3-14"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Multiply a and b.&quot;&quot;&quot;</span>
-</span><span id="__span-3-15"><a id="__codelineno-3-15" name="__codelineno-3-15" href="#__codelineno-3-15"></a>    <span class="k">return</span> <span class="n">a</span> <span class="o">*</span> <span class="n">b</span>
-</span><span id="__span-3-16"><a id="__codelineno-3-16" name="__codelineno-3-16" href="#__codelineno-3-16"></a>
-</span><span id="__span-3-17"><a id="__codelineno-3-17" name="__codelineno-3-17" href="#__codelineno-3-17"></a><span class="k">def</span> <span class="nf">factorial</span><span class="p">(</span><span class="n">n</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span><span class="p">:</span>
-</span><span id="__span-3-18"><a id="__codelineno-3-18" name="__codelineno-3-18" href="#__codelineno-3-18"></a><span class="w">    </span><span class="sd">&quot;&quot;&quot;Calculate the factorial of n.&quot;&quot;&quot;</span>
-</span><span id="__span-3-19"><a id="__codelineno-3-19" name="__codelineno-3-19" href="#__codelineno-3-19"></a>    <span class="k">if</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">n</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
-</span><span id="__span-3-20"><a id="__codelineno-3-20" name="__codelineno-3-20" href="#__codelineno-3-20"></a>        <span class="k">return</span> <span class="mi">1</span>
-</span><span id="__span-3-21"><a id="__codelineno-3-21" name="__codelineno-3-21" href="#__codelineno-3-21"></a>    <span class="k">else</span><span class="p">:</span>
-</span><span id="__span-3-22"><a id="__codelineno-3-22" name="__codelineno-3-22" href="#__codelineno-3-22"></a>        <span class="k">return</span> <span class="n">n</span> <span class="o">*</span> <span class="n">factorial</span><span class="p">(</span><span class="n">n</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-</span></code></pre></div>
-</div>
+<p>!!! abstract "math_operations.py"
+    ```python
+    def add(a: float, b: float) -&gt; float:
+        """Add two numbers."""
+        return a + b</p>
+<pre><code>def subtract(a: float, b: float) -&gt; float:
+    """Subtract b from a."""
+    return a - b
+
+def divide(a: float, b: float) -&gt; float:
+    """Divide a by b."""
+    return a / b
+
+def multiply(a: float, b: float) -&gt; float:
+    """Multiply a and b."""
+    return a * b
+
+def factorial(n: int) -&gt; int:
+    """Calculate the factorial of n."""
+    if n == 0 or n == 1:
+        return 1
+    else:
+        return n * factorial(n-1)
+```
+</code></pre>
 <p>We add and commit the changes:</p>
-<div class="admonition warning">
-<p class="admonition-title">Adding and commiting new changes</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-4-1"><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>math_operations.py
-</span><span id="__span-4-2"><a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="err">&#39;</span>feat:<span class="w"> </span>add<span class="w"> </span>factorial<span class="w"> </span><span class="k">function</span>.
-</span></code></pre></div>
-</div>
+<p>!!! warning "Adding and commiting new changes"
+    <code>bash
+    $ git add math_operations.py
+    $ git commit -m 'feat: add factorial function.</code></p>
 <p>We visualize our commit's tree by running:</p>
-<div class="admonition warning">
-<p class="admonition-title">git log --oneline --graph main</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-5-1"><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a>*<span class="w"> </span>c291adb<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>factorial<span class="w"> </span><span class="k">function</span>.
-</span><span id="__span-5-2"><a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a>*<span class="w"> </span>fd18571<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>module<span class="w"> </span>basic<span class="w"> </span>arithmetic<span class="w"> </span>operations.
-</span></code></pre></div>
-</div>
+<p>!!! warning "git log --oneline --graph main"
+    <code>bash
+    * c291adb (HEAD -&gt; main) feat: add factorial function.
+    * fd18571 feat: add module basic arithmetic operations.</code></p>
 <h2 id="starting-the-interactive-rebasingstaging">Starting the interactive rebasing/staging.</h2>
 <p>Now we'll use the interactive rebasing to start our split of the first commit we did in this tutorial (This commit is the second commit going from top-down in our commit's tree):</p>
-<div class="admonition warning">
-<p class="admonition-title">Starting interactive rebasing to second commit down the tree</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-6-1"><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a>$<span class="w"> </span>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~2
-</span><span id="__span-6-2"><a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a>hint:<span class="w"> </span>Waiting<span class="w"> </span><span class="k">for</span><span class="w"> </span>your<span class="w"> </span>editor<span class="w"> </span>to<span class="w"> </span>close<span class="w"> </span>the<span class="w"> </span>file...
-</span></code></pre></div>
-</div>
+<p>!!! warning "Starting interactive rebasing to second commit down the tree"
+    <code>bash 
+    $ git rebase -i HEAD~2
+    hint: Waiting for your editor to close the file...</code></p>
 <p>A text editor, (normaly VIM will open... if you set another text editor then, the latter will open), opens, and asks you to change the actions of the commit list, from which you are doing the rebasing. We change the <b>pick</b> keyword for the <b>edit</b> keyword.</p>
-<div class="admonition warning">
-<p class="admonition-title">Editing the git todo file</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-7-1"><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>edit<span class="w"> </span>fd18571<span class="w"> </span>feat:<span class="w"> </span>adding<span class="w"> </span>module<span class="w"> </span>basic<span class="w"> </span>arithmetic<span class="w"> </span>operations.
-</span><span id="__span-7-2"><a id="__codelineno-7-2" name="__codelineno-7-2" href="#__codelineno-7-2"></a>pick<span class="w"> </span>c291adb<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>factorial<span class="w"> </span><span class="k">function</span>.
-</span><span id="__span-7-3"><a id="__codelineno-7-3" name="__codelineno-7-3" href="#__codelineno-7-3"></a>
-</span><span id="__span-7-4"><a id="__codelineno-7-4" name="__codelineno-7-4" href="#__codelineno-7-4"></a><span class="c1"># Rebase 8cca62b..36710a0 onto 8cca62b (2 commands)</span>
-</span><span id="__span-7-5"><a id="__codelineno-7-5" name="__codelineno-7-5" href="#__codelineno-7-5"></a><span class="c1">#</span>
-</span><span id="__span-7-6"><a id="__codelineno-7-6" name="__codelineno-7-6" href="#__codelineno-7-6"></a><span class="c1"># Commands:</span>
-</span><span id="__span-7-7"><a id="__codelineno-7-7" name="__codelineno-7-7" href="#__codelineno-7-7"></a><span class="c1"># p, pick &lt;commit&gt; = use commit</span>
-</span><span id="__span-7-8"><a id="__codelineno-7-8" name="__codelineno-7-8" href="#__codelineno-7-8"></a><span class="c1"># r, reword &lt;commit&gt; = use commit, but edit the commit message</span>
-</span><span id="__span-7-9"><a id="__codelineno-7-9" name="__codelineno-7-9" href="#__codelineno-7-9"></a><span class="c1"># e, edit &lt;commit&gt; = use commit, but stop for amending</span>
-</span><span id="__span-7-10"><a id="__codelineno-7-10" name="__codelineno-7-10" href="#__codelineno-7-10"></a><span class="c1"># s, squash &lt;commit&gt; = use commit, but meld into previous commit</span>
-</span><span id="__span-7-11"><a id="__codelineno-7-11" name="__codelineno-7-11" href="#__codelineno-7-11"></a><span class="c1"># f, fixup [-C | -c] &lt;commit&gt; = like &quot;squash&quot; but keep only the previous</span>
-</span><span id="__span-7-12"><a id="__codelineno-7-12" name="__codelineno-7-12" href="#__codelineno-7-12"></a><span class="c1">#                    commit&#39;s log message, unless -C is used, in which case</span>
-</span><span id="__span-7-13"><a id="__codelineno-7-13" name="__codelineno-7-13" href="#__codelineno-7-13"></a><span class="c1">#                    keep only this commit&#39;s message; -c is same as -C but</span>
-</span><span id="__span-7-14"><a id="__codelineno-7-14" name="__codelineno-7-14" href="#__codelineno-7-14"></a><span class="c1">#                    opens the editor</span>
-</span><span id="__span-7-15"><a id="__codelineno-7-15" name="__codelineno-7-15" href="#__codelineno-7-15"></a><span class="c1"># x, exec &lt;command&gt; = run command (the rest of the line) using shell</span>
-</span><span id="__span-7-16"><a id="__codelineno-7-16" name="__codelineno-7-16" href="#__codelineno-7-16"></a><span class="c1"># b, break = stop here (continue rebase later with &#39;git rebase --continue&#39;)</span>
-</span><span id="__span-7-17"><a id="__codelineno-7-17" name="__codelineno-7-17" href="#__codelineno-7-17"></a><span class="c1"># d, drop &lt;commit&gt; = remove commit</span>
-</span><span id="__span-7-18"><a id="__codelineno-7-18" name="__codelineno-7-18" href="#__codelineno-7-18"></a><span class="c1"># l, label &lt;label&gt; = label current HEAD with a name</span>
-</span><span id="__span-7-19"><a id="__codelineno-7-19" name="__codelineno-7-19" href="#__codelineno-7-19"></a><span class="c1"># t, reset &lt;label&gt; = reset HEAD to a label</span>
-</span><span id="__span-7-20"><a id="__codelineno-7-20" name="__codelineno-7-20" href="#__codelineno-7-20"></a><span class="c1"># m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [# &lt;oneline&gt;]</span>
-</span><span id="__span-7-21"><a id="__codelineno-7-21" name="__codelineno-7-21" href="#__codelineno-7-21"></a><span class="c1">#         create a merge commit using the original merge commit&#39;s</span>
-</span><span id="__span-7-22"><a id="__codelineno-7-22" name="__codelineno-7-22" href="#__codelineno-7-22"></a><span class="c1">#         message (or the oneline, if no original merge commit was</span>
-</span><span id="__span-7-23"><a id="__codelineno-7-23" name="__codelineno-7-23" href="#__codelineno-7-23"></a><span class="c1">#         specified); use -c &lt;commit&gt; to reword the commit message</span>
-</span><span id="__span-7-24"><a id="__codelineno-7-24" name="__codelineno-7-24" href="#__codelineno-7-24"></a><span class="c1"># u, update-ref &lt;ref&gt; = track a placeholder for the &lt;ref&gt; to be updated</span>
-</span><span id="__span-7-25"><a id="__codelineno-7-25" name="__codelineno-7-25" href="#__codelineno-7-25"></a><span class="c1">#                       to this position in the new commits. The &lt;ref&gt; is</span>
-</span><span id="__span-7-26"><a id="__codelineno-7-26" name="__codelineno-7-26" href="#__codelineno-7-26"></a><span class="c1">#                       updated at the end of the rebase</span>
-</span><span id="__span-7-27"><a id="__codelineno-7-27" name="__codelineno-7-27" href="#__codelineno-7-27"></a><span class="c1">#</span>
-</span><span id="__span-7-28"><a id="__codelineno-7-28" name="__codelineno-7-28" href="#__codelineno-7-28"></a><span class="c1"># These lines can be re-ordered; they are executed from top to bottom.</span>
-</span><span id="__span-7-29"><a id="__codelineno-7-29" name="__codelineno-7-29" href="#__codelineno-7-29"></a><span class="c1">#</span>
-</span><span id="__span-7-30"><a id="__codelineno-7-30" name="__codelineno-7-30" href="#__codelineno-7-30"></a><span class="c1"># If you remove a line here THAT COMMIT WILL BE LOST.</span>
-</span><span id="__span-7-31"><a id="__codelineno-7-31" name="__codelineno-7-31" href="#__codelineno-7-31"></a><span class="c1">#</span>
-</span><span id="__span-7-32"><a id="__codelineno-7-32" name="__codelineno-7-32" href="#__codelineno-7-32"></a><span class="c1"># However, if you remove everything, the rebase will be aborted.</span>
-</span><span id="__span-7-33"><a id="__codelineno-7-33" name="__codelineno-7-33" href="#__codelineno-7-33"></a><span class="c1">#</span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Editing the git todo file"
+    ```bash
+    edit fd18571 feat: adding module basic arithmetic operations.
+    pick c291adb feat: add factorial function.</p>
+<pre><code># Rebase 8cca62b..36710a0 onto 8cca62b (2 commands)
+#
+# Commands:
+# p, pick &lt;commit&gt; = use commit
+# r, reword &lt;commit&gt; = use commit, but edit the commit message
+# e, edit &lt;commit&gt; = use commit, but stop for amending
+# s, squash &lt;commit&gt; = use commit, but meld into previous commit
+# f, fixup [-C | -c] &lt;commit&gt; = like "squash" but keep only the previous
+#                    commit's log message, unless -C is used, in which case
+#                    keep only this commit's message; -c is same as -C but
+#                    opens the editor
+# x, exec &lt;command&gt; = run command (the rest of the line) using shell
+# b, break = stop here (continue rebase later with 'git rebase --continue')
+# d, drop &lt;commit&gt; = remove commit
+# l, label &lt;label&gt; = label current HEAD with a name
+# t, reset &lt;label&gt; = reset HEAD to a label
+# m, merge [-C &lt;commit&gt; | -c &lt;commit&gt;] &lt;label&gt; [# &lt;oneline&gt;]
+#         create a merge commit using the original merge commit's
+#         message (or the oneline, if no original merge commit was
+#         specified); use -c &lt;commit&gt; to reword the commit message
+# u, update-ref &lt;ref&gt; = track a placeholder for the &lt;ref&gt; to be updated
+#                       to this position in the new commits. The &lt;ref&gt; is
+#                       updated at the end of the rebase
+#
+# These lines can be re-ordered; they are executed from top to bottom.
+#
+# If you remove a line here THAT COMMIT WILL BE LOST.
+#
+# However, if you remove everything, the rebase will be aborted.
+#
+```
+</code></pre>
 <p>If you are in vim, you can close the file by pressing <code>:wq</code>. Once closed you can make a reset of the HEAD, because we are at the level of the commit we want to split.</p>
-<div class="admonition warning">
-<p class="admonition-title">Resetting the last changes</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-8-1"><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>$<span class="w"> </span>git<span class="w"> </span>reset<span class="w"> </span>HEAD^
-</span><span id="__span-8-2"><a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>Unstaged<span class="w"> </span>changes<span class="w"> </span>after<span class="w"> </span>reset:
-</span><span id="__span-8-3"><a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>M<span class="w">       </span>docs/blog/math_operations.py
-</span></code></pre></div>
-</div>
+<p>!!! warning "Resetting the last changes"
+    <code>bash
+    $ git reset HEAD^
+    Unstaged changes after reset:
+    M       docs/blog/math_operations.py</code></p>
 <p>As you can see the the math_opeartions.py file has gone to a unstaged status. And we can start doing our modifications of the commits.</p>
 <p>This is an important concept to bear in mind when doing this specific modification of the git history. There is the staging area in a git repository, which contains a copy of the files being changed in the next commits. However since the math_operations.py file does not exists in the previous commit, in order to add changes in this file, we have to create a file which will be patched against. The following command will do that for us, which basically adds an empty <code>math_operations.py</code> file in the index to start the interactive staging.</p>
-<div class="admonition warning">
-<p class="admonition-title">Adding file to index</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-9-1"><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>-N<span class="w"> </span>math_operations.py
-</span></code></pre></div>
-</div>
+<p>!!! warning "Adding file to index"
+    <code>bash
+    $ git add -N math_operations.py</code></p>
 <p>Once we do that, we can start adding the patches.</p>
-<div class="admonition warning">
-<p class="admonition-title">Start adding patches</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-10-1"><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>-p<span class="w"> </span>match_operations.py
-</span><span id="__span-10-2"><a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a>diff<span class="w"> </span>--git<span class="w"> </span>a/math_operations.py<span class="w"> </span>b/math_operations.py
-</span><span id="__span-10-3"><a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a>new<span class="w"> </span>file<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span>
-</span><span id="__span-10-4"><a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a>index<span class="w"> </span><span class="m">0000000</span>..615a19b
-</span><span id="__span-10-5"><a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a>---<span class="w"> </span>/dev/null
-</span><span id="__span-10-6"><a id="__codelineno-10-6" name="__codelineno-10-6" href="#__codelineno-10-6"></a>+++<span class="w"> </span>b/math_operations.py
-</span><span id="__span-10-7"><a id="__codelineno-10-7" name="__codelineno-10-7" href="#__codelineno-10-7"></a>@@<span class="w"> </span>-0,0<span class="w"> </span>+1,15<span class="w"> </span>@@
-</span><span id="__span-10-8"><a id="__codelineno-10-8" name="__codelineno-10-8" href="#__codelineno-10-8"></a>+def<span class="w"> </span>add<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-10-9"><a id="__codelineno-10-9" name="__codelineno-10-9" href="#__codelineno-10-9"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-</span><span id="__span-10-10"><a id="__codelineno-10-10" name="__codelineno-10-10" href="#__codelineno-10-10"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b
-</span><span id="__span-10-11"><a id="__codelineno-10-11" name="__codelineno-10-11" href="#__codelineno-10-11"></a>+
-</span><span id="__span-10-12"><a id="__codelineno-10-12" name="__codelineno-10-12" href="#__codelineno-10-12"></a>+def<span class="w"> </span>subtract<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-10-13"><a id="__codelineno-10-13" name="__codelineno-10-13" href="#__codelineno-10-13"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Subtract b from a.&quot;&quot;&quot;</span>
-</span><span id="__span-10-14"><a id="__codelineno-10-14" name="__codelineno-10-14" href="#__codelineno-10-14"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>-<span class="w"> </span>b
-</span><span id="__span-10-15"><a id="__codelineno-10-15" name="__codelineno-10-15" href="#__codelineno-10-15"></a>+
-</span><span id="__span-10-16"><a id="__codelineno-10-16" name="__codelineno-10-16" href="#__codelineno-10-16"></a>+def<span class="w"> </span>divide<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-10-17"><a id="__codelineno-10-17" name="__codelineno-10-17" href="#__codelineno-10-17"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Divide a by b.&quot;&quot;&quot;</span>
-</span><span id="__span-10-18"><a id="__codelineno-10-18" name="__codelineno-10-18" href="#__codelineno-10-18"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>/<span class="w"> </span>b
-</span><span id="__span-10-19"><a id="__codelineno-10-19" name="__codelineno-10-19" href="#__codelineno-10-19"></a>+
-</span><span id="__span-10-20"><a id="__codelineno-10-20" name="__codelineno-10-20" href="#__codelineno-10-20"></a>+def<span class="w"> </span>multiply<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-10-21"><a id="__codelineno-10-21" name="__codelineno-10-21" href="#__codelineno-10-21"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Multiply a and b.&quot;&quot;&quot;</span>
-</span><span id="__span-10-22"><a id="__codelineno-10-22" name="__codelineno-10-22" href="#__codelineno-10-22"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>*<span class="w"> </span>b
-</span><span id="__span-10-23"><a id="__codelineno-10-23" name="__codelineno-10-23" href="#__codelineno-10-23"></a><span class="se">\ </span>No<span class="w"> </span>newline<span class="w"> </span>at<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>file
-</span><span id="__span-10-24"><a id="__codelineno-10-24" name="__codelineno-10-24" href="#__codelineno-10-24"></a><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>Stage<span class="w"> </span>addition<span class="w"> </span><span class="o">[</span>y,n,q,a,d,e,p,?<span class="o">]</span>?<span class="w"> </span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Start adding patches"
+    <code>bash
+    $ git add -p match_operations.py
+    diff --git a/math_operations.py b/math_operations.py
+    new file mode 100644
+    index 0000000..615a19b
+    --- /dev/null
+    +++ b/math_operations.py
+    @@ -0,0 +1,15 @@
+    +def add(a: float, b: float) -&gt; float:
+    +    """Add two numbers."""
+    +    return a + b
+    +
+    +def subtract(a: float, b: float) -&gt; float:
+    +    """Subtract b from a."""
+    +    return a - b
+    +
+    +def divide(a: float, b: float) -&gt; float:
+    +    """Divide a by b."""
+    +    return a / b
+    +
+    +def multiply(a: float, b: float) -&gt; float:
+    +    """Multiply a and b."""
+    +    return a * b
+    \ No newline at end of file
+    (1/1) Stage addition [y,n,q,a,d,e,p,?]?</code></p>
 <p>As you can see, since all the changes were introduced in the same commit at once, the patches, which are called hunks in this tool, appear as the entire file. That is not very usefull, since we want to create single commits for every function we are introducing.
 For that, lets type the option e, which stands for editing. And we'll start adding the changes one by one, in single commits.</p>
 <p>When typing <code>e</code>, a file named addp-hunk-edit.diff will be opened in your text editor, with the following contents:</p>
-<div class="admonition warning">
-<p class="admonition-title">Manual editing of hunks</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-11-1"><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="c1"># Manual hunk edit mode -- see bottom for a quick guide.</span>
-</span><span id="__span-11-2"><a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a>@@<span class="w"> </span>-0,0<span class="w"> </span>+1,15<span class="w"> </span>@@
-</span><span id="__span-11-3"><a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a>+def<span class="w"> </span>add<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-11-4"><a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-</span><span id="__span-11-5"><a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b
-</span><span id="__span-11-6"><a id="__codelineno-11-6" name="__codelineno-11-6" href="#__codelineno-11-6"></a>+
-</span><span id="__span-11-7"><a id="__codelineno-11-7" name="__codelineno-11-7" href="#__codelineno-11-7"></a>+def<span class="w"> </span>subtract<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-11-8"><a id="__codelineno-11-8" name="__codelineno-11-8" href="#__codelineno-11-8"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Subtract b from a.&quot;&quot;&quot;</span>
-</span><span id="__span-11-9"><a id="__codelineno-11-9" name="__codelineno-11-9" href="#__codelineno-11-9"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>-<span class="w"> </span>b
-</span><span id="__span-11-10"><a id="__codelineno-11-10" name="__codelineno-11-10" href="#__codelineno-11-10"></a>+
-</span><span id="__span-11-11"><a id="__codelineno-11-11" name="__codelineno-11-11" href="#__codelineno-11-11"></a>+def<span class="w"> </span>divide<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-11-12"><a id="__codelineno-11-12" name="__codelineno-11-12" href="#__codelineno-11-12"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Divide a by b.&quot;&quot;&quot;</span>
-</span><span id="__span-11-13"><a id="__codelineno-11-13" name="__codelineno-11-13" href="#__codelineno-11-13"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>/<span class="w"> </span>b
-</span><span id="__span-11-14"><a id="__codelineno-11-14" name="__codelineno-11-14" href="#__codelineno-11-14"></a>+
-</span><span id="__span-11-15"><a id="__codelineno-11-15" name="__codelineno-11-15" href="#__codelineno-11-15"></a>+def<span class="w"> </span>multiply<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-11-16"><a id="__codelineno-11-16" name="__codelineno-11-16" href="#__codelineno-11-16"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Multiply a and b.&quot;&quot;&quot;</span>
-</span><span id="__span-11-17"><a id="__codelineno-11-17" name="__codelineno-11-17" href="#__codelineno-11-17"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>*<span class="w"> </span>b
-</span><span id="__span-11-18"><a id="__codelineno-11-18" name="__codelineno-11-18" href="#__codelineno-11-18"></a><span class="se">\ </span>No<span class="w"> </span>newline<span class="w"> </span>at<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>file
-</span><span id="__span-11-19"><a id="__codelineno-11-19" name="__codelineno-11-19" href="#__codelineno-11-19"></a><span class="c1"># ---</span>
-</span><span id="__span-11-20"><a id="__codelineno-11-20" name="__codelineno-11-20" href="#__codelineno-11-20"></a><span class="c1"># To remove &#39;-&#39; lines, make them &#39; &#39; lines (context).</span>
-</span><span id="__span-11-21"><a id="__codelineno-11-21" name="__codelineno-11-21" href="#__codelineno-11-21"></a><span class="c1"># To remove &#39;+&#39; lines, delete them.</span>
-</span><span id="__span-11-22"><a id="__codelineno-11-22" name="__codelineno-11-22" href="#__codelineno-11-22"></a><span class="c1"># Lines starting with # will be removed.</span>
-</span><span id="__span-11-23"><a id="__codelineno-11-23" name="__codelineno-11-23" href="#__codelineno-11-23"></a><span class="c1"># If the patch applies cleanly, the edited hunk will immediately be marked for staging.</span>
-</span><span id="__span-11-24"><a id="__codelineno-11-24" name="__codelineno-11-24" href="#__codelineno-11-24"></a><span class="c1"># If it does not apply cleanly, you will be given an opportunity to</span>
-</span><span id="__span-11-25"><a id="__codelineno-11-25" name="__codelineno-11-25" href="#__codelineno-11-25"></a><span class="c1"># edit again.  If all lines of the hunk are removed, then the edit is</span>
-</span><span id="__span-11-26"><a id="__codelineno-11-26" name="__codelineno-11-26" href="#__codelineno-11-26"></a><span class="c1"># aborted and the hunk is left unchanged.</span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Manual editing of hunks"
+    <code>bash
+    # Manual hunk edit mode -- see bottom for a quick guide.
+    @@ -0,0 +1,15 @@
+    +def add(a: float, b: float) -&gt; float:
+    +    """Add two numbers."""
+    +    return a + b
+    +
+    +def subtract(a: float, b: float) -&gt; float:
+    +    """Subtract b from a."""
+    +    return a - b
+    +
+    +def divide(a: float, b: float) -&gt; float:
+    +    """Divide a by b."""
+    +    return a / b
+    +
+    +def multiply(a: float, b: float) -&gt; float:
+    +    """Multiply a and b."""
+    +    return a * b
+    \ No newline at end of file
+    # ---
+    # To remove '-' lines, make them ' ' lines (context).
+    # To remove '+' lines, delete them.
+    # Lines starting with # will be removed.
+    # If the patch applies cleanly, the edited hunk will immediately be marked for staging.
+    # If it does not apply cleanly, you will be given an opportunity to
+    # edit again.  If all lines of the hunk are removed, then the edit is
+    # aborted and the hunk is left unchanged.</code></p>
 <p>As you can see all the lines with the four functions we want to add individually are listed as an entire patch.</p>
-<div class="admonition danger">
-<p class="admonition-title">Important!</p>
-<p>If you're using Git with VSCode and the editor doesn't open when you press 'e' during interactive staging (git add -p), there are a few steps you can take to resolve this issue:</p>
-<p>Check your Git configuration:
+<p>!!! danger "Important!"
+    If you're using Git with VSCode and the editor doesn't open when you press 'e' during interactive staging (git add -p), there are a few steps you can take to resolve this issue:</p>
+<pre><code>Check your Git configuration:
     Make sure Git is configured to use VSCode as your default editor. 
     You can do this by running:
-        <code>git config --global core.editor "code --wait"</code>
-    This sets VSCode as the default editor and tells Git to wait for the file to be closed before proceeding.</p>
-</div>
+        ```git config --global core.editor "code --wait"```
+    This sets VSCode as the default editor and tells Git to wait for the file to be closed before proceeding.
+</code></pre>
 <p>Let's just manually delete the functions subtract, divide and multiply, and save and close the changes. It should look like that: </p>
-<div class="admonition warning">
-<p class="admonition-title">Leaving only the lines we are going to first commit</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-12-1"><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a><span class="c1"># Manual hunk edit mode -- see bottom for a quick guide.</span>
-</span><span id="__span-12-2"><a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>@@<span class="w"> </span>-0,0<span class="w"> </span>+1,15<span class="w"> </span>@@
-</span><span id="__span-12-3"><a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>+def<span class="w"> </span>add<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-12-4"><a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-</span><span id="__span-12-5"><a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b
-</span><span id="__span-12-6"><a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>+
-</span><span id="__span-12-7"><a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a><span class="se">\ </span>No<span class="w"> </span>newline<span class="w"> </span>at<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>file
-</span><span id="__span-12-8"><a id="__codelineno-12-8" name="__codelineno-12-8" href="#__codelineno-12-8"></a><span class="c1"># ---</span>
-</span><span id="__span-12-9"><a id="__codelineno-12-9" name="__codelineno-12-9" href="#__codelineno-12-9"></a><span class="c1"># To remove &#39;-&#39; lines, make them &#39; &#39; lines (context).</span>
-</span><span id="__span-12-10"><a id="__codelineno-12-10" name="__codelineno-12-10" href="#__codelineno-12-10"></a><span class="c1"># To remove &#39;+&#39; lines, delete them.</span>
-</span><span id="__span-12-11"><a id="__codelineno-12-11" name="__codelineno-12-11" href="#__codelineno-12-11"></a><span class="c1"># Lines starting with # will be removed.</span>
-</span><span id="__span-12-12"><a id="__codelineno-12-12" name="__codelineno-12-12" href="#__codelineno-12-12"></a><span class="c1"># If the patch applies cleanly, the edited hunk will immediately be marked for staging.</span>
-</span><span id="__span-12-13"><a id="__codelineno-12-13" name="__codelineno-12-13" href="#__codelineno-12-13"></a><span class="c1"># If it does not apply cleanly, you will be given an opportunity to</span>
-</span><span id="__span-12-14"><a id="__codelineno-12-14" name="__codelineno-12-14" href="#__codelineno-12-14"></a><span class="c1"># edit again.  If all lines of the hunk are removed, then the edit is</span>
-</span><span id="__span-12-15"><a id="__codelineno-12-15" name="__codelineno-12-15" href="#__codelineno-12-15"></a><span class="c1"># aborted and the hunk is left unchanged.</span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Leaving only the lines we are going to first commit"
+    <code>bash
+    # Manual hunk edit mode -- see bottom for a quick guide.
+    @@ -0,0 +1,15 @@
+    +def add(a: float, b: float) -&gt; float:
+    +    """Add two numbers."""
+    +    return a + b
+    +
+    \ No newline at end of file
+    # ---
+    # To remove '-' lines, make them ' ' lines (context).
+    # To remove '+' lines, delete them.
+    # Lines starting with # will be removed.
+    # If the patch applies cleanly, the edited hunk will immediately be marked for staging.
+    # If it does not apply cleanly, you will be given an opportunity to
+    # edit again.  If all lines of the hunk are removed, then the edit is
+    # aborted and the hunk is left unchanged.</code></p>
 <p>After that being done, we can check out the status and the following should appear:</p>
-<div class="admonition warning">
-<p class="admonition-title">Checking out status</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-13-1"><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>$<span class="w"> </span>git<span class="w"> </span>status
-</span><span id="__span-13-2"><a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>interactive<span class="w"> </span>rebase<span class="w"> </span><span class="k">in</span><span class="w"> </span>progress<span class="p">;</span><span class="w"> </span>onto<span class="w"> </span>6d5b423
-</span><span id="__span-13-3"><a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>Last<span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">done</span><span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span><span class="nb">command</span><span class="w"> </span><span class="k">done</span><span class="o">)</span>:
-</span><span id="__span-13-4"><a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>edit<span class="w"> </span>fd18571<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>module<span class="w"> </span>basic<span class="w"> </span>arithmetic<span class="w"> </span>operations.
-</span><span id="__span-13-5"><a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>Next<span class="w"> </span><span class="nb">command</span><span class="w"> </span>to<span class="w"> </span><span class="k">do</span><span class="w"> </span><span class="o">(</span><span class="m">1</span><span class="w"> </span>remaining<span class="w"> </span><span class="nb">command</span><span class="o">)</span>:
-</span><span id="__span-13-6"><a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>pick<span class="w"> </span>03413b7<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>factorial<span class="w"> </span><span class="k">function</span>.
-</span><span id="__span-13-7"><a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git rebase --edit-todo&quot;</span><span class="w"> </span>to<span class="w"> </span>view<span class="w"> </span>and<span class="w"> </span>edit<span class="o">)</span>
-</span><span id="__span-13-8"><a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>You<span class="w"> </span>are<span class="w"> </span>currently<span class="w"> </span>splitting<span class="w"> </span>a<span class="w"> </span>commit<span class="w"> </span><span class="k">while</span><span class="w"> </span>rebasing<span class="w"> </span>branch<span class="w"> </span><span class="s1">&#39;main&#39;</span><span class="w"> </span>on<span class="w"> </span><span class="s1">&#39;6d5b423&#39;</span>.
-</span><span id="__span-13-9"><a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a><span class="o">(</span>Once<span class="w"> </span>your<span class="w"> </span>working<span class="w"> </span>directory<span class="w"> </span>is<span class="w"> </span>clean,<span class="w"> </span>run<span class="w"> </span><span class="s2">&quot;git rebase --continue&quot;</span><span class="o">)</span>
-</span><span id="__span-13-10"><a id="__codelineno-13-10" name="__codelineno-13-10" href="#__codelineno-13-10"></a>
-</span><span id="__span-13-11"><a id="__codelineno-13-11" name="__codelineno-13-11" href="#__codelineno-13-11"></a>Changes<span class="w"> </span>to<span class="w"> </span>be<span class="w"> </span>committed:
-</span><span id="__span-13-12"><a id="__codelineno-13-12" name="__codelineno-13-12" href="#__codelineno-13-12"></a><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore --staged &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>unstage<span class="o">)</span>
-</span><span id="__span-13-13"><a id="__codelineno-13-13" name="__codelineno-13-13" href="#__codelineno-13-13"></a><span class="w">        </span>new<span class="w"> </span>file:<span class="w">   </span>math_operations.py
-</span><span id="__span-13-14"><a id="__codelineno-13-14" name="__codelineno-13-14" href="#__codelineno-13-14"></a>
-</span><span id="__span-13-15"><a id="__codelineno-13-15" name="__codelineno-13-15" href="#__codelineno-13-15"></a>Changes<span class="w"> </span>not<span class="w"> </span>staged<span class="w"> </span><span class="k">for</span><span class="w"> </span>commit:
-</span><span id="__span-13-16"><a id="__codelineno-13-16" name="__codelineno-13-16" href="#__codelineno-13-16"></a><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git add &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>update<span class="w"> </span>what<span class="w"> </span>will<span class="w"> </span>be<span class="w"> </span>committed<span class="o">)</span>
-</span><span id="__span-13-17"><a id="__codelineno-13-17" name="__codelineno-13-17" href="#__codelineno-13-17"></a><span class="o">(</span>use<span class="w"> </span><span class="s2">&quot;git restore &lt;file&gt;...&quot;</span><span class="w"> </span>to<span class="w"> </span>discard<span class="w"> </span>changes<span class="w"> </span><span class="k">in</span><span class="w"> </span>working<span class="w"> </span>directory<span class="o">)</span>
-</span><span id="__span-13-18"><a id="__codelineno-13-18" name="__codelineno-13-18" href="#__codelineno-13-18"></a><span class="w">        </span>modified:<span class="w">   </span>math_operations.py
-</span></code></pre></div>
-</div>
+<p>!!! warning "Checking out status"
+    ```bash
+    $ git status
+    interactive rebase in progress; onto 6d5b423
+    Last command done (1 command done):
+    edit fd18571 feat: add module basic arithmetic operations.
+    Next command to do (1 remaining command):
+    pick 03413b7 feat: add factorial function.
+    (use "git rebase --edit-todo" to view and edit)
+    You are currently splitting a commit while rebasing branch 'main' on '6d5b423'.
+    (Once your working directory is clean, run "git rebase --continue")</p>
+<pre><code>Changes to be committed:
+(use "git restore --staged &lt;file&gt;..." to unstage)
+        new file:   math_operations.py
+
+Changes not staged for commit:
+(use "git add &lt;file&gt;..." to update what will be committed)
+(use "git restore &lt;file&gt;..." to discard changes in working directory)
+        modified:   math_operations.py
+```
+</code></pre>
 <p>As you can see there are in the same file, changes that are ready to be commited (the step where we only left the function add, and remove all others), and changes to be staged (all the changes from the original hunk, or patch).</p>
 <p>Now just create a commit for the first function.</p>
-<div class="admonition warning">
-<p class="admonition-title">Commiting first changes</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-14-1"><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>add<span class="w"> </span><span class="k">function</span>.
-</span><span id="__span-14-2"><a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a><span class="o">[</span>detached<span class="w"> </span>HEAD<span class="w"> </span>f78a69a<span class="o">]</span><span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>add<span class="w"> </span><span class="k">function</span>.
-</span><span id="__span-14-3"><a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a><span class="m">1</span><span class="w"> </span>file<span class="w"> </span>changed,<span class="w"> </span><span class="m">3</span><span class="w"> </span>insertions<span class="o">(</span>+<span class="o">)</span>
-</span><span id="__span-14-4"><a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>create<span class="w"> </span>mode<span class="w"> </span><span class="m">100644</span><span class="w"> </span>math_operations.py
-</span></code></pre></div>
-</div>
+<p>!!! warning "Commiting first changes"
+    <code>bash
+    $ git commit -m feat: add add function.
+    [detached HEAD f78a69a] feat: add add function.
+    1 file changed, 3 insertions(+)
+    create mode 100644 math_operations.py</code></p>
 <p>Now we can again start the addition of the next patches.</p>
-<div class="admonition warning">
-<p class="admonition-title">Adding second patches (subtract function)</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-15-1"><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>$<span class="w"> </span>git<span class="w"> </span>add<span class="w"> </span>-p<span class="w"> </span>math_operations.py
-</span><span id="__span-15-2"><a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>diff<span class="w"> </span>--git<span class="w"> </span>a/math_operations.py<span class="w"> </span>b/math_operations.py
-</span><span id="__span-15-3"><a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>index<span class="w"> </span>81d2d3b..615a19b<span class="w"> </span><span class="m">100644</span>
-</span><span id="__span-15-4"><a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>---<span class="w"> </span>a/math_operations.py
-</span><span id="__span-15-5"><a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>+++<span class="w"> </span>b/math_operations.py
-</span><span id="__span-15-6"><a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>@@<span class="w"> </span>-1,3<span class="w"> </span>+1,15<span class="w"> </span>@@
-</span><span id="__span-15-7"><a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>def<span class="w"> </span>add<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-15-8"><a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a><span class="w">    </span><span class="s2">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-</span><span id="__span-15-9"><a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b
-</span><span id="__span-15-10"><a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>+
-</span><span id="__span-15-11"><a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>+def<span class="w"> </span>subtract<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-15-12"><a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Subtract b from a.&quot;&quot;&quot;</span>
-</span><span id="__span-15-13"><a id="__codelineno-15-13" name="__codelineno-15-13" href="#__codelineno-15-13"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>-<span class="w"> </span>b
-</span><span id="__span-15-14"><a id="__codelineno-15-14" name="__codelineno-15-14" href="#__codelineno-15-14"></a>+
-</span><span id="__span-15-15"><a id="__codelineno-15-15" name="__codelineno-15-15" href="#__codelineno-15-15"></a>+def<span class="w"> </span>divide<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-15-16"><a id="__codelineno-15-16" name="__codelineno-15-16" href="#__codelineno-15-16"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Divide a by b.&quot;&quot;&quot;</span>
-</span><span id="__span-15-17"><a id="__codelineno-15-17" name="__codelineno-15-17" href="#__codelineno-15-17"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>/<span class="w"> </span>b
-</span><span id="__span-15-18"><a id="__codelineno-15-18" name="__codelineno-15-18" href="#__codelineno-15-18"></a>+
-</span><span id="__span-15-19"><a id="__codelineno-15-19" name="__codelineno-15-19" href="#__codelineno-15-19"></a>+def<span class="w"> </span>multiply<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-15-20"><a id="__codelineno-15-20" name="__codelineno-15-20" href="#__codelineno-15-20"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Multiply a and b.&quot;&quot;&quot;</span>
-</span><span id="__span-15-21"><a id="__codelineno-15-21" name="__codelineno-15-21" href="#__codelineno-15-21"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>*<span class="w"> </span>b
-</span><span id="__span-15-22"><a id="__codelineno-15-22" name="__codelineno-15-22" href="#__codelineno-15-22"></a><span class="se">\ </span>No<span class="w"> </span>newline<span class="w"> </span>at<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>file
-</span><span id="__span-15-23"><a id="__codelineno-15-23" name="__codelineno-15-23" href="#__codelineno-15-23"></a><span class="o">(</span><span class="m">1</span>/1<span class="o">)</span><span class="w"> </span>Stage<span class="w"> </span>this<span class="w"> </span>hunk<span class="w"> </span><span class="o">[</span>y,n,q,a,d,e,p,?<span class="o">]</span>?<span class="w"> </span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Adding second patches (subtract function)"
+    <code>bash
+    $ git add -p math_operations.py
+    diff --git a/math_operations.py b/math_operations.py
+    index 81d2d3b..615a19b 100644
+    --- a/math_operations.py
+    +++ b/math_operations.py
+    @@ -1,3 +1,15 @@
+    def add(a: float, b: float) -&gt; float:
+        """Add two numbers."""
+        return a + b
+    +
+    +def subtract(a: float, b: float) -&gt; float:
+    +    """Subtract b from a."""
+    +    return a - b
+    +
+    +def divide(a: float, b: float) -&gt; float:
+    +    """Divide a by b."""
+    +    return a / b
+    +
+    +def multiply(a: float, b: float) -&gt; float:
+    +    """Multiply a and b."""
+    +    return a * b
+    \ No newline at end of file
+    (1/1) Stage this hunk [y,n,q,a,d,e,p,?]?</code></p>
 <p>As we can see now, the only patches to be added, are the lines where the subtract, divide and multiply function were added. We have to repeat the process, by deleting the lines we don't need by the next commit which is the addition of the subtract function. We have to start again the edit mode, by typing e, and then leaving only the lines which add the subtract function:</p>
-<div class="admonition warning">
-<p class="admonition-title">Manual editing of patches</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-16-1"><a id="__codelineno-16-1" name="__codelineno-16-1" href="#__codelineno-16-1"></a>$<span class="w"> </span>e
-</span><span id="__span-16-2"><a id="__codelineno-16-2" name="__codelineno-16-2" href="#__codelineno-16-2"></a><span class="c1"># Manual hunk edit mode -- see bottom for a quick guide.</span>
-</span><span id="__span-16-3"><a id="__codelineno-16-3" name="__codelineno-16-3" href="#__codelineno-16-3"></a>@@<span class="w"> </span>-1,3<span class="w"> </span>+1,15<span class="w"> </span>@@
-</span><span id="__span-16-4"><a id="__codelineno-16-4" name="__codelineno-16-4" href="#__codelineno-16-4"></a>def<span class="w"> </span>add<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-16-5"><a id="__codelineno-16-5" name="__codelineno-16-5" href="#__codelineno-16-5"></a><span class="w">    </span><span class="s2">&quot;&quot;&quot;Add two numbers.&quot;&quot;&quot;</span>
-</span><span id="__span-16-6"><a id="__codelineno-16-6" name="__codelineno-16-6" href="#__codelineno-16-6"></a><span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>+<span class="w"> </span>b
-</span><span id="__span-16-7"><a id="__codelineno-16-7" name="__codelineno-16-7" href="#__codelineno-16-7"></a>+
-</span><span id="__span-16-8"><a id="__codelineno-16-8" name="__codelineno-16-8" href="#__codelineno-16-8"></a>+def<span class="w"> </span>subtract<span class="o">(</span>a:<span class="w"> </span>float,<span class="w"> </span>b:<span class="w"> </span>float<span class="o">)</span><span class="w"> </span>-&gt;<span class="w"> </span>float:
-</span><span id="__span-16-9"><a id="__codelineno-16-9" name="__codelineno-16-9" href="#__codelineno-16-9"></a>+<span class="w">    </span><span class="s2">&quot;&quot;&quot;Subtract b from a.&quot;&quot;&quot;</span>
-</span><span id="__span-16-10"><a id="__codelineno-16-10" name="__codelineno-16-10" href="#__codelineno-16-10"></a>+<span class="w">    </span><span class="k">return</span><span class="w"> </span>a<span class="w"> </span>-<span class="w"> </span>b
-</span><span id="__span-16-11"><a id="__codelineno-16-11" name="__codelineno-16-11" href="#__codelineno-16-11"></a>+
-</span><span id="__span-16-12"><a id="__codelineno-16-12" name="__codelineno-16-12" href="#__codelineno-16-12"></a><span class="se">\ </span>No<span class="w"> </span>newline<span class="w"> </span>at<span class="w"> </span>end<span class="w"> </span>of<span class="w"> </span>file
-</span><span id="__span-16-13"><a id="__codelineno-16-13" name="__codelineno-16-13" href="#__codelineno-16-13"></a><span class="c1"># ---</span>
-</span><span id="__span-16-14"><a id="__codelineno-16-14" name="__codelineno-16-14" href="#__codelineno-16-14"></a><span class="c1"># To remove &#39;-&#39; lines, make them &#39; &#39; lines (context).</span>
-</span><span id="__span-16-15"><a id="__codelineno-16-15" name="__codelineno-16-15" href="#__codelineno-16-15"></a><span class="c1"># To remove &#39;+&#39; lines, delete them.</span>
-</span><span id="__span-16-16"><a id="__codelineno-16-16" name="__codelineno-16-16" href="#__codelineno-16-16"></a><span class="c1"># Lines starting with # will be removed.</span>
-</span><span id="__span-16-17"><a id="__codelineno-16-17" name="__codelineno-16-17" href="#__codelineno-16-17"></a><span class="c1"># If the patch applies cleanly, the edited hunk will immediately be marked for staging.</span>
-</span><span id="__span-16-18"><a id="__codelineno-16-18" name="__codelineno-16-18" href="#__codelineno-16-18"></a><span class="c1"># If it does not apply cleanly, you will be given an opportunity to</span>
-</span><span id="__span-16-19"><a id="__codelineno-16-19" name="__codelineno-16-19" href="#__codelineno-16-19"></a><span class="c1"># edit again.  If all lines of the hunk are removed, then the edit is</span>
-</span><span id="__span-16-20"><a id="__codelineno-16-20" name="__codelineno-16-20" href="#__codelineno-16-20"></a><span class="c1"># aborted and the hunk is left unchanged.</span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Manual editing of patches"
+    <code>bash
+    $ e
+    # Manual hunk edit mode -- see bottom for a quick guide.
+    @@ -1,3 +1,15 @@
+    def add(a: float, b: float) -&gt; float:
+        """Add two numbers."""
+        return a + b
+    +
+    +def subtract(a: float, b: float) -&gt; float:
+    +    """Subtract b from a."""
+    +    return a - b
+    +
+    \ No newline at end of file
+    # ---
+    # To remove '-' lines, make them ' ' lines (context).
+    # To remove '+' lines, delete them.
+    # Lines starting with # will be removed.
+    # If the patch applies cleanly, the edited hunk will immediately be marked for staging.
+    # If it does not apply cleanly, you will be given an opportunity to
+    # edit again.  If all lines of the hunk are removed, then the edit is
+    # aborted and the hunk is left unchanged.</code></p>
 <p>Now we add and commit the subtract function.</p>
-<div class="admonition warning">
-<p class="admonition-title">Commiting second patch</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-17-1"><a id="__codelineno-17-1" name="__codelineno-17-1" href="#__codelineno-17-1"></a>$<span class="w"> </span>git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;feat: add subtract func.</span>
-</span></code></pre></div>
-</div>
+<p>!!! warning "Commiting second patch"
+    <code>bash
+    $ git commit -m "feat: add subtract func.</code></p>
 <p>We have to repeat the same sequence for the functions remaining: divide and multiply. For sake of simplicity we won't add these steps in this tutorial, you surely at this point know how to do so for the remaning code. The message is clear: just type <code>git add -p &lt;file_name&gt;</code>, type <code>e</code> for the manual editing, delete the lines which don't belong to this commit, then <code>git commit -m &lt;message&gt;</code>, and repeat until the last commit.</p>
 <p>Now we can continue with the interactive rebasing, since the next commit is only to add the factorial function, and it should apply without complains.</p>
-<div class="admonition success">
-<p class="admonition-title">$ git rebase --continue</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-18-1"><a id="__codelineno-18-1" name="__codelineno-18-1" href="#__codelineno-18-1"></a>Successfully<span class="w"> </span>rebased<span class="w"> </span>and<span class="w"> </span>updated<span class="w"> </span>refs/heads/main
-</span></code></pre></div>
-</div>
+<p>!!! success "$ git rebase --continue"
+    <code>bash
+    Successfully rebased and updated refs/heads/main</code></p>
 <p>Let's see our commit's tree:</p>
-<div class="admonition success">
-<p class="admonition-title">$ git log --oneline</p>
-<div class="language-bash highlight"><pre><span></span><code><span id="__span-19-1"><a id="__codelineno-19-1" name="__codelineno-19-1" href="#__codelineno-19-1"></a>c291adb<span class="w"> </span><span class="o">(</span>HEAD<span class="w"> </span>-&gt;<span class="w"> </span>main<span class="o">)</span><span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>factorial<span class="w"> </span><span class="k">function</span>.
-</span><span id="__span-19-2"><a id="__codelineno-19-2" name="__codelineno-19-2" href="#__codelineno-19-2"></a>92e7ccb<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>multiply<span class="w"> </span>func.
-</span><span id="__span-19-3"><a id="__codelineno-19-3" name="__codelineno-19-3" href="#__codelineno-19-3"></a>2c08167<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>divide<span class="w"> </span>func.
-</span><span id="__span-19-4"><a id="__codelineno-19-4" name="__codelineno-19-4" href="#__codelineno-19-4"></a>2d5b8d7<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>subtract<span class="w"> </span>func.
-</span><span id="__span-19-5"><a id="__codelineno-19-5" name="__codelineno-19-5" href="#__codelineno-19-5"></a>2a3a6c2<span class="w"> </span>feat:<span class="w"> </span>add<span class="w"> </span>add<span class="w"> </span>func.
-</span></code></pre></div>
-</div>
+<p>!!! success "$ git log --oneline"
+    <code>bash
+    c291adb (HEAD -&gt; main) feat: add factorial function.
+    92e7ccb feat: add multiply func.
+    2c08167 feat: add divide func.
+    2d5b8d7 feat: add subtract func.
+    2a3a6c2 feat: add add func.</code></p>
 <p>Yes!, we just created four commits which comprise the individual changes made in a file, from one commit which had all of the changes as a big chunk. In that way, we can keep our commit history cristal clear, and with individual, incremental changes on the file. If later we want to squeeze those changes or add them as an individual one by using the fix keyword, is our decision.</p>
 <h4 id="references">References</h4>
 <p>Chacon, Scott, and Ben Straub. Pro Git. 2nd ed. Berkeley, CA: Apress, 2014. <a href="https://git-scm.com/book/en/v2." target="_blank">Git Book</a></p>
@@ -1310,10 +1292,6 @@ For that, lets type the option e, which stands for editing. And we'll start addi
     
     
       <script src="../../../assets/javascripts/bundle.081f42fc.min.js"></script>
-      
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/highlight.min.js"></script>
-      
-        <script src="../../../javascripts/highlight.js"></script>
       
     
   </body>
