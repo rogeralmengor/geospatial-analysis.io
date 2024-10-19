@@ -3,6 +3,8 @@ title: A database worth downloading for time series analysis
 description: Obtaining ground-truth data for geospatial analysis can be a daunting task for geospatial developers or scientists in general. This is often due to the limited manpower, as well as the limited organization, and limited budget to carry out such large 
 ---
 
+# A database worth downloading for time series analysis 
+
 Obtaining ground-truth data for geospatial analysis can be a daunting task for geospatial developers or scientists in general. This is often due to the limited manpower, as well as the limited organization, and limited budget to carry out such large tasks as a spatial census of what is happening on the Earth’s surface at a temporal resolution (the time taken between each survey) sufficient to perform time series analysis.
 
 Today I would like to make a parenthesis and leave aside all this discouraging panorama, to present you some geospatial data that seem to me an exception to the situation, and that could be of really interesting for further time series analyses in agriculture.
