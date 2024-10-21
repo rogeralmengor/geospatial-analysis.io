@@ -168,7 +168,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
   <!-- Project 5: Minera Panama -->
   <a href="#minera-panama" style="text-decoration: none;">
     <div class="portfolio-item">
-      <img src="./../MINERA_PANAMA.png" alt="Minera Panama GEE App" class="portfolio-img">
+      <img src="./../MINERA-PANAMA.png" alt="Minera Panama GEE App" class="portfolio-img">
       <div class="portfolio-overlay">
         <p>Minera Panama GEE App (Landsat)</p>
       </div>
