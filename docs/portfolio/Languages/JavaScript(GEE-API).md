@@ -5,34 +5,6 @@ If you are unfamiliar with the GEE JavaScript API or need further information on
 
 Feel free to explore the projects and code examples provided here to gain insights into how GEE can be leveraged for various geospatial analysis tasks.
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfolio</title>
-    <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-
-    <div class="portfolio-grid">
-        <div class="portfolio-item" ondblclick="openDocumentation('project1/')">
-            <img src="thumbnail1.jpg" alt="Project 1">
-            <div class="overlay">Project 1</div>
-        </div>
-
-        <div class="portfolio-item" ondblclick="openDocumentation('project2/')">
-            <img src="./../time_lapse.gif.jpg" alt="Time Lapse (Landsat Images)">
-            <div class="overlay">Time Lapse (Landsat Images) 2</div>
-        </div>
-
-        <!-- Add more portfolio items as needed -->
-    </div>
-
-    <script src="script.js"></script>
-</body>
-</html>
-
 ##🎥 **Time Lapse (Landsat Images)** 🌍
 Time lapse animations, are an interesting tool used to visualize changes on the earth
 surface over time. The following animation is created by the code provided, and shows the changes over a 20 years period of time by the construction of a river dam in the province of Chiriqui, Republic of Panamá.
