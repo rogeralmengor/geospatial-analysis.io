@@ -8,14 +8,14 @@ Feel free to explore the projects and code examples provided here to gain insigh
 
 ## Project Portfolio
 
-<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
 
 <!-- Project 1: Time Lapse (Landsat Images) -->
 <a href="#time-lapse" style="text-decoration: none;">
   <div class="portfolio-item" style="position: relative;">
-    <img src="./../time_lapse.gif" alt="Time Lapse" class="portfolio-img" style="width: 100%; border-radius: 10px; transition: transform 0.3s ease;">
+    <img src="./../time_lapse.gif" alt="Time Lapse" class="portfolio-img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; opacity: 0.7; transition: all 0.3s ease;">
     <div class="portfolio-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease;">
-      <p style="color: white; text-align: center; font-size: 20px; margin-top: 40%; font-weight: bold;">Time Lapse (Landsat)</p>
+      <p style="color: white; text-align: center; font-size: 16px; margin-top: 40%; font-weight: bold;">Time Lapse (Landsat)</p>
     </div>
   </div>
 </a>
@@ -23,23 +23,50 @@ Feel free to explore the projects and code examples provided here to gain insigh
 <!-- Project 2: Land Surface Temperature (MODIS) -->
 <a href="#modis-temperature" style="text-decoration: none;">
   <div class="portfolio-item" style="position: relative;">
-    <img src="./../dry_season_20_years_modis.gif" alt="Land Surface Temperature" class="portfolio-img" style="width: 100%; border-radius: 10px; transition: transform 0.3s ease;">
+    <img src="./../dry_season_20_years_modis.gif" alt="Land Surface Temperature" class="portfolio-img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; opacity: 0.7; transition: all 0.3s ease;">
     <div class="portfolio-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease;">
-      <p style="color: white; text-align: center; font-size: 20px; margin-top: 40%; font-weight: bold;">Land Surface Temperature (MODIS)</p>
+      <p style="color: white; text-align: center; font-size: 16px; margin-top: 40%; font-weight: bold;">Land Surface Temperature (MODIS)</p>
     </div>
   </div>
 </a>
 
 </div>
 
-<!-- CSS for hover effect -->
+<!-- CSS for hover and thumbnail effect -->
 <style>
+  .portfolio-item {
+    width: 150px;  /* Square thumbnail */
+    height: 150px;
+    position: relative;
+  }
+
+  .portfolio-img {
+    border-radius: 10px;
+    opacity: 0.7;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+  }
+
   .portfolio-item:hover .portfolio-img {
-    transform: scale(1.05);
+    transform: scale(1.05);  /* Slightly enlarge */
+    opacity: 1;  /* Brighten the image */
   }
 
   .portfolio-item:hover .portfolio-overlay {
-    opacity: 1;
+    opacity: 1;  /* Show overlay text */
+  }
+
+  .portfolio-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);  /* Dark overlay */
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
 </style>
 
