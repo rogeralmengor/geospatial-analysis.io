@@ -6,87 +6,170 @@ If you are unfamiliar with the GEE JavaScript API or need further information on
 Feel free to explore the projects and code examples provided here to gain insights into how GEE can be leveraged for various geospatial analysis tasks.
 
 
-## Project Portfolio
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Portfolio</title>
+  <style>
+    /* Layout for the thumbnails in a flexible grid */
+    .portfolio-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible columns */
+      gap: 20px; /* Space between items */
+      text-align: center; /* Center text below the images */
+    }
 
-<div style="display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px;">
+    /* Styling the individual portfolio items */
+    .portfolio-item {
+      position: relative;
+      width: 100%; /* Make it scale within the grid */
+      height: 0;
+      padding-bottom: 100%; /* Keep a square aspect ratio */
+      border-radius: 10px;
+      overflow: hidden;
+      margin: 0 auto; /* Center the portfolio items */
+    }
 
-<!-- Project 1: Time Lapse (Landsat Images) -->
-<a href="#time-lapse" style="text-decoration: none;">
-  <div class="portfolio-item" style="position: relative;">
-    <img src="./../time_lapse.gif" alt="Time Lapse" class="portfolio-img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; opacity: 0.7; transition: all 0.3s ease;">
-    <div class="portfolio-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease;">
-      <p style="color: white; text-align: center; font-size: 16px; margin-top: 40%; font-weight: bold;">Time Lapse (Landsat)</p>
+    /* Styling the image */
+    .portfolio-img {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover; /* Ensure the image covers the thumbnail area */
+      opacity: 0.7; /* Slightly faded by default */
+      transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition on hover */
+    }
+
+    /* Hover effect for image (brighten and scale) */
+    .portfolio-item:hover .portfolio-img {
+      opacity: 1; /* Brighten the image */
+      transform: scale(1.05); /* Slightly zoom the image */
+    }
+
+    /* Overlay text container */
+    .portfolio-overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: rgba(0, 0, 0, 0.5); /* Dark overlay */
+      opacity: 0; /* Invisible by default */
+      transition: opacity 0.3s ease;
+    }
+
+    /* Show overlay text on hover */
+    .portfolio-item:hover .portfolio-overlay {
+      opacity: 1; /* Show overlay text */
+    }
+
+    /* Overlay text style */
+    .portfolio-overlay p {
+      color: white;
+      text-align: center;
+      font-size: 16px;
+      font-weight: bold;
+    }
+
+    /* Text below the image */
+    .project-description {
+      margin-top: 10px; /* Space between the image and text */
+      font-size: 14px;
+      color: #333; /* Default text color */
+    }
+
+    /* Smooth scrolling behavior */
+    html {
+      scroll-behavior: smooth;
+    }
+
+    /* Media Queries for small devices */
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 column for small screens */
+      }
+
+      .portfolio-item {
+        width: 90%; /* Make items smaller on small screens */
+        margin: 0 auto; /* Center items */
+      }
+    }
+  </style>
+</head>
+<body>
+
+<h2>Project Portfolio</h2>
+
+<div class="portfolio-grid">
+  <!-- Project 1: Time Lapse (Landsat Images) -->
+  <a href="#time-lapse" style="text-decoration: none;">
+    <div class="portfolio-item">
+      <img src="./../time_lapse.gif" alt="Time Lapse" class="portfolio-img">
+      <div class="portfolio-overlay">
+        <p>Time Lapse (Landsat)</p>
+      </div>
     </div>
-  </div>
-</a>
+    <div class="project-description">Time Lapse (Landsat Images)</div>
+  </a>
 
-<!-- Project 2: Land Surface Temperature (MODIS) -->
-<a href="#modis-temperature" style="text-decoration: none;">
-  <div class="portfolio-item" style="position: relative;">
-    <img src="./../dry_season_20_years_modis.gif" alt="Land Surface Temperature" class="portfolio-img" style="width: 100%; height: 100%; object-fit: cover; border-radius: 10px; opacity: 0.7; transition: all 0.3s ease;">
-    <div class="portfolio-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease;">
-      <p style="color: white; text-align: center; font-size: 16px; margin-top: 40%; font-weight: bold;">Land Surface Temperature (MODIS)</p>
+  <!-- Project 2: Land Surface Temperature (MODIS) -->
+  <a href="#modis-temperature" style="text-decoration: none;">
+    <div class="portfolio-item">
+      <img src="./../dry_season_20_years_modis.gif" alt="Land Surface Temperature" class="portfolio-img">
+      <div class="portfolio-overlay">
+        <p>Land Surface Temperature (Landset)</p>
+      </div>
     </div>
-  </div>
-</a>
+    <div class="project-description">Land Surface Temperature (MODIS)</div>
+  </a>
 
+  <!-- Project 3: Radar images Panama Canal -->
+<a href="#time-lapse-radar" style="text-decoration: none;">
+    <div class="portfolio-item">
+      <img src="./../panama_canal.gif" alt="Time Lapse Radar" class="portfolio-img">
+      <div class="portfolio-overlay">
+        <p>Sentinel-1 Time Lapse</p>
+      </div>
+    </div>
+    <div class="project-description">Sentinel-1 Time Lapse</div>
+  </a> 
+
+  <!-- Project 4: Radar images Panama Canal -->
+<a href="#nitrogen-dioxide" style="text-decoration: none;">
+    <div class="portfolio-item">
+      <img src="./../nitrogen_dioxide_2019_2022.jpg" alt="Monitoring Air Polution" class="portfolio-img">
+      <div class="portfolio-overlay">
+        <p>Monitoring Nitrogen Dioxide (Sentinel-5P)</p>
+      </div>
+    </div>
+    <div class="project-description">Monitoring Nitrogen Dioxide Sentinel-5P Imagery</div>
+  </a>
+
+<!-- Project 5: Minera Panama Google App -->
+<a href="#minera-panama" style="text-decoration: none;">
+    <div class="portfolio-item">
+      <img src="./../MINERA-PANAMA.png" alt="Minera Panama GEE App" class="portfolio-img">
+      <div class="portfolio-overlay">
+        <p>Minera Panama GEE App</p>
+      </div>
+    </div>
+    <div class="project-description">Minera Panama GEE App</div>
+  </a> 
 </div>
 
-<!-- CSS for hover and thumbnail effect -->
-<style>
-  .portfolio-item {
-    width: 250px;  /* Square thumbnail */
-    height: 250px;
-    position: relative;
-  }
 
-  .portfolio-img {
-    border-radius: 10px;
-    opacity: 0.7;
-    transition: transform 0.3s ease, opacity 0.3s ease;
-  }
-
-  .portfolio-item:hover .portfolio-img {
-    transform: scale(1.05);  /* Slightly enlarge */
-    opacity: 1;  /* Brighten the image */
-  }
-
-  .portfolio-item:hover .portfolio-overlay {
-    opacity: 1;  /* Show overlay text */
-  }
-
-  .portfolio-overlay {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0, 0, 0, 0.5);  /* Dark overlay */
-    opacity: 0;
-    transition: opacity 0.3s ease;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-</style>
-
-<!-- JavaScript for smooth scrolling -->
-<script>
-  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-    anchor.addEventListener('click', function(e) {
-      e.preventDefault();
-      document.querySelector(this.getAttribute('href')).scrollIntoView({
-        behavior: 'smooth'
-      });
-    });
-  });
-</script>
-
----
-
-##🎥 **Time Lapse (Landsat Images)** 🌍
+<h3 id="time-lapse">Time Lapse (Landsat Images)🌍</h3>
+<p>
 Time lapse animations, are an interesting tool used to visualize changes on the earth
 surface over time. The following animation is created by the code provided, and shows the changes over a 20 years period of time by the construction of a river dam in the province of Chiriqui, Republic of Panamá.
+</p>
 
 <p align="center">
   <img src="./../time_lapse.gif" alt="Centered Image">
@@ -414,21 +497,22 @@ print(ui.Thumbnail(annotated_col, gifParams));
 ```
 </details>
 
-##🌐 **Measuring land surface temperature with MODIS data** 🌡️🛰️
-
-**Script Description:**
+<h3 id="modis-temperature">🌐 Measuring land surface temperature with MODIS data 🌡️🛰️</h3>
+<h4>Script Description:</h4>
+<p>
 This script is designed to analyze temperature changes within the Cochea River watershed using the Google Earth Engine (GEE) platform and MODIS (Moderate Resolution Imaging Spectroradiometer) datasets. Specifically, it focuses on measuring temperature variations during both the rainy and dry seasons over a 20-year period. The primary objectives of this script are to generate an animated GIF, a time series graph depicting the Average Median Temperature (°C) as recorded by the MODIS sensor, and a regional overview of the study area.
+</p>
 
-**Script Workflow:**
-1. **Data Acquisition:** The script begins by accessing MODIS datasets, which provide reliable temperature data with global coverage and high temporal resolution.
+<h4>Script Workflow:</h4>
+<p>1. Data Acquisition: The script begins by accessing MODIS datasets, which provide reliable temperature data with global coverage and high temporal resolution.</p>
 
-2. **Temporal Selection:** It then filters the MODIS data to isolate the specific time periods corresponding to the dry and wet seasons over the 20-year span.
+<p>2. Temporal Selection: It then filters the MODIS data to isolate the specific time periods corresponding to the dry and wet seasons over the 20-year span.</p>
 
-3. **Spatial Region Selection:** The script defines the study area within the Cochea River watershed, ensuring that the analysis is limited to the relevant geographic scope.
+<p>3. Spatial Region Selection: The script defines the study area within the Cochea River watershed, ensuring that the analysis is limited to the relevant geographic scope.</p>
 
-4. **Temperature Computation:** Using the MODIS temperature data, the script calculates the Average Median Temperature (°C) for each pixel within the study area, both for the dry and wet seasons.
+<p>4. Temperature Computation: Using the MODIS temperature data, the script calculates the Average Median Temperature (°C) for each pixel within the study area, both for the dry and wet seasons.</p>
 
-5. **Visualization Generation:**
+<p>5. Visualization Generation:
    - *Animated GIF:* The script generates an animated GIF, showcasing the temporal evolution of temperature changes over the 20-year period. Each frame of the GIF represents a specific time step, offering a dynamic visual representation of temperature variations.
     <p align="center">
       <img src="./../dry_season_20_years_modis.gif" alt="Centered Image">
@@ -442,8 +526,10 @@ This script is designed to analyze temperature changes within the Cochea River w
     <i>Time Lapse of MODIS Land Surface Temperature (Rainy Season) from the Google Earth Engine platform.</i>
     </p>
     <br>
+  </p>
    
-   - *Time Series Graph:* Additionally, the script creates a time series graph, displaying the Average Median Temperature (°C) as a function of time. This graph provides a clear overview of temperature trends during the dry and wet seasons.
+   <h4>Time Series Graph:</h4>
+   <p>Additionally, the script creates a time series graph, displaying the Average Median Temperature (°C) as a function of time. This graph provides a clear overview of temperature trends during the dry and wet seasons.
     <p align="center">
       <img src="./../Average_Median_Temp_Dry_Season-1024x422.png" alt="Centered Image">
       <br>
@@ -457,8 +543,9 @@ This script is designed to analyze temperature changes within the Cochea River w
       <i>Average median temperature for the Wet Season measured from MODIS time series.</i>
       </p>
     <br>
+    </p>
 
-   - *Regional View:* Lastly, the script produces a regional view of the study area, allowing users to geospatially contextualize the temperature changes observed in the Cochea River watershed.
+  <h4>Regional View:</h4> <p>Lastly, the script produces a regional view of the study area, allowing users to geospatially contextualize the temperature changes observed in the Cochea River watershed.
 
     <p align="center">
       <img src="./../Regional_and_country_wide_location.jpg" alt="Centered Image">
@@ -466,8 +553,9 @@ This script is designed to analyze temperature changes within the Cochea River w
       <i>Regional view of the study area.</i>
       </p>
     <br>
+    </p>
 
-By following this technical script, users can conduct a rigorous analysis of temperature fluctuations within the specified region and timeframes, enabling in-depth insights into environmental changes over the 20-year period.
+<p>By following this technical script, users can conduct a rigorous analysis of temperature fluctuations within the specified region and timeframes, enabling in-depth insights into environmental changes over the 20-year period.</p>
 
 <details>
   <summary>Code</summary>
@@ -703,11 +791,11 @@ Map.setOptions("SATELLITE");
 ```
 </details>
 
-## 🌍 **Time Lapse (RADAR Images) - Panama Canal** 🛶 💧
+<h3 id="time-lapse-radar">🌍 Time Lapse (RADAR Images) - Panama Canal 🛶 💧</h3>
 
-**Objective**
+<h4>Objective</h4>
 
-To commemorate World Water Day, this analysis explores the significance of freshwater sources within the Panama Canal Zone.
+<p>To commemorate World Water Day, this analysis explores the significance of freshwater sources within the Panama Canal Zone.
 Our primary goal is to gain insights into the role of these water bodies in sustaining the Panama Canal and supporting the surrounding ecosystems and communities.
     <p align="center">
       <img src="./../panama_canal.gif" alt="Centered Image">
@@ -715,23 +803,27 @@ Our primary goal is to gain insights into the role of these water bodies in sust
       <i>Time Series of Radar (Sentinel-1) Imagery. Year 2022, Panama Canal Zone.</i>
       </p>
     <br>
+</p>
 
 
-**Methodology**
+<h4>Methodology</h4>
 
-In this analysis, we utilize Sentinel-1 imagery due to its exceptional ability to provide clear, all-weather views of the Earth's surface. Our methodology can be broken down into the following key steps:
+<p>In this analysis, we utilize Sentinel-1 imagery due to its exceptional ability to provide clear, all-weather views of the Earth's surface. Our methodology can be broken down into the following key steps:</p>
 
-1. Filtering Area of Interest (AOI): We narrow our focus to specific regions, including the Panama Province and select districts.
+<ol>
+  <li><strong>Filtering Area of Interest (AOI):</strong> We narrow our focus to specific regions, including the Panama Province and select districts.</li>
+  
+  <li><strong>Date Range Selection:</strong> Images from 2022 are chosen for analysis.</li>
+  
+  <li><strong>Image Clipping and Masking:</strong> We create buffered extents and apply masks to Sentinel-1 images.</li>
+  
+  <li><strong>Image Collection and Filtering:</strong> We gather images with precise properties, including polarization, resolution, and instrument mode.</li>
+  
+  <li><strong>Backscatter Analysis:</strong> Backscatter graphs for VH and VV bands are generated to monitor changes over time.</li>
+  
+  <li><strong>Image Visualization:</strong> We visualize images and create RGB representations for animations.</li>
+</ol>
 
-2. Date Range Selection: Images from 2022 are chosen for analysis.
-
-3. Image Clipping and Masking: We create buffered extents and apply masks to Sentinel-1 images.
-
-4. Image Collection and Filtering: We gather images with precise properties, including polarization, resolution, and instrument mode.
-
-5. Backscatter Analysis: Backscatter graphs for VH and VV bands are generated to monitor changes over time.
-
-6. Image Visualization: We visualize images and create RGB representations for animations.
 
 <details>
   <summary>Code</summary>
@@ -876,43 +968,49 @@ print(ui.Thumbnail(rgbVis, gifParams));
 ```
 </details>
 
-##💨 **Monitoring Nitrogen Dioxide in Panama City with Sentinel-5P Imagery** 🏙️
+<h3 id="nitrogen-dioxide">💨 Monitoring Nitrogen Dioxide in Panama City with Sentinel-5P Imagery 🏙️ </h3>
 
-**Objective:**
+<h4>Objective:</h4>
 
-The objective of this analysis is to create composites of Sentinel-5P imagery to measure nitrogen dioxide (NO2) levels in the city of Panama City during the COVID-19 lockdown period. This analysis aims to provide insights into the variations in tropospheric NO2 density over time, particularly during the lockdown period, and visualize these changes using composites and a time-lapse GIF. The analysis also includes the creation of a chart to represent the mean NO2 levels over the selected area of interest.
+<p>The objective of this analysis is to create composites of Sentinel-5P imagery to measure nitrogen dioxide (NO2) levels in the city of Panama City during the COVID-19 lockdown period. This analysis aims to provide insights into the variations in tropospheric NO2 density over time, particularly during the lockdown period, and visualize these changes using composites and a time-lapse GIF. The analysis also includes the creation of a chart to represent the mean NO2 levels over the selected area of interest.</p>
 
-**Steps:**
+<h4>Steps:</h4>
 
-1. **Filtering Area of Interest (AOI):** The analysis starts by defining the Area of Interest (AOI) using geographical boundaries data. The AOI encompasses specific districts within the Panama Province, including Arraiján, Panamá, and San Miguelito. The map is centered on the coordinates of this AOI.
-
-2. **Setting Visualization Parameters:** Visualization parameters for the NO2 density are defined, including the minimum, maximum values, and color palette to be used for rendering the imagery.
-
-3. **Setting the Date Range:** The analysis specifies the start and end dates for image collection. In this case, the date range spans from January 1, 2020, to December 31, 2022.
-
-4. **Creating Image Composites:** The script creates monthly image composites of Sentinel-5P tropospheric NO2 density within the defined AOI. These composites are generated for each month of each year in the specified date range.
-
-5. **Renaming Images:** The image composites are renamed to include the year and month information in their system index.
-
-6. **Creating a Time-Lapse GIF:** The script combines the renamed image composites into a time-lapse GIF. It annotates each frame of the GIF with a timestamp to indicate the year and month of the data. The GIF visually shows the changes in tropospheric NO2 density over time within the AOI.
-
-7. **Creating a Chart:** A chart is generated to display the mean tropospheric NO2 column number density for the selected AOI over time. This chart provides a quantitative representation of the NO2 levels during the analysis period.
-    <p align="center">
-      <img src="./../NOx_Panama_City_2019-2022-1024x540.png" alt="Centered Image">
-      <br>
-      <i>Tropospheric NO2 column – Chart</i>
-      </p>
+<ol>
+  <li><strong>Filtering Area of Interest (AOI):</strong> The analysis starts by defining the Area of Interest (AOI) using geographical boundaries data. The AOI encompasses specific districts within the Panama Province, including Arraiján, Panamá, and San Miguelito. The map is centered on the coordinates of this AOI.</li>
+  
+  <li><strong>Setting Visualization Parameters:</strong> Visualization parameters for the NO2 density are defined, including the minimum, maximum values, and color palette to be used for rendering the imagery.</li>
+  
+  <li><strong>Setting the Date Range:</strong> The analysis specifies the start and end dates for image collection. In this case, the date range spans from January 1, 2020, to December 31, 2022.</li>
+  
+  <li><strong>Creating Image Composites:</strong> The script creates monthly image composites of Sentinel-5P tropospheric NO2 density within the defined AOI. These composites are generated for each month of each year in the specified date range.</li>
+  
+  <li><strong>Renaming Images:</strong> The image composites are renamed to include the year and month information in their system index.</li>
+  
+  <li><strong>Creating a Time-Lapse GIF:</strong> The script combines the renamed image composites into a time-lapse GIF. It annotates each frame of the GIF with a timestamp to indicate the year and month of the data. The GIF visually shows the changes in tropospheric NO2 density over time within the AOI.</li>
+  
+  <li><strong>Creating a Chart:</strong> A chart is generated to display the mean tropospheric NO2 column number density for the selected AOI over time. This chart provides a quantitative representation of the NO2 levels during the analysis period.</li>
+  
+  <p align="center">
+    <img src="./../NOx_Panama_City_2019-2022-1024x540.png" alt="Centered Image">
     <br>
+    <i>Tropospheric NO2 column – Chart</i>
+  </p>
+  <br>
 
-8. **Displaying Yearly Composites:** Finally, yearly composites for 2019, 2020, 2021, and 2022 are added to the map, allowing for a comparison of NO2 levels across these years.
-    <p align="center">
-      <img src="./../nitrogen_dioxide_2019_2022.jpg" alt="Centered Image">
-      <br>
-      <i>Nitrogen Dioxide tropospheric column – Panama City – 2019-2022
-</i>
-      </p>
+  <li><strong>Displaying Yearly Composites:</strong> Finally, yearly composites for 2019, 2020, 2021, and 2022 are added to the map, allowing for a comparison of NO2 levels across these years.</li>
+
+  <p align="center">
+    <img src="./../nitrogen_dioxide_2019_2022.jpg" alt="Centered Image">
     <br>
-This analysis provides a comprehensive overview of tropospheric NO2 density changes in Panama City, with a focus on the COVID-19 lockdown period. The time-lapse GIF and chart enhance the visualization and understanding of these changes over time.
+    <i>Nitrogen Dioxide tropospheric column – Panama City – 2019-2022</i>
+  </p>
+  <br>
+
+</ol>
+
+<p>This analysis provides a comprehensive overview of tropospheric NO2 density changes in Panama City, with a focus on the COVID-19 lockdown period. The time-lapse GIF and chart enhance the visualization and understanding of these changes over time.</p>
+
 
 <details>
   <summary>Code</summary>
@@ -1066,59 +1164,58 @@ Map.addLayer(imgs_2022.mean(), band_viz, 'S5P N02_2022');
 ```
 </details>
 
-## :frog: :monkey: :tiger: :parrot: **Google Earth Engine App - Minera Panama** :truck: :gem:
+<h3 id="minera-panama">Google Earth Engine App - Minera Panama</h3>
 
-This project utilizes Earth Engine, a cloud-based platform for geospatial analysis, to process Landsat 7 satellite imagery to create True Color COmposites in the region of Petaquilla, Republic of Panama. The script focuses on an area within Donoso District, which is part of the Mesoamerican Biological Corridor.
+<p>This project utilizes Earth Engine, a cloud-based platform for geospatial analysis, to process Landsat 7 satellite imagery to create True Color COmposites in the region of Petaquilla, Republic of Panama. The script focuses on an area within Donoso District, which is part of the Mesoamerican Biological Corridor.</p>
 
-This workflow automates the creation, visualization, and export of median composites of Landsat 7 images for monitoring the Petaquilla Minera Panama area over time, including the creation of an annotated GIF animation.
+<p>This workflow automates the creation, visualization, and export of median composites of Landsat 7 images for monitoring the Petaquilla Minera Panama area over time, including the creation of an annotated GIF animation.</p>
+
+<p align="center">
+      <img src="./../MINERA-PANAMA.png" alt="Centered Image">
+      <br>
+      <i>Landsat Composites over the area of Minera Panama.</i>
+      </p>
 
 
-**Description of Functions and Steps**
+<h4>Description of Functions and Steps</h4>
 
 
-***Functions***
+<h4>Functions</h4>
 
-***applyScaleFactors(image):***
+<h4>applyScaleFactors(image):</h4>
 
 Adjusts optical and thermal bands of an image using specific scaling factors for accurate representation.
 
-***maskL7srClouds(image):***
+<h4>maskL7srClouds(image):</h4>
 
 Masks out clouds and cloud shadows in Landsat 7 images by using bitwise operations on QA_PIXEL data.
 
-***blendImage(image):***
+<h4>blendImage(image):</h4>
 
 Applies a focal mean filter to smooth the image and blends it with the original image to reduce noise.
 
-***median_yearly_landsat_7(start, end):***
+<h4>median_yearly_landsat_7(start, end):</h4>
 
 Creates a median composite of Landsat 7 images for a specified date range, filtered by the AOI and cloud cover threshold.
 
-**Steps for the Application**
-
-* Define Area of Interest (AOI):
-
-* Set the AOI to the geometry variable.
-
-* Create a buffered extent around the AOI for analysis.
-
-* Set Cloud Cover Threshold: Define the maximum acceptable cloud cover for images (set to 100%).
-
-* Prepare Date Ranges: Define periods for data collection and segment years into intervals. Concatenate years with periods to generate specific date ranges.
-
-* Generate Composites: For each date range, create median composites of Landsat 7 images using the median_yearly_landsat_7 function.
-Apply cloud masking and image blending to enhance the quality of the composites. Clip the composites to the AOI and add them to the map.
-
-* Export Composites: Export the generated composites to Google Drive as GeoTIFF files with descriptive names.
-
-* Annotate Images: Use the text package to annotate the composites with labels.
-
-* Create a collection of annotated images.
-
-* Create GIF Animation:
-
-Define GIF parameters, including region, dimensions, and frame rate.
-Generate and display a GIF animation of the annotated image collection.
+<h4>Steps for the Application</h4>
+<ul>
+  <li>Define Area of Interest (AOI):</li>
+  <li>Set the AOI to the geometry variable.</li>
+  <li>Create a buffered extent around the AOI for analysis.</li>
+  <li>Set Cloud Cover Threshold: Define the maximum acceptable cloud cover for images (set to 100%).</li>
+  <li>Prepare Date Ranges: Define periods for data collection and segment years into intervals. Concatenate years with periods to generate specific date ranges.</li>
+  <li>Generate Composites: For each date range, create median composites of Landsat 7 images using the <code>median_yearly_landsat_7</code> function. Apply cloud masking and image blending to enhance the quality of the composites. Clip the composites to the AOI and add them to the map.</li>
+  <li>Export Composites: Export the generated composites to Google Drive as GeoTIFF files with descriptive names.</li>
+  <li>Annotate Images: Use the text package to annotate the composites with labels.</li>
+  <li>Create a collection of annotated images.</li>
+  <li>Create GIF Animation:
+    <ul>
+      <li>Define GIF parameters, including region, dimensions, and frame rate.</li>
+      <li>Generate and display a GIF animation of the annotated image collection.</li>
+    </ul>
+  </li>
+</ul>
 
 <details>
   <summary>Code</summary>
@@ -1318,10 +1415,10 @@ print(ui.Thumbnail(annotated_col, gifParams));
 ```
 </details>
 
-***Google Earth Engine App***
+<h4>Google Earth Engine App</h4>
 
 </html>
-<iframe src="https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<iframe src="https://thebeautyofthepixel.users.earthengine.app/view/gisminerapanama" width="800" height="800" frameborder="0" style="border:0" allowfullscreen></iframe>
 
 
 <br>
