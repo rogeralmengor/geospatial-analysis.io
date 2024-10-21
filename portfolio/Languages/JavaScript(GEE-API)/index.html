@@ -2679,59 +2679,52 @@ This analysis provides a comprehensive overview of tropospheric NO2 density chan
 </span></code></pre></div></td></tr></table></div>
 </details>
 
-## :frog: :monkey: :tiger: :parrot: **Google Earth Engine App - Minera Panama** :truck: :gem:
+<h3>Google Earth Engine App - Minera Panama</h3>
 
-This project utilizes Earth Engine, a cloud-based platform for geospatial analysis, to process Landsat 7 satellite imagery to create True Color COmposites in the region of Petaquilla, Republic of Panama. The script focuses on an area within Donoso District, which is part of the Mesoamerican Biological Corridor.
+<p>This project utilizes Earth Engine, a cloud-based platform for geospatial analysis, to process Landsat 7 satellite imagery to create True Color COmposites in the region of Petaquilla, Republic of Panama. The script focuses on an area within Donoso District, which is part of the Mesoamerican Biological Corridor.</p>
 
-This workflow automates the creation, visualization, and export of median composites of Landsat 7 images for monitoring the Petaquilla Minera Panama area over time, including the creation of an annotated GIF animation.
-
-
-**Description of Functions and Steps**
+<p>This workflow automates the creation, visualization, and export of median composites of Landsat 7 images for monitoring the Petaquilla Minera Panama area over time, including the creation of an annotated GIF animation.</p>
 
 
-***Functions***
+<h4>Description of Functions and Steps</h4>
 
-***applyScaleFactors(image):***
+
+<h4>Functions</h4>
+
+<h4>applyScaleFactors(image):</h4>
 
 Adjusts optical and thermal bands of an image using specific scaling factors for accurate representation.
 
-***maskL7srClouds(image):***
+<h4>maskL7srClouds(image):</h4>
 
 Masks out clouds and cloud shadows in Landsat 7 images by using bitwise operations on QA_PIXEL data.
 
-***blendImage(image):***
+<h4>blendImage(image):</h4>
 
 Applies a focal mean filter to smooth the image and blends it with the original image to reduce noise.
 
-***median_yearly_landsat_7(start, end):***
+<h4>median_yearly_landsat_7(start, end):</h4>
 
 Creates a median composite of Landsat 7 images for a specified date range, filtered by the AOI and cloud cover threshold.
 
-**Steps for the Application**
-
-* Define Area of Interest (AOI):
-
-* Set the AOI to the geometry variable.
-
-* Create a buffered extent around the AOI for analysis.
-
-* Set Cloud Cover Threshold: Define the maximum acceptable cloud cover for images (set to 100%).
-
-* Prepare Date Ranges: Define periods for data collection and segment years into intervals. Concatenate years with periods to generate specific date ranges.
-
-* Generate Composites: For each date range, create median composites of Landsat 7 images using the median_yearly_landsat_7 function.
-Apply cloud masking and image blending to enhance the quality of the composites. Clip the composites to the AOI and add them to the map.
-
-* Export Composites: Export the generated composites to Google Drive as GeoTIFF files with descriptive names.
-
-* Annotate Images: Use the text package to annotate the composites with labels.
-
-* Create a collection of annotated images.
-
-* Create GIF Animation:
-
-Define GIF parameters, including region, dimensions, and frame rate.
-Generate and display a GIF animation of the annotated image collection.
+<h4>Steps for the Application</h4>
+<ul>
+  <li>Define Area of Interest (AOI):</li>
+  <li>Set the AOI to the geometry variable.</li>
+  <li>Create a buffered extent around the AOI for analysis.</li>
+  <li>Set Cloud Cover Threshold: Define the maximum acceptable cloud cover for images (set to 100%).</li>
+  <li>Prepare Date Ranges: Define periods for data collection and segment years into intervals. Concatenate years with periods to generate specific date ranges.</li>
+  <li>Generate Composites: For each date range, create median composites of Landsat 7 images using the <code>median_yearly_landsat_7</code> function. Apply cloud masking and image blending to enhance the quality of the composites. Clip the composites to the AOI and add them to the map.</li>
+  <li>Export Composites: Export the generated composites to Google Drive as GeoTIFF files with descriptive names.</li>
+  <li>Annotate Images: Use the text package to annotate the composites with labels.</li>
+  <li>Create a collection of annotated images.</li>
+  <li>Create GIF Animation:
+    <ul>
+      <li>Define GIF parameters, including region, dimensions, and frame rate.</li>
+      <li>Generate and display a GIF animation of the annotated image collection.</li>
+    </ul>
+  </li>
+</ul>
 
 <details>
   <summary>Code</summary>
