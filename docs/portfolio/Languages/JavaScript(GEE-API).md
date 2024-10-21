@@ -83,6 +83,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
       margin-top: 10px; /* Space between the image and text */
       font-size: 14px;
       color: #333; /* Default text color */
+      text-align: center;
     }
 
     /* Smooth scrolling behavior */
