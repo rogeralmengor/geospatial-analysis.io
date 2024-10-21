@@ -122,9 +122,9 @@ Feel free to explore the projects and code examples provided here to gain insigh
   <!-- Project 2: Land Surface Temperature (MODIS) -->
   <a href="#modis-temperature" style="text-decoration: none;">
     <div class="portfolio-item">
-      <img src="./../dry_season_20_years_modis.gif" alt="Land Surface Temperature" class="portfolio-img">
+      <img src="./../dry_season_20_years_modis.gif" alt="Land Surface Temperature (MODIS)" class="portfolio-img">
       <div class="portfolio-overlay">
-        <p>Land Surface Temperature (Landset)</p>
+        <p>Land Surface Temperature (MODIS)</p>
       </div>
     </div>
     <div class="project-description">Land Surface Temperature (MODIS)</div>
