@@ -135,10 +135,10 @@ Feel free to explore the projects and code examples provided here to gain insigh
     <div class="portfolio-item">
       <img src="./../panama_canal.gif" alt="Time Lapse Radar" class="portfolio-img">
       <div class="portfolio-overlay">
-        <p>Sentinel-1 Time Lapse</p>
+        <p>Time Lapse Cargo Ship Monitoring (Sentinel-1)</p>
       </div>
     </div>
-    <div class="project-description">Sentinel-1 Time Lapse</div>
+    <div class="project-description">Time Lapse Cargo Ship Monitoring (Sentinel-1)</div>
   </a> 
 
   <!-- Project 4: Radar images Panama Canal -->
@@ -149,7 +149,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Monitoring Nitrogen Dioxide (Sentinel-5P)</p>
       </div>
     </div>
-    <div class="project-description">Monitoring Nitrogen Dioxide Sentinel-5P Imagery</div>
+    <div class="project-description">Monitoring Nitrogen Dioxide (Sentinel-5P)</div>
   </a>
 
 <!-- Project 5: Minera Panama Google App -->
@@ -157,13 +157,55 @@ Feel free to explore the projects and code examples provided here to gain insigh
     <div class="portfolio-item">
       <img src="./../MINERA-PANAMA.png" alt="Minera Panama GEE App" class="portfolio-img">
       <div class="portfolio-overlay">
-        <p>Minera Panama GEE App</p>
+        <p>Minera Panama GEE App (Landsat)</p>
       </div>
     </div>
-    <div class="project-description">Minera Panama GEE App</div>
+    <div class="project-description">Minera Panama GEE App (Landsat)</div>
   </a> 
 </div>
 
+<script>
+  // Function to calculate the brightness of a color (using the luminance formula)
+  function getBrightness(r, g, b) {
+    return (r * 0.299 + g * 0.587 + b * 0.114);
+  }
+
+  // Function to extract the RGB color of an image and change text color accordingly
+  function adjustTextColorForImage(imgElement, textElement) {
+    const img = new Image();
+    img.crossOrigin = 'Anonymous'; // Enable cross-origin access for external images
+    img.src = imgElement.src;
+
+    img.onload = function () {
+      const canvas = document.createElement('canvas');
+      const ctx = canvas.getContext('2d');
+      canvas.width = img.width;
+      canvas.height = img.height;
+      ctx.drawImage(img, 0, 0);
+
+      // Get the average color of the image
+      const imageData = ctx.getImageData(0, 0, 1, 1).data;
+      const brightness = getBrightness(imageData[0], imageData[1], imageData[2]);
+
+      // Set text color based on brightness
+      if (brightness < 128) {
+        textElement.style.color = 'white';
+      } else {
+        textElement.style.color = 'black';
+      }
+    };
+  }
+
+  // Get all portfolio items and their descriptions
+  const portfolioItems = document.querySelectorAll('.portfolio-item');
+  
+  portfolioItems.forEach(item => {
+    const imgElement = item.querySelector('.portfolio-img');
+    const textElement = item.nextElementSibling; // Get the project-description element
+
+    adjustTextColorForImage(imgElement, textElement);
+  });
+</script>
 
 <h3 id="time-lapse">Time Lapse (Landsat Images)🌍</h3>
 <p>
