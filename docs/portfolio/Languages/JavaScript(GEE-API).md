@@ -98,8 +98,9 @@ Feel free to explore the projects and code examples provided here to gain insigh
       }
 
       .portfolio-item {
-        width: 90%; /* Make items smaller on small screens */
-        margin: 0 auto; /* Center items */
+        width: 100%; /* Make items smaller on small screens */
+        margin: 0 auto; /* Center items */;
+        height: auto;
       }
     }
   </style>
