@@ -35,8 +35,8 @@ Feel free to explore the projects and code examples provided here to gain insigh
 <!-- CSS for hover and thumbnail effect -->
 <style>
   .portfolio-item {
-    width: 150px;  /* Square thumbnail */
-    height: 150px;
+    width: 250px;  /* Square thumbnail */
+    height: 250px;
     position: relative;
   }
 
