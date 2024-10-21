@@ -154,8 +154,8 @@ Feel free to explore the projects and code examples provided here to gain insigh
     <div class="project-description">Monitoring Nitrogen Dioxide (Sentinel-5P)</div>
   </a>
 
-<!-- Project 5: Minera Panama Google App -->
-<a href="#minera-panama" style="text-decoration: none;">
+  <!-- Project 5: Minera Panama Google App -->
+  <a href="#minera-panama" style="text-decoration: none;">
     <div class="portfolio-item">
       <img src="./../MINERA-PANAMA.png" alt="Minera Panama GEE App" class="portfolio-img">
       <div class="portfolio-overlay">
