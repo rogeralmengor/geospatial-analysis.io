@@ -2353,35 +2353,41 @@ In this analysis, we utilize Sentinel-1 imagery due to its exceptional ability t
 
 <h4>Steps:</h4>
 
-1. **Filtering Area of Interest (AOI):** The analysis starts by defining the Area of Interest (AOI) using geographical boundaries data. The AOI encompasses specific districts within the Panama Province, including Arraiján, Panamá, and San Miguelito. The map is centered on the coordinates of this AOI.
+<ol>
+  <li><strong>Filtering Area of Interest (AOI):</strong> The analysis starts by defining the Area of Interest (AOI) using geographical boundaries data. The AOI encompasses specific districts within the Panama Province, including Arraiján, Panamá, and San Miguelito. The map is centered on the coordinates of this AOI.</li>
 
-2. **Setting Visualization Parameters:** Visualization parameters for the NO2 density are defined, including the minimum, maximum values, and color palette to be used for rendering the imagery.
+  <li><strong>Setting Visualization Parameters:</strong> Visualization parameters for the NO2 density are defined, including the minimum, maximum values, and color palette to be used for rendering the imagery.</li>
 
-3. **Setting the Date Range:** The analysis specifies the start and end dates for image collection. In this case, the date range spans from January 1, 2020, to December 31, 2022.
+  <li><strong>Setting the Date Range:</strong> The analysis specifies the start and end dates for image collection. In this case, the date range spans from January 1, 2020, to December 31, 2022.</li>
 
-4. **Creating Image Composites:** The script creates monthly image composites of Sentinel-5P tropospheric NO2 density within the defined AOI. These composites are generated for each month of each year in the specified date range.
+  <li><strong>Creating Image Composites:</strong> The script creates monthly image composites of Sentinel-5P tropospheric NO2 density within the defined AOI. These composites are generated for each month of each year in the specified date range.</li>
 
-5. **Renaming Images:** The image composites are renamed to include the year and month information in their system index.
+  <li><strong>Renaming Images:</strong> The image composites are renamed to include the year and month information in their system index.</li>
 
-6. **Creating a Time-Lapse GIF:** The script combines the renamed image composites into a time-lapse GIF. It annotates each frame of the GIF with a timestamp to indicate the year and month of the data. The GIF visually shows the changes in tropospheric NO2 density over time within the AOI.
+  <li><strong>Creating a Time-Lapse GIF:</strong> The script combines the renamed image composites into a time-lapse GIF. It annotates each frame of the GIF with a timestamp to indicate the year and month of the data. The GIF visually shows the changes in tropospheric NO2 density over time within the AOI.</li>
 
-7. **Creating a Chart:** A chart is generated to display the mean tropospheric NO2 column number density for the selected AOI over time. This chart provides a quantitative representation of the NO2 levels during the analysis period.
-    <p align="center">
-      <img src="./../NOx_Panama_City_2019-2022-1024x540.png" alt="Centered Image">
-      <br>
-      <i>Tropospheric NO2 column – Chart</i>
-      </p>
+  <li><strong>Creating a Chart:</strong> A chart is generated to display the mean tropospheric NO2 column number density for the selected AOI over time. This chart provides a quantitative representation of the NO2 levels during the analysis period.</li>
+
+  <p align="center">
+    <img src="./../NOx_Panama_City_2019-2022-1024x540.png" alt="Centered Image">
     <br>
+    <i>Tropospheric NO2 column – Chart</i>
+  </p>
+  <br>
 
-8. **Displaying Yearly Composites:** Finally, yearly composites for 2019, 2020, 2021, and 2022 are added to the map, allowing for a comparison of NO2 levels across these years.
-    <p align="center">
-      <img src="./../nitrogen_dioxide_2019_2022.jpg" alt="Centered Image">
-      <br>
-      <i>Nitrogen Dioxide tropospheric column – Panama City – 2019-2022
-</i>
-      </p>
+  <li><strong>Displaying Yearly Composites:</strong> Finally, yearly composites for 2019, 2020, 2021, and 2022 are added to the map, allowing for a comparison of NO2 levels across these years.</li>
+
+  <p align="center">
+    <img src="./../nitrogen_dioxide_2019_2022.jpg" alt="Centered Image">
     <br>
-This analysis provides a comprehensive overview of tropospheric NO2 density changes in Panama City, with a focus on the COVID-19 lockdown period. The time-lapse GIF and chart enhance the visualization and understanding of these changes over time.
+    <i>Nitrogen Dioxide tropospheric column – Panama City – 2019-2022</i>
+  </p>
+  <br>
+
+</ol>
+
+<p>This analysis provides a comprehensive overview of tropospheric NO2 density changes in Panama City, with a focus on the COVID-19 lockdown period. The time-lapse GIF and chart enhance the visualization and understanding of these changes over time.</p>
+
 
 <details>
   <summary>Code</summary>
