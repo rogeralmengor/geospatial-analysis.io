@@ -163,7 +163,18 @@ Feel free to explore the projects and code examples provided here to gain insigh
       </div>
     </div>
     <div class="project-description">Minera Panama GEE App (Landsat)</div>
-  </a> 
+  </a>
+
+  <!-- Project 3: Radar images Panama Canal -->
+  <a href="#time-lapse-radar" style="text-decoration: none;">
+    <div class="portfolio-item">
+      <img src="./../panama_canal.gif" alt="Time Lapse Radar" class="portfolio-img">
+      <div class="portfolio-overlay">
+        <p>Time Lapse Cargo Ship Monitoring (Sentinel-1)</p>
+      </div>
+    </div>
+    <div class="project-description">Time Lapse Cargo Ship Monitoring (Sentinel-1)</div>
+  </a>  
 </div>
 
 <script>
