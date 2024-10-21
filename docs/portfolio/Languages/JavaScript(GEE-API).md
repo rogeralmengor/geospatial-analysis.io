@@ -166,7 +166,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
   </a>
 
   <!-- Project 5: Minera Panama -->
-  <a href="#time-lapse-radar" style="text-decoration: none;">
+  <a href="#minera-panama" style="text-decoration: none;">
     <div class="portfolio-item">
       <img src="./../MINERA_PANAMA.png" alt="Minera Panama GEE App" class="portfolio-img">
       <div class="portfolio-overlay">
