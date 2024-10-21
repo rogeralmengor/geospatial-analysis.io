@@ -5,6 +5,58 @@ If you are unfamiliar with the GEE JavaScript API or need further information on
 
 Feel free to explore the projects and code examples provided here to gain insights into how GEE can be leveraged for various geospatial analysis tasks.
 
+
+## Project Portfolio
+
+<div style="display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px;">
+
+<!-- Project 1: Time Lapse (Landsat Images) -->
+<a href="#time-lapse" style="text-decoration: none;">
+  <div class="portfolio-item" style="position: relative;">
+    <img src="./../time_lapse.gif" alt="Time Lapse" class="portfolio-img" style="width: 100%; border-radius: 10px; transition: transform 0.3s ease;">
+    <div class="portfolio-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease;">
+      <p style="color: white; text-align: center; font-size: 20px; margin-top: 40%; font-weight: bold;">Time Lapse (Landsat)</p>
+    </div>
+  </div>
+</a>
+
+<!-- Project 2: Land Surface Temperature (MODIS) -->
+<a href="#modis-temperature" style="text-decoration: none;">
+  <div class="portfolio-item" style="position: relative;">
+    <img src="./../dry_season_20_years_modis.gif" alt="Land Surface Temperature" class="portfolio-img" style="width: 100%; border-radius: 10px; transition: transform 0.3s ease;">
+    <div class="portfolio-overlay" style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; background-color: rgba(0, 0, 0, 0.5); opacity: 0; transition: opacity 0.3s ease;">
+      <p style="color: white; text-align: center; font-size: 20px; margin-top: 40%; font-weight: bold;">Land Surface Temperature (MODIS)</p>
+    </div>
+  </div>
+</a>
+
+</div>
+
+<!-- CSS for hover effect -->
+<style>
+  .portfolio-item:hover .portfolio-img {
+    transform: scale(1.05);
+  }
+
+  .portfolio-item:hover .portfolio-overlay {
+    opacity: 1;
+  }
+</style>
+
+<!-- JavaScript for smooth scrolling -->
+<script>
+  document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+      e.preventDefault();
+      document.querySelector(this.getAttribute('href')).scrollIntoView({
+        behavior: 'smooth'
+      });
+    });
+  });
+</script>
+
+---
+
 ##🎥 **Time Lapse (Landsat Images)** 🌍
 Time lapse animations, are an interesting tool used to visualize changes on the earth
 surface over time. The following animation is created by the code provided, and shows the changes over a 20 years period of time by the construction of a river dam in the province of Chiriqui, Republic of Panamá.
