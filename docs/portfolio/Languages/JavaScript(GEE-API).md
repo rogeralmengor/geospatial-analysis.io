@@ -23,14 +23,13 @@ Feel free to explore the projects and code examples provided here to gain insigh
 
     /* Styling the individual portfolio items */
     .portfolio-item {
-      position: relative;
-      width: 100%; /* Make it scale within the grid */
-      height: 0;
-      padding-bottom: 100%; /* Keep a square aspect ratio */
-      border-radius: 10px;
-      overflow: hidden;
-      margin: 0 auto; /* Center the portfolio items */
-    }
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin: 0 auto;
+  width: 100%; /* Let it fill the grid column width */
+  height: auto; /* Automatically adjust the height */
+}
 
     /* Styling the image */
     .portfolio-img {
