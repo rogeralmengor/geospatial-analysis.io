@@ -1519,21 +1519,22 @@ surface over time. The following animation is created by the code provided, and 
 </span></code></pre></div></td></tr></table></div>
 </details>
 
-##🌐 **Measuring land surface temperature with MODIS data** 🌡️🛰️
-
-**Script Description:**
+<h3 id="modis-temperature">🌐 **Measuring land surface temperature with MODIS data** 🌡️🛰️</h3>
+<h4>Script Description:<h4>
+<p>
 This script is designed to analyze temperature changes within the Cochea River watershed using the Google Earth Engine (GEE) platform and MODIS (Moderate Resolution Imaging Spectroradiometer) datasets. Specifically, it focuses on measuring temperature variations during both the rainy and dry seasons over a 20-year period. The primary objectives of this script are to generate an animated GIF, a time series graph depicting the Average Median Temperature (°C) as recorded by the MODIS sensor, and a regional overview of the study area.
+</p>
 
-**Script Workflow:**
-1. **Data Acquisition:** The script begins by accessing MODIS datasets, which provide reliable temperature data with global coverage and high temporal resolution.
+<h4>Script Workflow:</h4>
+<p>1. Data Acquisition: The script begins by accessing MODIS datasets, which provide reliable temperature data with global coverage and high temporal resolution.</p>
 
-2. **Temporal Selection:** It then filters the MODIS data to isolate the specific time periods corresponding to the dry and wet seasons over the 20-year span.
+<p>2. Temporal Selection: It then filters the MODIS data to isolate the specific time periods corresponding to the dry and wet seasons over the 20-year span.</p>
 
-3. **Spatial Region Selection:** The script defines the study area within the Cochea River watershed, ensuring that the analysis is limited to the relevant geographic scope.
+<p>3. Spatial Region Selection: The script defines the study area within the Cochea River watershed, ensuring that the analysis is limited to the relevant geographic scope.</p>
 
-4. **Temperature Computation:** Using the MODIS temperature data, the script calculates the Average Median Temperature (°C) for each pixel within the study area, both for the dry and wet seasons.
+<p>4. Temperature Computation: Using the MODIS temperature data, the script calculates the Average Median Temperature (°C) for each pixel within the study area, both for the dry and wet seasons.</p>
 
-5. **Visualization Generation:**
+<p>5. Visualization Generation:
    - *Animated GIF:* The script generates an animated GIF, showcasing the temporal evolution of temperature changes over the 20-year period. Each frame of the GIF represents a specific time step, offering a dynamic visual representation of temperature variations.
     <p align="center">
       <img src="./../dry_season_20_years_modis.gif" alt="Centered Image">
@@ -1547,8 +1548,10 @@ This script is designed to analyze temperature changes within the Cochea River w
     <i>Time Lapse of MODIS Land Surface Temperature (Rainy Season) from the Google Earth Engine platform.</i>
     </p>
     <br>
+  </p>
 
-   - *Time Series Graph:* Additionally, the script creates a time series graph, displaying the Average Median Temperature (°C) as a function of time. This graph provides a clear overview of temperature trends during the dry and wet seasons.
+   <h2>Time Series Graph:</h2>
+   <p>Additionally, the script creates a time series graph, displaying the Average Median Temperature (°C) as a function of time. This graph provides a clear overview of temperature trends during the dry and wet seasons.
     <p align="center">
       <img src="./../Average_Median_Temp_Dry_Season-1024x422.png" alt="Centered Image">
       <br>
@@ -1562,8 +1565,9 @@ This script is designed to analyze temperature changes within the Cochea River w
       <i>Average median temperature for the Wet Season measured from MODIS time series.</i>
       </p>
     <br>
+    </p>
 
-   - *Regional View:* Lastly, the script produces a regional view of the study area, allowing users to geospatially contextualize the temperature changes observed in the Cochea River watershed.
+  <h2>Regional View:</h2> <p>Lastly, the script produces a regional view of the study area, allowing users to geospatially contextualize the temperature changes observed in the Cochea River watershed.
 
     <p align="center">
       <img src="./../Regional_and_country_wide_location.jpg" alt="Centered Image">
@@ -1571,8 +1575,9 @@ This script is designed to analyze temperature changes within the Cochea River w
       <i>Regional view of the study area.</i>
       </p>
     <br>
+    </p>
 
-By following this technical script, users can conduct a rigorous analysis of temperature fluctuations within the specified region and timeframes, enabling in-depth insights into environmental changes over the 20-year period.
+<p>By following this technical script, users can conduct a rigorous analysis of temperature fluctuations within the specified region and timeframes, enabling in-depth insights into environmental changes over the 20-year period.</p>
 
 <details>
   <summary>Code</summary>
