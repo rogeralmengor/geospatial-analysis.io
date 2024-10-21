@@ -133,7 +133,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
   </a>
 
   <!-- Project 3: Radar images Panama Canal -->
-<a href="#time-lapse-radar" style="text-decoration: none;">
+  <a href="#time-lapse-radar" style="text-decoration: none;">
     <div class="portfolio-item">
       <img src="./../panama_canal.gif" alt="Time Lapse Radar" class="portfolio-img">
       <div class="portfolio-overlay">
@@ -144,7 +144,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
   </a> 
 
   <!-- Project 4: Radar images Panama Canal -->
-<a href="#nitrogen-dioxide" style="text-decoration: none;">
+  <a href="#nitrogen-dioxide" style="text-decoration: none;">
     <div class="portfolio-item">
       <img src="./../nitrogen_dioxide_2019_2022.jpg" alt="Monitoring Air Polution" class="portfolio-img">
       <div class="portfolio-overlay">
@@ -164,17 +164,6 @@ Feel free to explore the projects and code examples provided here to gain insigh
     </div>
     <div class="project-description">Minera Panama GEE App (Landsat)</div>
   </a>
-
-  <!-- Project 5: Minera Panama -->
-  <a href="#minera-panama" style="text-decoration: none;">
-    <div class="portfolio-item">
-      <img src="./../MINERA-PANAMA.png" alt="Minera Panama GEE App" class="portfolio-img">
-      <div class="portfolio-overlay">
-        <p>Minera Panama GEE App (Landsat)</p>
-      </div>
-    </div>
-    <div class="project-description">Minera Panama GEE App (Landsat)</div>
-  </a>  
 </div>
 
 <script>
