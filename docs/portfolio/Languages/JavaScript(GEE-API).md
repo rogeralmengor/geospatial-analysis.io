@@ -25,7 +25,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
     .portfolio-item {
       position: relative;
       width: 100%; /* Make it scale within the grid */
-      height: 0;
+      height: auto;
       padding-bottom: 100%; /* Keep a square aspect ratio */
       border-radius: 10px;
       overflow: hidden;
