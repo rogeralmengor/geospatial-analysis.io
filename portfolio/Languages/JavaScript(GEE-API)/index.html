@@ -773,19 +773,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Portfolio</title>
   <style>
-    /* Layout for the thumbnails in 3 columns */
+    /* Layout for the thumbnails in a flexible grid */
     .portfolio-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr); /* 3 columns */
-      gap: 20px; /* space between items */
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /* Flexible columns */
+      gap: 20px; /* Space between items */
       text-align: center; /* Center text below the images */
     }
 
     /* Styling the individual portfolio items */
     .portfolio-item {
       position: relative;
-      width: 250px; /* Square thumbnail */
-      height: 250px;
+      width: 100%; /* Make it scale within the grid */
+      height: 0;
+      padding-bottom: 100%; /* Keep a square aspect ratio */
       border-radius: 10px;
       overflow: hidden;
       margin: 0 auto; /* Center the portfolio items */
@@ -793,9 +794,12 @@
 
     /* Styling the image */
     .portfolio-img {
+      position: absolute;
+      top: 0;
+      left: 0;
       width: 100%;
       height: 100%;
-      object-fit: cover; /* Ensure the image is a square */
+      object-fit: cover; /* Ensure the image covers the thumbnail area */
       opacity: 0.7; /* Slightly faded by default */
       transition: transform 0.3s ease, opacity 0.3s ease; /* Smooth transition on hover */
     }
@@ -844,6 +848,18 @@
     /* Smooth scrolling behavior */
     html {
       scroll-behavior: smooth;
+    }
+
+    /* Media Queries for small devices */
+    @media (max-width: 600px) {
+      .portfolio-grid {
+        grid-template-columns: 1fr; /* 1 column for small screens */
+      }
+
+      .portfolio-item {
+        width: 90%; /* Make items smaller on small screens */
+        margin: 0 auto; /* Center items */
+      }
     }
   </style>
 </head>
