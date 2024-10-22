@@ -135,7 +135,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Land Surface Temperature (MODIS)</p>
       </div>
     </div>
-    <div class="portfolio-description"><p>Land Surface Temperature (MODIS)</p></div>
+    <div class="portfolio-description"><h6>Land Surface Temperature (MODIS)</h6></div>
   </a>
 
   <!-- Project 3: Radar images Panama Canal -->
