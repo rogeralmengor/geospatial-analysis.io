@@ -79,13 +79,13 @@ Feel free to explore the projects and code examples provided here to gain insigh
     }
 
     /* Text below the image */
-    #.project-description {
-    #  margin-top: 10px; /* Space between the image and text */
-    #  font-size: 14px;
-    #  color: #333; /* Default text color */
-    #  text-align: center;
-    #  background-color: rgba(255, 255, 255, 0.8);
-    #}
+    .project-description {
+      margin-top: 10px; /* Space between the image and text */
+      font-size: 14px;
+      color: #333; /* Default text color */
+      text-align: center;
+      #background-color: rgba(255, 255, 255, 0.8);
+    }
 
     /* Smooth scrolling behavior */
     html {
@@ -130,7 +130,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Land Surface Temperature (MODIS)</p>
       </div>
     </div>
-    <div>Land Surface Temperature (MODIS)</div>
+    <div class="portfolio-description">Land Surface Temperature (MODIS)</div>
   </a>
 
   <!-- Project 3: Radar images Panama Canal -->
@@ -163,7 +163,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Minera Panama GEE App (Landsat)</p>
       </div>
     </div>
-    <div>Minera Panama GEE App (Landsat)</div>
+    <div class="portfolio-description">Minera Panama GEE App (Landsat)</div>
   </a>
 </div>
 
