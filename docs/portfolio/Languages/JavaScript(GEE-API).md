@@ -118,7 +118,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Time Lapse (Landsat)</p>
       </div>
     </div>
-    <div class="portfolio-description">Time Lapse (Landsat)</div>
+    <div class="portfolio-description"><p>Time Lapse (Landsat)</p></div>
   </a>
 
   <!-- Project 2: Land Surface Temperature (MODIS) -->
@@ -129,7 +129,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Land Surface Temperature (MODIS)</p>
       </div>
     </div>
-    <div class="portfolio-description">Land Surface Temperature (MODIS)</div>
+    <div class="portfolio-description"><p>Land Surface Temperature (MODIS)</p></div>
   </a>
 
   <!-- Project 3: Radar images Panama Canal -->
@@ -140,7 +140,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Time Lapse Cargo Ship Monitoring (Sentinel-1)</p>
       </div>
     </div>
-    <div class="portfolio-description">Time Lapse Cargo Ship Monitoring (Sentinel-1)</div>
+    <div class="portfolio-description"><p>Time Lapse Cargo Ship Monitoring (Sentinel-1)</p></div>
   </a> 
 
   <!-- Project 4: Radar images Panama Canal -->
@@ -151,7 +151,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Monitoring Nitrogen Dioxide (Sentinel-5P)</p>
       </div>
     </div>
-    <div class="portfolio-description">Monitoring Nitrogen Dioxide (Sentinel-5P)</div>
+    <div class="portfolio-description"><p>Monitoring Nitrogen Dioxide (Sentinel-5P)</p></div>
   </a>
 
   <!-- Project 5: Minera Panama Google App -->
@@ -162,7 +162,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Minera Panama GEE App (Landsat)</p>
       </div>
     </div>
-    <div class="portfolio-description">Minera Panama GEE App (Landsat)</div>
+    <div class="portfolio-description"><p>Minera Panama GEE App (Landsat)</p></div>
   </a>
 </div>
 
