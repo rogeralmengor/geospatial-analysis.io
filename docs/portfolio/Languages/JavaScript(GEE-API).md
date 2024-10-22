@@ -103,6 +103,12 @@ Feel free to explore the projects and code examples provided here to gain insigh
         height: auto;
       }
     }
+
+    @media (prefers-color-scheme:dark) {
+      .project-description {
+        color: #ddd;
+      }
+    }
   </style>
 </head>
 <body>
