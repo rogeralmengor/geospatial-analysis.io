@@ -46,6 +46,13 @@
   .md-header .md-nav__item {
     color: #F0F0F0;  /* Light text for contrast in dark mode */
   }
+
+  .project-description {
+  margin-top: 10px; /* Space between the image and text */
+  font-size: 14px;
+  color: #333; /* Default dark text for light mode */
+  text-align: center;
+  }
 }
 
 /* Text below the image */
