@@ -82,7 +82,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
     .project-description {
       margin-top: 10px; /* Space between the image and text */
       font-size: 14px;
-      color: auto;
+      color: inherit;
       text-align: center;
     }
 
@@ -118,7 +118,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Time Lapse (Landsat)</p>
       </div>
     </div>
-    <div class="portfolio-description" id="description"><p>Time Lapse (Landsat)</p></div>
+    <div class="portfolio-description"><p>Time Lapse (Landsat)</p></div>
   </a>
 
   <!-- Project 2: Land Surface Temperature (MODIS) -->
@@ -129,7 +129,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Land Surface Temperature (MODIS)</p>
       </div>
     </div>
-    <div class="portfolio-description" id="description"><p>Land Surface Temperature (MODIS)</p></div>
+    <div class="portfolio-description"><p>Land Surface Temperature (MODIS)</p></div>
   </a>
 
   <!-- Project 3: Radar images Panama Canal -->
@@ -162,30 +162,9 @@ Feel free to explore the projects and code examples provided here to gain insigh
         <p>Minera Panama GEE App (Landsat)</p>
       </div>
     </div>
-    <div class="portfolio-description" id="description"><p>Minera Panama GEE App (Landsat)</p></div>
+    <div class="portfolio-description"><p>Minera Panama GEE App (Landsat)</p></div>
   </a>
 </div>
-
-<script>
-  function adjustTextColor() {
-    const element = document.getElementById('description');
-    const bgColor = window.getComputedStyle(element).backgroundColor;
-
-    // Convert the background color to RGB
-    const rgb = bgColor.match(/\d+/g);
-    const brightness = Math.sqrt(
-      0.299 * (rgb[0] * rgb[0]) +
-      0.587 * (rgb[1] * rgb[1]) +
-      0.114 * (rgb[2] * rgb[2])
-    );
-
-    // Set text color based on brightness
-    element.style.color = (brightness > 127.5) ? '#333' : '#fff'; // Dark or light text
-  }
-
-  // Call the function to adjust the text color
-  adjustTextColor();
-</script>
 
 <h3 id="time-lapse">Time Lapse (Landsat Images)🌍</h3>
 <p>
