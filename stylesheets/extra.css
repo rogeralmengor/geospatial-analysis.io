@@ -58,3 +58,7 @@
     color: #ddd; /* Light text for dark mode */
   }
 }
+
+h6 {
+  font-size: 14px;
+}
