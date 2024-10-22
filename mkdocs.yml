@@ -33,6 +33,7 @@ markdown_extensions:
 
 theme:
   name: material
+  hightlight_theme: 'monokai'
   icon:
     admonition:
       note: fontawesome/solid/code
