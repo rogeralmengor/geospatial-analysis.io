@@ -79,13 +79,13 @@ Feel free to explore the projects and code examples provided here to gain insigh
     }
 
     /* Text below the image */
-    .project-description {
-      margin-top: 10px; /* Space between the image and text */
-      font-size: 14px;
-      color: #333; /* Default text color */
-      text-align: center;
-      background-color: rgba(255, 255, 255, 0.8);
-    }
+    #.project-description {
+    #  margin-top: 10px; /* Space between the image and text */
+    #  font-size: 14px;
+    #  color: #333; /* Default text color */
+    #  text-align: center;
+    #  background-color: rgba(255, 255, 255, 0.8);
+    #}
 
     /* Smooth scrolling behavior */
     html {
