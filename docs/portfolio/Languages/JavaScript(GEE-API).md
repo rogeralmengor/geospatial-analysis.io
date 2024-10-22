@@ -82,7 +82,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
     .project-description {
       margin-top: 10px; /* Space between the image and text */
       font-size: 14px;
-      #color: #333; /* Default text color */
+      color: inherit;
       text-align: center;
       #background-color: rgba(255, 255, 255, 0.8);
     }
