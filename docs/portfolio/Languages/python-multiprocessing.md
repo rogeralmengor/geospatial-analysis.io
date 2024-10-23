@@ -1,5 +1,21 @@
 ## 💾 **Download imagery using the Asyncio library** 
 
+```bash
+Sequential:                      Multiprocessing:
+ _______                        _______     _______     _______
+| Task 1 |                      | Task 1 |   | Task 2 |   | Task 3 |
+|_______|                       |_______|   |_______|   |_______|
+     |                               |           |           |
+  _______                        [Proc 1]     [Proc 2]     [Proc 3]
+ | Task 2 |                          |           |           |
+ |_______|                           |           |           |
+     |                             _______     _______     _______
+  _______                        | Task 3 |   | Task 3 |   | Task 3 |
+ | Task 3 |                      |_______|   |_______|   |_______|
+ |_______|                      
+```
+
+
 <p>While it's praised for its simplicity and extensive libraries, Python is often criticized because of its speed. However, by optimizing code and leveraging Python's built-in concurrency features, we can significantly improve performance, especially for I/O-bound tasks.</p>
 <p>In this practical tutorial, we'll explore two approaches to downloading satellite imagery using the Google Earth Engine API: a sequential method and an asynchronous method using asyncio. Asyncio, introduced in Python 3.4 (2014), is particularly well-suited for I/O-bound tasks like API calls and file downloads.</p>
 <p>We'll demonstrate these concepts by downloading Sentinel-2 satellite images for a region in David, Chiriquí, Panama. Our experiment will compare the performance of both methods, providing insights into the benefits of asynchronous programming for data retrieval tasks.</p>
@@ -319,17 +335,3 @@ print(f"Speedup factor: {speedup:.2f}x")
 ```
 </details>
 
-```bash
-Sequential:                      Multiprocessing:
- _______                        _______     _______     _______
-| Task 1 |                      | Task 1 |   | Task 2 |   | Task 3 |
-|_______|                       |_______|   |_______|   |_______|
-     |                               |           |           |
-  _______                        [Proc 1]     [Proc 2]     [Proc 3]
- | Task 2 |                          |           |           |
- |_______|                           |           |           |
-     |                             _______     _______     _______
-  _______                        | Task 3 |   | Task 3 |   | Task 3 |
- | Task 3 |                      |_______|   |_______|   |_______|
- |_______|                      
-```
