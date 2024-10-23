@@ -89,5 +89,5 @@ extra_css:
 
 nav:
   - Home: index.md
-  - CV: docs/CV.md
+  - CV: CV.md
   - Time Lapse: time_lapse_sentinel-2.md
