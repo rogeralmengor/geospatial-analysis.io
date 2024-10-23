@@ -103,6 +103,4 @@ nav:
     - Description: portfolio/index.md
     - Languages:
       - Google Earth Engine (JavaScript API): portfolio/Languages/JavaScript(GEE-API).md
-      - Projects:
-        - Time Lapse (Sentinel-2): portfolio/Languages/time_lapse_sentinel-2.md
         
