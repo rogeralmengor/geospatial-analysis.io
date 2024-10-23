@@ -117,7 +117,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
 
 <div class="portfolio-grid">
   <!-- Project 1: Time Lapse (Landsat Images) -->
-  <a href="#time-lapse" style="text-decoration: none;">
+  <a href="./time_lapse_sentinel-2.md" style="text-decoration: none;">
     <div class="portfolio-item">
       <img src="./../time_lapse.gif" alt="Time Lapse" class="portfolio-img">
       <div class="portfolio-overlay">
