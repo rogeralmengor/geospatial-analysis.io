@@ -103,4 +103,5 @@ nav:
     - Description: portfolio/index.md
     - Languages:
       - Google Earth Engine (JavaScript API): portfolio/Languages/JavaScript(GEE-API).md
+  - Blog: blog/index.md
         
