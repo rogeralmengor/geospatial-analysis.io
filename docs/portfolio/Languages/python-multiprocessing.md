@@ -1,4 +1,4 @@
-<h2>💾 Download imagery using the Asyncio library </h2> 
+<h1>💾 Download imagery using the Asyncio library </h1>
 
 ```bash
 Sequential:                      Multiprocessing:
