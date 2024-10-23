@@ -86,3 +86,7 @@ extra_javascript:
 extra_css:
   - https://cdnjs.cloudflare.com/ajax/libs/highlight.js/10.7.2/styles/default.min.css
   - stylesheets/extra.css
+
+nav:
+  - Home: index.md
+  - Time Lapse: time_lapse_sentinel-2.md
