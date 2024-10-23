@@ -44,7 +44,7 @@
             The following are small tutorials that I have wanted to post in this section of my portfolio. They address common problems that we, as geospatial developers, face in our day-to-day work.
         </p>
         <ul>
-            <li><a href="../python-multiprocessing.md">Tutorial 1: Download Imagery using the asyncio library.</a></li>
+            <li><a href="../python-multiprocessing/">Tutorial 1: Download Imagery using the asyncio library.</a></li>
         </ul>
     </div>
 </body>
