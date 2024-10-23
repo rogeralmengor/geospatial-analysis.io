@@ -94,3 +94,12 @@ nav:
     - Description: portfolio/index.md
     - Languages:
       - Google Earth Engine (JavaScript API): portfolio/Languages/JavaScript(GEE-API).md
+
+
+nav:
+  - Home: index.md
+  - CV: CV.md
+  - Portfolio: 
+    - Portfolio Overview: portfolio/index.md
+    - Languages:
+      - Google Earth Engine (JavaScript API): portfolio/Languages/JavaScript(GEE-API).md
