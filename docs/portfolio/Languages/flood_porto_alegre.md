@@ -5,35 +5,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flood Monitoring with Sentinel-1</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            line-height: 1.6;
-            margin: 20px;
-        }
-        h1, h2 {
-            color: #333;
-        }
-        code {
-            background-color: #f4f4f4;
-            padding: 5px;
-            border-radius: 4px;
-        }
-        pre {
-            background-color: #f4f4f4;
-            padding: 10px;
-            border-radius: 4px;
-            overflow: auto;
-        }
-        summary {
-            cursor: pointer;
-            font-weight: bold;
-        }
-    </style>
 </head>
 <body>
 
 <h1>Flood Monitoring with Sentinel-1: Code Explanation</h1>
+
+<img src="./../Flood_Monitoring_Porto_Alegre.gif" alt="Flood Monitoring (Sentinel-1)"
 
 <p>The following code utilizes the <strong>Sentinel-1</strong> satellite data within <strong>Google Earth Engine</strong> (GEE) to monitor flooding in <strong>Porto Alegre, Brazil</strong>, particularly during the catastrophic floods of 2024. The code applies speckle reduction, generates composites, and visualizes flood impacts.</p>
 
