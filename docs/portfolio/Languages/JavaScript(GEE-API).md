@@ -177,14 +177,15 @@ Feel free to explore the projects and code examples provided here to gain insigh
   </a>
 
   <!-- Project 6: Flood Monitoring (Sentinel-1) -->
-  <a href="../flood_porto_alegre/" style="text-decoration: none;">
-    <div class="portfolio-item">
-      <img src="https://drive.google.com/file/d/1aax4EgW3XkeBKqOVYCW6SfvwAMo6eMOs/view?usp=sharing" alt="Flood Monitoring (Sentinel-1)" class="portfolio-img">
-      <div class="portfolio-overlay">
-        <p>Flood Monitoring (Sentinel-1)</p>
-      </div>
+ <a href="../flood_porto_alegre/" style="text-decoration: none;">
+  <div class="portfolio-item">
+    <img src="https://drive.google.com/uc?id=1aax4EgW3XkeBKqOVYCW6SfvwAMo6eMOs" alt="Flood Monitoring (Sentinel-1)" class="portfolio-img">
+    <div class="portfolio-overlay">
+      <p>Flood Monitoring (Sentinel-1)</p>
     </div>
-    <div class="portfolio-description">
-    <h6>Flood Monitoring (Sentinel-1)</h6></div>
-  </a>
+  </div>
+  <div class="portfolio-description">
+    <h6>Flood Monitoring (Sentinel-1)</h6>
+  </div>
+</a>
 </div>
