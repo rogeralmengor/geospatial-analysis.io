@@ -179,7 +179,7 @@ Feel free to explore the projects and code examples provided here to gain insigh
   <!-- Project 6: Flood Monitoring (Sentinel-1) -->
  <a href="../flood_porto_alegre/" style="text-decoration: none;">
   <div class="portfolio-item">
-    <img src="./../Flood_Monitoring_Porto_Alegre.gif" alt="Flood Monitoring (Sentinel-1)" class="portfolio-img">
+    <img src="./../Flood_Monitoring_Porto_Alegre_small.gif" alt="Flood Monitoring (Sentinel-1)" class="portfolio-img">
     <div class="portfolio-overlay">
       <p>Flood Monitoring (Sentinel-1)</p>
     </div>
