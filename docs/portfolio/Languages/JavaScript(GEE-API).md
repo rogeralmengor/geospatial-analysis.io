@@ -175,4 +175,16 @@ Feel free to explore the projects and code examples provided here to gain insigh
     <div class="portfolio-description">
     <h6>Minera Panama GEE App (Landsat)</h6></div>
   </a>
+
+  <!-- Project 6: Flood Monitoring (Sentinel-1) -->
+  <a href="../flood_porto_alegre/" style="text-decoration: none;">
+    <div class="portfolio-item">
+      <img src="https://drive.google.com/file/d/1aax4EgW3XkeBKqOVYCW6SfvwAMo6eMOs/view?usp=sharing" alt="Minera Panama GEE App" class="portfolio-img">
+      <div class="portfolio-overlay">
+        <p>Flood Monitoring (Sentinel-1)</p>
+      </div>
+    </div>
+    <div class="portfolio-description">
+    <h6>Flood Monitoring (Sentinel-1)</h6></div>
+  </a>
 </div>
