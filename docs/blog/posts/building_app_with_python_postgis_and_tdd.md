@@ -3,7 +3,7 @@ title: Building a Geo-Spatial Application with PostGIS, Python, and TDD
 description: When I first started my journey as a geospatial application developer, my workflow was... well, let's just say it was "unique." Picture this..
 ---
 
-## How I Evolved from Notepad++ Chaos to Test-Driven Development Bliss
+### How I Evolved from Notepad++ Chaos to Test-Driven Development Bliss
 
 When I first started my journey as a geospatial application developer, my workflow was... well, let's just say it was "unique." Picture this: I’d fire up Notepad++ (yes, that was my entire development setup — caveman style) and hammer out code like a man possessed. My debugging process? Sprinkle print statements everywhere until the errors stopped screaming at me. Logging systems? Never heard of them. It was pure chaos, and somehow, I managed to scrape by.
 
