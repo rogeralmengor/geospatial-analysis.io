@@ -2,6 +2,7 @@ site_name: Roger Almengor González
 
 plugins:
   - blogging:
+      locale: zh_CN
       dirs: # The directories to be included
         - blog
       theme:
