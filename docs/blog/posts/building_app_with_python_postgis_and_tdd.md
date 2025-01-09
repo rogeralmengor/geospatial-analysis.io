@@ -7,6 +7,8 @@ description: When I first started my journey as a geospatial application develop
 
 When I first started my journey as a geospatial application developer, my workflow was... well, let's just say it was "unique." Picture this: I’d fire up Notepad++ (yes, that was my entire development setup — caveman style) and hammer out code like a man possessed. My debugging process? Sprinkle print statements everywhere until the errors stopped screaming at me. Logging systems? Never heard of them. It was pure chaos, and somehow, I managed to scrape by.
 
+![Hello Notepad++ my dear old friend!](https://preview.redd.it/notepad-meme-lol-v0-douf2d3cphp81.jpg?width=1080&crop=smart&auto=webp&s=e88ddcd2a75edcb4ae46fe2850e13d21e17356e2)
+
 It wasn’t until I started collaborating with coworkers, having my code reviewed (and shredded), reviewing theirs, and diving into blogs and books on software architecture that I realized there was a better way. My code slowly started improving, becoming more maintainable, and dare I say, cleaner.
 
 But the real game-changer? Test-Driven Development (TDD). Writing tests first transformed the way I worked. It reduced the “surprise factor” in production and helped me iterate more effectively without the looming fear of things breaking.
