@@ -18,3 +18,52 @@ But the real game-changer? Test-Driven Development (TDD). Writing tests first tr
 This blog post is my tribute to that process. Here, we’ll build a small application and walk through the workflow I typically follow for solo projects that need to be maintainable for the long haul. (If it’s just a one-off script, don’t worry — no need to roll out the TDD parade for that!)
 
 So, let’s dive in and build something awesome.
+
+### Step:1 Defining the business ida and project's structure.
+
+Before starting any project, I'd like to point out that good architecture begins with clearly defining the system requirements and the business problem we aim to solve.
+
+```
+"We want to build a simple tool that allows users to save and manage geometries (points, lines, polygons) in a PostGIS-compatible format, along with additional information such as a descriptive name, the user who created it, and the creation date. All of this will be accessible through an intuitive command-line interface (CLI), with a PostGIS database for storage, following a test-driven development (TDD) approach and clean architecture principles."
+```
+
+
+With that definition in mind, let's move on to the first step: defining the project's architecture. 
+
+With the help of AI through Chat-GPT, I created the following project layout that we'll follow throughout this tutorial: 
+
+```bash
+my_geospatial_project/
+│
+├── app/
+│   ├── core/
+│   │   ├── __init__.py
+│   │   ├── entities.py         # Core business objects (e.g., Geometry)
+│   │   ├── use_cases.py        # Business logic (e.g., add/retrieve geometries)
+│   │
+│   ├── infrastructure/
+│   │   ├── __init__.py
+│   │   ├── postgis_repository.py  # PostGIS database interactions
+│   │
+│   ├── cli/
+│       ├── __init__.py
+│       ├── main.py            # CLI entry point
+│
+├── tests/
+│   ├── core/
+│   │   ├── test_entities.py
+│   │   ├── test_use_cases.py
+│   │
+│   ├── infrastructure/
+│       ├── test_postgis_repository.py
+│
+├── Dockerfile                 # Docker setup for Python
+├── docker-compose.yml         # Multi-container setup for PostGIS and the app
+├── pyproject.toml             # Project dependencies and metadata
+├── requirements.txt           # Python dependencies (optional)
+├── README.md                  # Project documentation
+```
+
+This structure emphasizes separation of concerns: core logic is isolated in `core/`, database interaction in `infrastructure/`, and CLI handling in `cli/`. The `tests/` directory mirrors this layout to ensure modular and focused testing.
+
+The essential project files (`Dockerfile, docker-compose, pyproject.toml, and README`) provide everything needed to set up and run the project, and in the future prepare the python package.
