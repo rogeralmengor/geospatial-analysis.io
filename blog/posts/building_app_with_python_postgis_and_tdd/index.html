@@ -479,6 +479,15 @@
   
 </li>
       
+        <li class="md-nav__item">
+  <a href="#step1-defining-the-business-ida-and-projects-structure" class="md-nav__link">
+    <span class="md-ellipsis">
+      Step:1 Defining the business ida and project's structure.
+    </span>
+  </a>
+  
+</li>
+      
     </ul>
   
 </nav>
@@ -507,6 +516,44 @@
 <p>But the real game-changer? Test-Driven Development (TDD). Writing tests first transformed the way I worked. It reduced the “surprise factor” in production and helped me iterate more effectively without the looming fear of things breaking.</p>
 <p>This blog post is my tribute to that process. Here, we’ll build a small application and walk through the workflow I typically follow for solo projects that need to be maintainable for the long haul. (If it’s just a one-off script, don’t worry — no need to roll out the TDD parade for that!)</p>
 <p>So, let’s dive in and build something awesome.</p>
+<h3 id="step1-defining-the-business-ida-and-projects-structure">Step:1 Defining the business ida and project's structure.</h3>
+<p>Before starting any project, I'd like to point out that good architecture begins with clearly defining the system requirements and the business problem we aim to solve.</p>
+<div class="language-text highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>&quot;We want to build a simple tool that allows users to save and manage geometries (points, lines, polygons) in a PostGIS-compatible format, along with additional information such as a descriptive name, the user who created it, and the creation date. All of this will be accessible through an intuitive command-line interface (CLI), with a PostGIS database for storage, following a test-driven development (TDD) approach and clean architecture principles.&quot;
+</span></code></pre></div>
+<p>With that definition in mind, let's move on to the first step: defining the project's architecture. </p>
+<p>With the help of AI through Chat-GPT, I created the following project layout that we'll follow throughout this tutorial: </p>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-1-1"><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a>my_geospatial_project/
+</span><span id="__span-1-2"><a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a>│
+</span><span id="__span-1-3"><a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a>├──<span class="w"> </span>app/
+</span><span id="__span-1-4"><a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a>│<span class="w">   </span>├──<span class="w"> </span>core/
+</span><span id="__span-1-5"><a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+</span><span id="__span-1-6"><a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>entities.py<span class="w">         </span><span class="c1"># Core business objects (e.g., Geometry)</span>
+</span><span id="__span-1-7"><a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>use_cases.py<span class="w">        </span><span class="c1"># Business logic (e.g., add/retrieve geometries)</span>
+</span><span id="__span-1-8"><a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a>│<span class="w">   </span>│
+</span><span id="__span-1-9"><a id="__codelineno-1-9" name="__codelineno-1-9" href="#__codelineno-1-9"></a>│<span class="w">   </span>├──<span class="w"> </span>infrastructure/
+</span><span id="__span-1-10"><a id="__codelineno-1-10" name="__codelineno-1-10" href="#__codelineno-1-10"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>__init__.py
+</span><span id="__span-1-11"><a id="__codelineno-1-11" name="__codelineno-1-11" href="#__codelineno-1-11"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>postgis_repository.py<span class="w">  </span><span class="c1"># PostGIS database interactions</span>
+</span><span id="__span-1-12"><a id="__codelineno-1-12" name="__codelineno-1-12" href="#__codelineno-1-12"></a>│<span class="w">   </span>│
+</span><span id="__span-1-13"><a id="__codelineno-1-13" name="__codelineno-1-13" href="#__codelineno-1-13"></a>│<span class="w">   </span>├──<span class="w"> </span>cli/
+</span><span id="__span-1-14"><a id="__codelineno-1-14" name="__codelineno-1-14" href="#__codelineno-1-14"></a>│<span class="w">       </span>├──<span class="w"> </span>__init__.py
+</span><span id="__span-1-15"><a id="__codelineno-1-15" name="__codelineno-1-15" href="#__codelineno-1-15"></a>│<span class="w">       </span>├──<span class="w"> </span>main.py<span class="w">            </span><span class="c1"># CLI entry point</span>
+</span><span id="__span-1-16"><a id="__codelineno-1-16" name="__codelineno-1-16" href="#__codelineno-1-16"></a>│
+</span><span id="__span-1-17"><a id="__codelineno-1-17" name="__codelineno-1-17" href="#__codelineno-1-17"></a>├──<span class="w"> </span>tests/
+</span><span id="__span-1-18"><a id="__codelineno-1-18" name="__codelineno-1-18" href="#__codelineno-1-18"></a>│<span class="w">   </span>├──<span class="w"> </span>core/
+</span><span id="__span-1-19"><a id="__codelineno-1-19" name="__codelineno-1-19" href="#__codelineno-1-19"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>test_entities.py
+</span><span id="__span-1-20"><a id="__codelineno-1-20" name="__codelineno-1-20" href="#__codelineno-1-20"></a>│<span class="w">   </span>│<span class="w">   </span>├──<span class="w"> </span>test_use_cases.py
+</span><span id="__span-1-21"><a id="__codelineno-1-21" name="__codelineno-1-21" href="#__codelineno-1-21"></a>│<span class="w">   </span>│
+</span><span id="__span-1-22"><a id="__codelineno-1-22" name="__codelineno-1-22" href="#__codelineno-1-22"></a>│<span class="w">   </span>├──<span class="w"> </span>infrastructure/
+</span><span id="__span-1-23"><a id="__codelineno-1-23" name="__codelineno-1-23" href="#__codelineno-1-23"></a>│<span class="w">       </span>├──<span class="w"> </span>test_postgis_repository.py
+</span><span id="__span-1-24"><a id="__codelineno-1-24" name="__codelineno-1-24" href="#__codelineno-1-24"></a>│
+</span><span id="__span-1-25"><a id="__codelineno-1-25" name="__codelineno-1-25" href="#__codelineno-1-25"></a>├──<span class="w"> </span>Dockerfile<span class="w">                 </span><span class="c1"># Docker setup for Python</span>
+</span><span id="__span-1-26"><a id="__codelineno-1-26" name="__codelineno-1-26" href="#__codelineno-1-26"></a>├──<span class="w"> </span>docker-compose.yml<span class="w">         </span><span class="c1"># Multi-container setup for PostGIS and the app</span>
+</span><span id="__span-1-27"><a id="__codelineno-1-27" name="__codelineno-1-27" href="#__codelineno-1-27"></a>├──<span class="w"> </span>pyproject.toml<span class="w">             </span><span class="c1"># Project dependencies and metadata</span>
+</span><span id="__span-1-28"><a id="__codelineno-1-28" name="__codelineno-1-28" href="#__codelineno-1-28"></a>├──<span class="w"> </span>requirements.txt<span class="w">           </span><span class="c1"># Python dependencies (optional)</span>
+</span><span id="__span-1-29"><a id="__codelineno-1-29" name="__codelineno-1-29" href="#__codelineno-1-29"></a>├──<span class="w"> </span>README.md<span class="w">                  </span><span class="c1"># Project documentation</span>
+</span></code></pre></div>
+<p>This structure emphasizes separation of concerns: core logic is isolated in <code>core/</code>, database interaction in <code>infrastructure/</code>, and CLI handling in <code>cli/</code>. The <code>tests/</code> directory mirrors this layout to ensure modular and focused testing.</p>
+<p>The essential project files (<code>Dockerfile, docker-compose, pyproject.toml, and README</code>) provide everything needed to set up and run the project, and in the future prepare the python package.</p>
 
 
 
