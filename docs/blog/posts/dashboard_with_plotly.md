@@ -13,7 +13,7 @@ Of course you need some things to **"pipinstall"**:
 * dash
 * yfinance
 * pandas
-* bsd (A simple helper module with function to calculate the BSD formula from the book: [The little book of big dividends](https://www.thalia.de/shop/home/artikeldetails/A1008989339){:target="_blank"})
+* bsd (A simple helper module with function to calculate the BSD formula from the book: [The little book of big dividends](https://www.thalia.de/shop/home/artikeldetails/A1008989339))
 
 ## The Simple Setup
 
@@ -28,7 +28,7 @@ That's it. The tool grabs data from Yahoo Finance and does all the heavy lifting
 
 ## My 7-Point Screening System
 
-I created seven criteria based on what I've learned from a [dividend investing book](https://www.thalia.de/shop/home/artikeldetails/A1038443853){:target="_blank"} I reference at the end of this post:
+I created seven criteria based on what I've learned from a [dividend investing book](https://www.thalia.de/shop/home/artikeldetails/A1038443853) I reference at the end of this post:
 
 **1. Decent yield** - At least 1% annually over 5 years
 **2. No suspensions** - Company never stopped paying dividends
