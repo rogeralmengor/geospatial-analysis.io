@@ -411,3 +411,7 @@ def calculate_bsd_score(ticker_symbol):
 </details>
 
 
+## References
+* Röhl, Volker. *Cool Bleiben und Dividenden Kassieren: Mit Aktien und ETFs zum Vermögensaufbau*. Finanzbuch Verlag, 2022.
+
+* Carlson, Charles B. *The Little Book of Big Dividends: A Safe Formula for Guaranteed Returns*. Wiley, 2012.
