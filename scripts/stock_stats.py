@@ -6,7 +6,7 @@ from dash.dependencies import Input, Output
 import datetime
 
 # --- Parameters ---
-ticker_symbol = "AAPL"
+ticker_symbol = "JNJ"
 years_back = 5
 today = pd.Timestamp.today()
 
@@ -18,11 +18,15 @@ dividends = ticker.dividends
 # Fix timezone issue
 dividends.index = dividends.index.tz_localize(None)
 
-# Filter last N years
-start_date = today - pd.DateOffset(years=years_back)
-dividends = dividends[dividends.index >= start_date]
+# --- Determine year boundaries ---
+current_year_complete = today.month == 12
+end_year = today.year if current_year_complete else today.year - 1
+start_year = end_year - years_back + 1
 
-# Group by year
+# --- Filter only full calendar years ---
+dividends = dividends[(dividends.index.year >= start_year) & (dividends.index.year <= end_year)]
+
+# --- Group by year ---
 div_per_year = dividends.groupby(dividends.index.year).sum()
 
 # --- Calculate dividend growth over years ---
@@ -37,7 +41,7 @@ else:
 # --- Create Dividend Bar Chart ---
 div_fig = go.Figure([go.Bar(x=div_per_year.index.astype(str), y=div_per_year.values.flatten(), marker_color='lightskyblue')])
 div_fig.update_layout(
-    title=f'{ticker_symbol} Annual Dividends (Last {years_back} Years)',
+    title=f'{ticker_symbol} Annual Dividends (Last {years_back} Complete Years)',
     xaxis_title='Year',
     yaxis_title='Total Dividends (USD)',
     template='plotly_white'
@@ -79,7 +83,7 @@ criteria_results.append((
 
 # No dividend suspension
 years_present = set(dividends.index.year)
-expected_years = set(range(today.year - years_back + 1, today.year + 1))
+expected_years = set(range(start_year, end_year + 1))
 crit2 = expected_years.issubset(years_present)
 criteria_results.append((
     "No dividend suspension in past 5 years",
@@ -116,7 +120,6 @@ criteria_results.append((
 ))
 
 # Smoothed payout ratio (dummy value)
-# Here, assume the payout ratio remains constant for illustration
 smoothed_payout = payout_ratio
 crit6 = smoothed_payout < 0.75
 criteria_results.append((
@@ -151,7 +154,7 @@ app.layout = html.Div(style={'fontFamily': 'Arial, sans-serif', 'backgroundColor
 
     # Screening criteria
     html.Div([
-        html.H2("Dividend Stock Screening Criteria (Last 5 Years)", style={'textAlign': 'center'}),
+        html.H2("Dividend Stock Screening Criteria (Last 5 Full Years)", style={'textAlign': 'center'}),
         html.Table([
             html.Tr([
                 html.Th("Criterion"),
