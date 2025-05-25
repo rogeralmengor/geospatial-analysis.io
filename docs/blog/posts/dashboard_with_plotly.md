@@ -54,7 +54,7 @@ I ran Johnson & Johnson through the screener first. As a Dividend Aristocrat, I 
 
 You can see how this humble dashboard should look like in your browser: 
 
-<iframe src="./../j&j.png" width="500%" height="200px" frameborder="0"></iframe>
+![J&J Dashboard](./../j&j.png)
 
 ## Why This Helps Me Sleep Better
 
