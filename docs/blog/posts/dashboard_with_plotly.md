@@ -52,9 +52,9 @@ No fancy financial jargon - just clear answers to "Is this a good dividend stock
 
 I ran Johnson & Johnson through the screener first. As a Dividend Aristocrat, I expected it to pass - and it did, beautifully. All seven criteria passed, giving me confidence the system actually works.
 
-You can see how this humble dashboard looks like below: 
+You can see how this humble dashboard should look like in your browser: 
 
-<iframe src="./../j&j.html" width="100%" height="600px" frameborder="0"></iframe>
+<iframe src="./../j&j.png" width="500%" height="200px" frameborder="0"></iframe>
 
 ## Why This Helps Me Sleep Better
 
