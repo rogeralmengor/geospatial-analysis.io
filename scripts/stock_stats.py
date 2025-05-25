@@ -1,12 +1,13 @@
+"""Python script to screen dividend paying stock based on multiple variables."""
+
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objs as go
 from dash import Dash, html, dcc
-from dash.dependencies import Input, Output
-import datetime
+from bsd import calculate_bsd_score
 
 # --- Parameters ---
-ticker_symbol = "JNJ"
+ticker_symbol = "PG"
 years_back = 5
 today = pd.Timestamp.today()
 
@@ -135,6 +136,9 @@ criteria_results.append((
     f"Payout ratio: {smoothed_payout*100:.1f}%"
 ))
 
+# --- BSD Dashboard Component ---
+bsd_score, bsd_breakdown = calculate_bsd_score(ticker_symbol)
+
 # --- Dash App Layout ---
 app = Dash(__name__)
 
@@ -168,8 +172,27 @@ app.layout = html.Div(style={'fontFamily': 'Arial, sans-serif', 'backgroundColor
                 html.Td(expl, style={'color': '#4CAF50' if passed else '#FF6B6B'})
             ]) for desc, passed, expl in criteria_results
         ], style={'width': '100%', 'marginTop': '20px', 'borderSpacing': '10px'})
-    ])
+    ]),
+    
+    html.Div([
+    html.H2("BSD Score Analysis", style={'textAlign': 'center', 'marginTop': '40px'}),
+    html.Table([
+        html.Tr([html.Th("Metric"), html.Th("Points")])
+    ] + [
+        html.Tr([
+            html.Td(text),
+            html.Td(f"{points:.1f}", style={'textAlign': 'right'})
+        ]) for text, points in bsd_breakdown
+    ] + [
+        html.Tr([
+            html.Td("Total BSD Score", style={'fontWeight': 'bold'}),
+            html.Td(f"{bsd_score:.1f}", style={'fontWeight': 'bold', 'textAlign': 'right'})
+        ])
+    ], style={'width': '100%', 'marginTop': '20px', 'borderSpacing': '10px'})
+    ]) 
 ])
+
+
 
 # --- Run App ---
 if __name__ == '__main__':
