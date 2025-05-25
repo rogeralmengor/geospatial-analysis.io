@@ -75,7 +75,6 @@ If you're dealing with similar retirement anxiety, maybe building your own analy
 <details>
     <summary>dividend_stock_screener.py</summary>
 ```python title="dividend_stock_screener.py" linenums="1"
-
 """Python script to screen dividend paying stock based on multiple variables."""
 
 import yfinance as yf
@@ -273,6 +272,7 @@ app.layout = html.Div(style={'fontFamily': 'Arial, sans-serif', 'backgroundColor
 # --- Run App ---
 if __name__ == '__main__':
     app.run(debug=True)
+```
 </details>
 
 <a id="support-function"></a>
@@ -407,6 +407,7 @@ def calculate_bsd_score(ticker_symbol):
     score_details.append((expl, pts))
 
     return round(total_score, 1), score_details
+```
 </details>
 
 
