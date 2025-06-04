@@ -1,13 +1,18 @@
 """Python script to screen dividend paying stock based on multiple variables."""
 
+import argparse
 import yfinance as yf
 import pandas as pd
 import plotly.graph_objs as go
 from dash import Dash, html, dcc
 from bsd import calculate_bsd_score
 
-# --- Parameters ---
-ticker_symbol = "PG"
+# --- Command-line Argument Parsing ---
+parser = argparse.ArgumentParser(description="Dividend stock screening dashboard")
+parser.add_argument("--ticker", type=str, required=True, help="Ticker symbol of the stock")
+args = parser.parse_args()
+ticker_symbol = args.ticker.upper()
+#ticker_symbol = args.ticker
 years_back = 5
 today = pd.Timestamp.today()
 
